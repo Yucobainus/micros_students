@@ -31,7 +31,7 @@
 
         // for(i=0; i<10; i++)
         //     console.log(i)
-        //if аналогичен
+        // if аналогичен
 
         // function square(x){
         //     return x*test
