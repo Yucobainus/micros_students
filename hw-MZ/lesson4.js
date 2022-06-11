@@ -1,12 +1,9 @@
-let createObject = (...someArgs) => {    
-    
+let createObject = (...someArgs) => {      
 
     return {
         logins : someArgs.filter(el=> typeof(el) != 'number').join(','),
-        count :  someArgs.filter(el=> typeof(el) == 'number').join(''),
-
-    }
-  
+        count : +someArgs.filter(el=> typeof(el) == 'number').join(''),
+    }  
 
 }
 
