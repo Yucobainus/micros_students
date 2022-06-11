@@ -21,43 +21,43 @@
 
 // 3.	Приведите пример(код) базовой логической конструкции if else else if.
 
-        let a = 10;
-        if (a == 10) {
-            console.log("alert_1")
-        } else if (a == 5) {
-            console.log("alert_2")
-        } else {
-            console.log("No")
-        }
+        // let a = 10;
+        // if (a == 10) {
+        //     console.log("alert_1")
+        // } else if (a == 5) {
+        //     console.log("alert_2")
+        // } else {
+        //     console.log("No")
+        // }
 
 // 4.	Приведите пример(код) базовой циклической конструкции for ()
 
-        for (i=0; i<=10; i++){
-            console.log(i);
-        }
+        // for (i=0; i<=10; i++){
+        //     console.log(i);
+        // }
 
 // 5.	Приведите пример одномерного и двумерного массива в js.На этих примерах продемонстрируйте использование базовых методов и свойств массива: length, push.Pop.Shift.Unshift.]
 
-        let fruits = ["Груша", "Яблоко", "Лемон"]
-        console.log(fruits.length);
-        console.log(fruits.push("Апельсин"));
-        console.log(fruits.pop());
-        console.log(fruits.shift());
-        console.log(fruits.unshift("Виноград"))
+        // let fruits = ["Груша", "Яблоко", "Лемон"]
+        // console.log(fruits.length);
+        // console.log(fruits.push("Апельсин"));
+        // console.log(fruits.pop());
+        // console.log(fruits.shift());
+        // console.log(fruits.unshift("Виноград"))
         
 
 // 6.	Продемонстрируйте работу с библиотекой Math и её основными методами – Max, min, round, floor.
 
-        console.log(Math.max(1, 12))
-        console.log(Math.min(1, 12))
-        console.log(Math.round(1.5))
-        console.log(Math.floor(5.5))
+        // console.log(Math.max(1, 12))
+        // console.log(Math.min(1, 12))
+        // console.log(Math.round(1.5))
+        // console.log(Math.floor(5.5))
 
 // 7.	Приведите пример работы с тернарными операторами.Условие ? результат1 : результат2.По возможности можете усложнить пример.
 
-        let number = -3;
-        let check = number>0 ? "Больше" : number<0 ? "Меньше" : "Больше"
-        console.log(check)
+        // let number = -3;
+        // let check = number>0 ? "Больше" : number<0 ? "Меньше" : "Больше"
+        // console.log(check)
 
 // 8.	Приведите пример работы вызова браузерных всплывающих окон(Предупреждение, согласие, окно ввода)
 
@@ -70,8 +70,8 @@
 // 9.	Ключевая разница function declaration statement и function definition expression или же анонимная и не анонимные функции.Приведите пример, что можно сделать с анонимной функцией.
 
         // Анонимная функция отличается от не анонимной функции тем что у неё нет имени
-        let f = function(){let x = 10}
-        console.log(f)
+        // let f = function(){let x = 10}
+        // console.log(f)
         // не знаю что можно сделать с анонимными функциями
 
 // 10.	Что такое hoisting – приведите пример.
@@ -102,25 +102,30 @@
 
 // 15.	Можно ли задекларировать(не присваивая значения) более чем одну переменную, если да то как ?
 
-            let k,l,d,v
-            k = 10
-            l = "Привет"
-            d = 100
-            v = 1
+        //     let k,l,d,v
+        //     k = 10
+        //     l = "Привет"
+        //     d = 100
+        //     v = 1
 
 // 16.	Существует ли функция объединения массива ? Если да то опишите её и приведите пример.
 
-            // array.push()
-            let fruit = ["Груша", "Яблоко", "Лемон"]
-            console.log(fruit.push("Апельсин"));
+        // arr1 = [1, 2, 3]
+        // arr2 = [4, 5, 6]
+        // arr3 = arr1.concat(arr2)
+        // console.log(arr3)
 
 // 17.	Существует ли возможность разрезать массив по определённому параметру, если да – то опишите как и приведите пример.
 
-            // не знаю
+        // console.log(arr1.splice(1, 3))
 
 // 18.	Приведите примеры копирования массивов.
 
-            // не знаю
+        // arr1 = [1, 1, 1, 1]
+        // arr2 = arr1.slice(arr1)
+        // console.log(arr2)
+        // arr3 = Array.from(arr1)
+        // console.log(arr3)
 
 // 19.	Можно ли объявить массив внутри функции?.
 
@@ -141,21 +146,30 @@
 
 // 23.	Если попробовать передать строку в “125” параметром при инициализации класса Number() - что вернётся?.А если строку “teststring”?
 
-            // не успел
+        //     let a = Number("teststring") //Вернётся number
+        //     let b = Number("125") //Вернётся number
+        //     console.log(typeof(a))
 
 // 24.	Постинкремент и прединкремент – кто они такие ?
 
-            let number_1 = 10
-            console.log(number_1++);
-            console.log(+number_1);
+        //     let number_1 = 10
+        //     console.log(number_1++);
+        //     console.log(+number_1);
 
 // 25.(Приступайте к этому вопросу последним)Как удалить элемент из массива при этом не меняя его длину.Приведите пример с использованием цикла, где на место удаляемого элемента встаёт null и пример с использованием встроенных возможностей с undefined.Скажите чем отличается null от undefined ?
 
-            // не успел
+        // let arr1 = [1, 2, 3]
+        // delete arr1[1]
+        // console.log(arr1.length)
 
+        // for (i=0; i<arr1.length; i++){
+        //         arr1[1] = null        
+        // }
+        // console.log(arr1)
 
-
-
+        //        let a //undefined - когда переменной не задаётся значение
+        //        let b = null //null - мы сами задаём
+        //         console.log(b)
     </script>
 
 </body>
