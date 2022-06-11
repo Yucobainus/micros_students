@@ -24,28 +24,30 @@
 
         //Кол-во участников группы, логины
 
-        function createGroup(Count, Logins) {
-            return {
-                Count,
-                Logins
-            }
-        }
-
-        let Group = {
-            Count: createGroup().Count,
-            Logins: createGroup().Logins
-        }
-
+        // function createGroup(сount, ...logins) {
+        //     return {
+        //         count,
+        //         logins
+        //     }
+        // }
         
-        createGroup(3, "AB", "Killer228", "Ghoul") //return object
+        // createGroup(3, "AB", "Killer228", "Ghoul") //return object
         //У объекта будет два свойства (count (Number), logins (Array, String))
         // count: 3 , logins: ["AB, Killer227, Ghoul"]
 
+        // console.log(createGroup())
 
-       
 
-       
+        function createGroup(count, ...logins) {
+            return {
+                count,
+                logins: logins.join(",")
+            }
+        }
+        
+        console.log(createGroup(3, "AB", "Killer228", "Ghoul"))
 
+        
     </script>
 </body>
 </html>
