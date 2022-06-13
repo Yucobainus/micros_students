@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="num1">
+    <input type="text" id="factor">
+    <input type="text" id="num2">
+    <input type="submit" value="Calculate" id="calculate">
+    <div>Результат: <span id="result"></span></div>
+    <script>
+      
+
+       let calcBtn = document.querySelector('#calculate');
+      
+
+     let calculate = ( )=>{
+
+        console.log('its work')
+
+       let firstNum = +document.querySelector('#num1').value;
+       let factor = document.querySelector('#factor').value;
+       let secondNum = +document.querySelector('#num2').value;
+
+       console.log(factor)
+
+        let result = document.querySelector('#result');
+        
+        let data = 0;
+
+        if (factor == '*'){
+
+            data = firstNum * secondNum;
+
+        }else if (factor == '/'){
+
+            data = firstNum / secondNum;
+
+        }else if (factor == '+'){
+            
+            data = firstNum + secondNum;
+
+        }else if (factor == '-'){
+
+            data = firstNum - secondNum;
+            
+        }else {
+            return false;
+        }
+
+        result.innerHTML = data;
+
+     }
+
+     calcBtn.addEventListener('click', calculate);
+
+     
+
+
+
+    </script>
+    
+</body>
+</html>
