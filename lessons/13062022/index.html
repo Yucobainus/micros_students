@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 06 2022</title>
+    <style>
+        .active{
+            color: red;
+        }
+        .secondBlock{
+            visibility: hidden;
+            transition: .5s;
+        }
+        .secondBlock.active{
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>
+            <a href="www.google.com">click me</a>
+        </li>
+        <li>
+            <span title="I'm SPAN">Span span</span>
+        </li>
+    </ul> -->
+
+    <div id="testBlock">
+        <h3>Hello World!</h3>
+    </div>
+
+    <div class="secondBlock" id="secondBlock">
+        <h2>Hello JS!</h2>
+    </div>
+
+    <script>
+
+        let testBlock = document.getElementById("testBlock")
+        let secondBlock = document.getElementById("secondBlock")
+        testBlock.addEventListener('click', function(){
+            testBlock.style.backgroundColor = "black"
+        })
+
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

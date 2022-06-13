@@ -76,18 +76,18 @@
 		console.log(`Наименование: ${tea.teacort}---Сорт: ${tea.teaname}`)
 
 		function createGroup() {
-					let count = arguments[0]
-					let login = [];
-					for (let i = 1; i != arguments.length;i++){
-						login.push(arguments[i])
-					}
-			    return {
-							count: count,
-							login: login,
-			    }
+			let count = arguments[0]
+			let login = [];
+			for (let i = 1; i != arguments.length; i++) {
+				login.push(arguments[i])
 			}
-			let test = createGroup(3, "AB", "Killer228", "Ghoul") 
-			console.log(`count: ${test.count}, logins: ["${test.login}"]`)
+			return {
+				count: count,
+				login: login,
+			}
+		}
+		let test = createGroup(3, "AB", "Killer228", "Ghoul")
+		console.log(`count: ${test.count}, logins: ["${test.login}"]`)
 
 	</script>
 
