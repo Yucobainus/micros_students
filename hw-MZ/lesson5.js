@@ -63,7 +63,7 @@ class objTest {
         return sum;
     }
 
-    multiplyKeys = (obj,factor)=>{
+    multiplyKeys = (obj = this.obj,factor = this.factor )=>{
 
    
         for (let key in obj){
