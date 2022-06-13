@@ -49,16 +49,17 @@
                 height: 300,
                 title: "My menu"
             };
-            function multiplyNumberParameters(num){
-                for(let key in navigation){ 
-                    if(typeof(navigation[key]) == "number"){
-                        console.log(navigation[key] * num)
-                    }
-                    
+            
+            function multiplyNumberParameters(obj, num){
+                for(let key in obj){ 
+                    if(typeof(obj[key]) == "number"){
+                        obj[key] = obj[key] * num
+                    } 
                 }
             }
 
-        multiplyNumberParameters(2, navigation);
+        multiplyNumberParameters(navigation, 2);
+        console.log(navigation)
         // после вызова функции
         // navigation = {
         //     width: 400,
@@ -107,6 +108,12 @@
     <input type="submit" value="Calculate" id="calculate">
     <div>Результат: <span id="result"></span></div>
     <script>
+        num1 = document.getElementById("num1")
+        num2 = document.getElementById("num2")
+        result = document.getElementById("result")
+        calculate.addEventListener("click", function(){
+            result.innerHTML = (+num1.value) + (+num2.value)
+        })
         // object.value аттрибут value
         // object.innerHtml содержание тэга
         // +String = Number
