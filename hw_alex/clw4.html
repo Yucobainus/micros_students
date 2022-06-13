@@ -8,14 +8,46 @@
 </head>
 <body>
 <script>
+  alert("Hi");
+
 // Создайте объект. Название tea. Со свойствами: sort, name. Выведите в консоль одной строкой следующую строку: Чай: teaname сорта teasort)
 
-let tea = {
-  sort: "green",
-  name: "green tea",
+// let tea = {
+//   sort: "green",
+//   name: "green tea",
+// }
+
+// console.log("Чай: ", tea.sort, " сорта ", tea.name);
+
+//Кол-во участников группы, логины
+//createGroup(3, "AB", "Killer228", "Ghoul") //return object
+        //У объекта будет два свойства (count (Number), logins (Array, String))
+        // count: 3 , logins: ["AB, Killer227, Ghoul"]
+function createGroup(cnt, ...lgns){ 
+  let count = cnt;
+  let logins = [];
+  for(let i = 0; i < count; i++){
+    logins[i] = lgns[i];
+    
+  }
+ // return console.log(logins); 
+  let object = {
+   count: cnt,
+   logins: logins   
+  }
+ console.log("count:",object.count, "\nlogins: ",object.logins);
 }
 
-console.log("Чай: ", tea.sort, " сорта ", tea.name);
+
+createGroup(3, "AB", "Killer228", "Ghoul");
+//console.log(logins);
+//
+  // let object = {
+  //   count: count,
+  //   logins: logins[],
+  //   console.log()
+  // }
+//}
 
 
 </script>  
