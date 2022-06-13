@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>13 06 2022</title>
+	<style>
+		.firstBlock {
+			height: 100px;
+			transition: .5s;
+			background-color: blue;
+		}
+
+		.secondBlock {
+			height: 100px;
+			transition: .5s;
+			background-color: red;
+		}
+
+		.firstBlock.active {
+
+			background-color: aqua;
+		}
+
+		.secondBlock.active {
+
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="firstBlock">
+		<h3>FIRST</h3>
+	</div>
+	<div class="secondBlock">
+		<h3>SECOND</h3>
+	</div>
+
+
+	<script>
+		function checkObject(object) {
+			for (key in object) {
+				return console.log(true)
+			}
+			return console.log(false)
+		}
+		let alarm = {};
+		checkObject(alarm) // false
+		alarm["6: 00"] = true
+		checkObject(alarm) // true
+
+		function objectSum(object) {
+			let sum = 0
+			for (key in object) {
+				sum = sum + object[key]
+			}
+			console.log(sum)
+		}
+		let prices = {
+			Prod1: 2300,
+			Prod2: 4000,
+			Prod3: 9000
+		}
+		objectSum(prices)
+
+		function multiplyNumberParameters(object, count) {
+			for (key in object) {
+				if (typeof (object[key]) == "number") {
+					object[key] = object[key] * count
+				}
+			}
+			console.log(object)
+		}
+		let navigation = {
+			width: 200,
+			height: 300,
+			title: "My menu"
+		}
+		multiplyNumberParameters(navigation, 2);
+		//------------------------
+		class Catalog {
+			constructor() {
+			}
+			checkObject(object) {
+				for (key in object) {
+					return console.log(true)
+				}
+				return console.log(false)
+			}
+			objectSum(object) {
+				let sum = 0
+				for (key in object) {
+					sum = sum + object[key]
+				}
+				return sum
+			}
+			testmultiplyNumberParameters(object, count) {
+				for (key in object) {
+					if (typeof (object[key]) == "number") {
+						object[key] = object[key] * count
+					}
+				}
+				return object
+			}
+		}
+		let testClass = new Catalog();
+		let testFirst = document.querySelector(".firstBlock")
+		let testSecond = document.querySelector(".secondBlock")
+		testFirst.addEventListener('click', function () {
+			testSecond.classList.toggle('active')
+		})
+		testSecond.addEventListener('click', function () {
+			testFirst.classList.toggle('active')
+		})
+
+
+	</script>
+	<script src="script.js"></script>
+</body>
+
+</html>
