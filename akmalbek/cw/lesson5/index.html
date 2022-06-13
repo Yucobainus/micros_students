@@ -43,9 +43,9 @@
 	<script>
 		function checkObject(object) {
 			for (key in object) {
-				return console.log(true)
+				return true
 			}
-			return console.log(false)
+			return false
 		}
 		let alarm = {};
 		checkObject(alarm) // false
@@ -57,7 +57,7 @@
 			for (key in object) {
 				sum = sum + object[key]
 			}
-			console.log(sum)
+			return sum
 		}
 		let prices = {
 			Prod1: 2300,
@@ -82,31 +82,26 @@
 		multiplyNumberParameters(navigation, 2);
 		//------------------------
 		class Catalog {
-			constructor() {
+			constructor(obj) {
+				this.obj = obj
 			}
-			checkObject(object) {
-				for (key in object) {
-					return console.log(true)
+			checkObject() {
+				for (key in this.obj) {
+					return true
 				}
-				return console.log(false)
+				return false
 			}
-			objectSum(object) {
-				let sum = 0
-				for (key in object) {
-					sum = sum + object[key]
-				}
-				return sum
-			}
-			testmultiplyNumberParameters(object, count) {
-				for (key in object) {
-					if (typeof (object[key]) == "number") {
-						object[key] = object[key] * count
+			multiplyNumberParameters(count) {
+				for (key in this.obj) {
+					if (typeof (this.obj[key]) == "number") {
+						this.obj[key] = this.obj[key] * count
 					}
 				}
-				return object
 			}
 		}
-		let testClass = new Catalog();
+		let testClass = new Catalog(prices);
+		testClass.multiplyNumberParameters(100)
+		console.log(testClass.obj)
 		let testFirst = document.querySelector(".firstBlock")
 		let testSecond = document.querySelector(".secondBlock")
 		testFirst.addEventListener('click', function () {
@@ -115,7 +110,7 @@
 		testSecond.addEventListener('click', function () {
 			testFirst.classList.toggle('active')
 		})
-   
+
 
 	</script>
 	<script src="script.js"></script>
