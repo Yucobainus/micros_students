@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>11-06-2022</title>
+</head>
+
+<body>
+
+
+
+
+	<script>
+		// let someSum = 254 + 245
+		// let someVariable = "Hello World"
+		// let secondVariable = ` ${someVariable} ${someSum} `
+		// console.log(secondVariable)
+
+
+		// Свойства (ключ:значение)        
+		// const phone = {
+		//     model: "Yota Phone",
+		//     price: 0,
+		// }
+
+		// delete phone.price
+		// phone.showName()
+
+		// let vegetable = "Помидор"
+
+		// let cart = {
+		//     [vegetable]: 5
+		// }
+
+		// console.log(cart)
+
+		// function makeUser(login, password, name) {
+		//     return {
+		//         login,
+		//         password,
+		//         name,
+		//     }
+		// }
+
+		// let ivan = makeUser("IvanKiller999", "12345", "Ivan")
+		// console.log(ivan)
+		// let product_name = "Apple"
+		// let product_count = 6
+		// const cart = {
+		//     model: "Cart IX20"
+		// }
+		// console.log(cart.model == undefined) //true - свойства нету \ false - свойство есть
+		// console.log("model" in cart) //true - свойство есть \ false - свойства нету
+
+		// const cart = {
+		//     apple: 5,
+		//     orange: 20,
+		//     "cherry juice": 1,
+		//     camel: 2
+		// }
+
+
+		//for..in
+
+		// for(let key in cart){
+		//     console.log(key, ":", cart[key])
+		// }
+
+		let tea = {
+			teacort: "Earlgrey",
+			teaname: "AhmadTea",
+		}
+		console.log(`Наименование: ${tea.teacort}---Сорт: ${tea.teaname}`)
+
+		function createGroup() {
+					let count = arguments[0]
+					let login = [];
+					for (let i = 1; i != arguments.length;i++){
+						login.push(arguments[i])
+					}
+			    return {
+							count: count,
+							login: login,
+			    }
+			}
+			let test = createGroup(3, "AB", "Killer228", "Ghoul") 
+			console.log(`count: ${test.count}, logins: ["${test.login}"]`)
+
+	</script>
+
+</body>
+
+</html>

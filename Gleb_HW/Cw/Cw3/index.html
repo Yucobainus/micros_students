@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Создайте объект. Название tea. Со свойствами: sort, name. 
+        // Выведите в консоль одной строкой следующую строку: 
+        // Чай: teaname сорта teasort
+
+
+        let tea = {
+            sort: "Чёрный",
+            name: "Black night"
+        }
+
+        console.log(`Чай: ${tea.name} сорта ${tea.sort}`)
+
+
+
+        //Кол-во участников группы, логины
+
+        // function createGroup(сount, ...logins) {
+        //     return {
+        //         count,
+        //         logins
+        //     }
+        // }
+        
+        // createGroup(3, "AB", "Killer228", "Ghoul") //return object
+        //У объекта будет два свойства (count (Number), logins (Array, String))
+        // count: 3 , logins: ["AB, Killer227, Ghoul"]
+
+        // console.log(createGroup())
+
+
+        function createGroup(count, ...logins) {
+            return {
+                count,
+                logins: logins.join(",")
+            }
+        }
+        
+        console.log(createGroup(3, "AB", "Killer228", "Ghoul"))
+
+        
+    </script>
+</body>
+</html>
