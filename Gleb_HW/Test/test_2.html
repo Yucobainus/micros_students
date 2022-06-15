@@ -69,19 +69,37 @@
 
         // 4. Создайте класс Catalog с тремя методами из предыдущих тестов.
             class Catalog {
-                constructor(width, height, title){
-                    this.width = width
-                    this.height = height
-                    this.title = title 
-                }                
-               
-                sum() {
-                    
-                    
+
+                constructor(obj, num){
+                    this.obj = obj
+                    this.num = num 
+                }     
+                
+                checkObject(obj){
+                    for (let key in obj){
+                        return false;
+                    }
+                return true;
+                }
+
+                sum(obj){
+                    let sum = 0
+                    for(let key in obj){
+                    sum = sum + obj[key]
+                    }  
+                    return sum
+                }  
+                
+                multiplyNumbers(obj, num){
+                    for(let key in obj){ 
+                        if(typeof(obj[key]) == "number"){
+                            obj[key] = obj[key] * num
+                        } 
+                    }
                 }
             }
 
-            let list = new Catalog(200, 400, "My menu")
+            let list = new Catalog()
         
 
 
