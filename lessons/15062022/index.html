@@ -106,15 +106,16 @@
             .desktop-header {
                 display: none;
             }
-            .mobile-header{
+
+            .mobile-header {
                 display: block;
             }
         }
     </style>
 </head>
 
-<body>
-
+<body id="body">
+    <div class="overlay"></div>
     <!-- mobile - 576px -->
     <!-- <div class="accordion">
 
@@ -132,7 +133,7 @@
 
     <header>
 
-        <nav class="desktop-header">
+        <nav class="desktop-header current">
             <ul>
                 <li class="burger">
                     <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
@@ -176,6 +177,20 @@
         // Когда экран переходит границу в 576px, то все элементы в
         // dekstop - header кроме li с классом burger - исчезают,
         // li с классом burger появляется.При нажатии на burger с правого края выплывает mobile - header
+
+
+
+        //При активном боковом меню. Всё кроме самого меню затемняется. И при нажатии на любую область кроме меню - меню закрывается
+        //Проверяем наличие класса с помощью иф. И с помощью contains.
+        //Вспомним про z-index. Перекрытие/Затемнение можно сделать с помощью блока и фиксированного позиционирования.
+
+        //Пример работы метода contains для проверкии наличия класса у элемента. remove - удалить класс
+        let dheader = document.querySelector('.desktop-header')
+        if (dheader.classList.contains('current')) {
+            console.log("contains!")
+            dheader.classList.remove('current')
+        }
+
     </script>
 </body>
 
