@@ -39,7 +39,21 @@
 		<h3>SECOND</h3>
 	</div>
 
+	<input type="text" id="num1">
 
+	<input type="multiple" id="multi">
+	<input type="text" id="num2">
+	<input type="submit" value="Calculate" id="calculate">
+	<div>Результат: <span id="result"></span></div>
+	<script>
+
+
+
+
+			//object.value аттрибут value
+			//object.innerHtml содержание тэга
+			// +String = Number
+	</script>
 	<script>
 		function checkObject(object) {
 			for (key in object) {
@@ -91,17 +105,27 @@
 				}
 				return false
 			}
+			objectSum() {
+			let sum = 0
+			for (key in this.obj) {
+				sum = sum + this.obj[key]
+			}
+			return sum
+		}
 			multiplyNumberParameters(count) {
-				for (key in this.obj) {
-					if (typeof (this.obj[key]) == "number") {
-						this.obj[key] = this.obj[key] * count
-					}
+			for (key in this.obj) {
+				if (typeof (this.obj[key]) == "number") {
+					this.obj[key] = this.obj[key] * count
 				}
 			}
 		}
+			}
+
 		let testClass = new Catalog(prices);
+
 		testClass.multiplyNumberParameters(100)
 		console.log(testClass.obj)
+
 		let testFirst = document.querySelector(".firstBlock")
 		let testSecond = document.querySelector(".secondBlock")
 		testFirst.addEventListener('click', function () {
@@ -109,6 +133,31 @@
 		})
 		testSecond.addEventListener('click', function () {
 			testFirst.classList.toggle('active')
+		})
+
+ 
+
+		let calcBtn = document.getElementById('calculate');
+		calcBtn.addEventListener('click', function () {
+			let firstNum = document.getElementById('num1').value;
+			firstNum = +firstNum
+			let multi = document.getElementById('multi').value;
+			let secondNum = document.getElementById('num2').value;
+			secondNum = +secondNum
+			let result = document.getElementById('result');
+			let buff = 0
+			if (multi == '*') {
+				buff = firstNum * secondNum;
+			} else if (multi == '/') {
+				buff = firstNum / secondNum;
+			} else if (multi == '+') {
+				buff = firstNum + secondNum;
+			} else if (multi == '-') {
+				buff = firstNum - secondNum;
+			} else {
+				return false;
+			}
+			result.innerHTML = buff;
 		})
 
 
