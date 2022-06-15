@@ -106,20 +106,20 @@
 				return false
 			}
 			objectSum() {
-			let sum = 0
-			for (key in this.obj) {
-				sum = sum + this.obj[key]
+				let sum = 0
+				for (key in this.obj) {
+					sum = sum + this.obj[key]
+				}
+				return sum
 			}
-			return sum
-		}
 			multiplyNumberParameters(count) {
-			for (key in this.obj) {
-				if (typeof (this.obj[key]) == "number") {
-					this.obj[key] = this.obj[key] * count
+				for (key in this.obj) {
+					if (typeof (this.obj[key]) == "number") {
+						this.obj[key] = this.obj[key] * count
+					}
 				}
 			}
 		}
-			}
 
 		let testClass = new Catalog(prices);
 
@@ -135,7 +135,7 @@
 			testFirst.classList.toggle('active')
 		})
 
- 
+
 
 		let calcBtn = document.getElementById('calculate');
 		calcBtn.addEventListener('click', function () {
