@@ -41,7 +41,7 @@
         }
 
         .desktop-header ul li.burger {
-            display: none;
+            display: block;
         }
 
         .desktop-header ul li a {
@@ -60,13 +60,10 @@
             display: none;
             /* какой у него position */
             /* вспомните про transform: translateX() */
-            /* transform: translateX(-20%);
-            transition: .5s; */
         }
 
         .mobile-header.active {
-            /* transform: translateX(20%);
-            transition: .5s; */
+            transform: translateX(0);
         }
 
         .mobile-header ul {
@@ -102,12 +99,19 @@
             color: #808080
         }
 
+
         @media screen and (max-width: 576px) {
-            .desktop-header {
+            .desktop-header li {
                 display: none;
             }
-            .mobile-header{
+
+            .mobile-header {
                 display: block;
+                position: fixed;
+                top: 0;
+                right: 0;
+                transition: all .5s;
+                transform: translateX(120%);
             }
         }
     </style>
@@ -165,12 +169,12 @@
     </header>
 
     <script>
-        // let accrodionHead = document.querySelector('.accordion__head')
-        // let accordionBody = document.querySelector('.accordion__body')
+        let burger = document.querySelector('.burger')
+        let mobileMenu = document.querySelector('.mobile-header')
 
-        // accrodionHead.addEventListener('click', function () {
-        //     accordionBody.classList.toggle('active')
-        // })
+        burger.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active')
+        })
 
 
         // Когда экран переходит границу в 576px, то все элементы в

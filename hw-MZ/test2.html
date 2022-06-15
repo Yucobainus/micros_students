@@ -48,7 +48,7 @@
         }else if (factor == '-'){
 
             data = firstNum - secondNum;
-            
+
         }else {
             return false;
         }
@@ -59,9 +59,23 @@
 
      calcBtn.addEventListener('click', calculate);
 
-     
 
 
+
+     let sumKeys = (obj)=>{
+
+    let sum = 0;
+    for (let key in obj){
+        sum += obj[key]
+    }
+
+    return sum;
+}
+
+console.log(sumKeys({
+    test:1,
+    bro:3
+}))
 
     </script>
     
