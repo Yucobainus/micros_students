@@ -19,15 +19,24 @@
         let quantity = [12, 90, 34]
         let groups = ["qwerty", "asdads"]
         let login = ["killer123", "savaki", "andrey909"]
-        
-        const createGroup = {
-            quantity,
-            groups,
-            login,
+
+        // const createGroup = {
+        //     quantity,
+        //     groups,
+        //     login,
+        // }
+
+        function createGroup(quantity, ...logins) {
+            return {
+                count: quantity,
+                logins: logins
+            }
         }
+        //У объекта будет два свойства (count (Number), logins (Array, String))
+        // count: 3 , logins: ["AB, Killer227, Ghoul"]
 
-        console.log(createGroup)
-
+        const group = createGroup(3, "killer123", "savaki", "andrey909")
+        console.log(group)
     </script>
 </body>
 
