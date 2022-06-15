@@ -41,7 +41,7 @@
         }
 
         .desktop-header ul li.burger {
-            display: block ;
+            display: block;
         }
 
         .desktop-header ul li a {
@@ -63,8 +63,7 @@
         }
 
         .mobile-header.active {
-            display:block;
-            transform: translate(120px);
+            transform: translateX(0);
         }
 
         .mobile-header ul {
@@ -102,19 +101,19 @@
 
 
         @media screen and (max-width: 576px) {
-            .desktop-header li{
+            .desktop-header li {
                 display: none;
             }
 
-            .mobile-header{
+            .mobile-header {
                 display: block;
-                position: absolute;
-                left:-120px;
-                transition: all 2s;
-                transform: translateX(-120px);             
-                }
+                position: fixed;
+                top: 0;
+                right: 0;
+                transition: all .5s;
+                transform: translateX(120%);
+            }
         }
-            
     </style>
 </head>
 
