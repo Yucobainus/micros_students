@@ -61,7 +61,7 @@
 		}
 
 		.mobile-header {
-			display: none;
+			display: block;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -193,6 +193,7 @@
 		// Когда экран переходит границу в 576px, то все элементы в
 		// dekstop - header кроме li с классом burger - исчезают,
 		// li с классом burger появляется.При нажатии на burger с правого края выплывает mobile - header
+
 		let burger = document.querySelector('.burger')
 		let mobileHeader = document.querySelector('.mobile-header')
 		burger.addEventListener('click', () => {
