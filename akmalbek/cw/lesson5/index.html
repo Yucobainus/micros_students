@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>13 06 2022</title>
+	<style>
+		.firstBlock {
+			height: 100px;
+			transition: .5s;
+			background-color: blue;
+		}
+
+		.secondBlock {
+			height: 100px;
+			transition: .5s;
+			background-color: red;
+		}
+
+		.firstBlock.active {
+
+			background-color: aqua;
+		}
+
+		.secondBlock.active {
+
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="firstBlock">
+		<h3>FIRST</h3>
+	</div>
+	<div class="secondBlock">
+		<h3>SECOND</h3>
+	</div>
+
+	<input type="text" id="num1">
+
+	<input type="multiple" id="multi">
+	<input type="text" id="num2">
+	<input type="submit" value="Calculate" id="calculate">
+	<div>Результат: <span id="result"></span></div>
+	<script>
+
+
+
+
+			//object.value аттрибут value
+			//object.innerHtml содержание тэга
+			// +String = Number
+	</script>
+	<script>
+		function checkObject(object) {
+			for (key in object) {
+				return true
+			}
+			return false
+		}
+		let alarm = {};
+		checkObject(alarm) // false
+		alarm["6: 00"] = true
+		checkObject(alarm) // true
+
+		function objectSum(object) {
+			let sum = 0
+			for (key in object) {
+				sum = sum + object[key]
+			}
+			return sum
+		}
+		let prices = {
+			Prod1: 2300,
+			Prod2: 4000,
+			Prod3: 9000
+		}
+		objectSum(prices)
+
+		function multiplyNumberParameters(object, count) {
+			for (key in object) {
+				if (typeof (object[key]) == "number") {
+					object[key] = object[key] * count
+				}
+			}
+			console.log(object)
+		}
+		let navigation = {
+			width: 200,
+			height: 300,
+			title: "My menu"
+		}
+		multiplyNumberParameters(navigation, 2);
+		//------------------------
+		class Catalog {
+			constructor(obj) {
+				this.obj = obj
+			}
+			checkObject() {
+				for (key in this.obj) {
+					return true
+				}
+				return false
+			}
+			objectSum() {
+				let sum = 0
+				for (key in this.obj) {
+					sum = sum + this.obj[key]
+				}
+				return sum
+			}
+			multiplyNumberParameters(count) {
+				for (key in this.obj) {
+					if (typeof (this.obj[key]) == "number") {
+						this.obj[key] = this.obj[key] * count
+					}
+				}
+			}
+		}
+
+		let testClass = new Catalog(prices);
+
+		testClass.multiplyNumberParameters(100)
+		console.log(testClass.obj)
+
+		let testFirst = document.querySelector(".firstBlock")
+		let testSecond = document.querySelector(".secondBlock")
+		testFirst.addEventListener('click', function () {
+			testSecond.classList.toggle('active')
+		})
+		testSecond.addEventListener('click', function () {
+			testFirst.classList.toggle('active')
+		})
+
+
+
+		let calcBtn = document.getElementById('calculate');
+		calcBtn.addEventListener('click', function () {
+			let firstNum = document.getElementById('num1').value;
+			firstNum = +firstNum
+			let multi = document.getElementById('multi').value;
+			let secondNum = document.getElementById('num2').value;
+			secondNum = +secondNum
+			let result = document.getElementById('result');
+			let buff = 0
+			if (multi == '*') {
+				buff = firstNum * secondNum;
+			} else if (multi == '/') {
+				buff = firstNum / secondNum;
+			} else if (multi == '+') {
+				buff = firstNum + secondNum;
+			} else if (multi == '-') {
+				buff = firstNum - secondNum;
+			} else {
+				return false;
+			}
+			result.innerHTML = buff;
+		})
+
+
+	</script>
+	<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-06-2022</title>
+
+
+    <style>
+        /* .accordion {
+            width: 500px;
+        }
+
+        .accordion__head {
+            border: 1px solid sandybrown
+        }
+
+        .accordion__body {
+            opacity: 0;
+            transition: .5s ease;
+        }
+
+        .accordion__body.active {
+            opacity: 1;
+        } */
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            visibility: hidden;
+            background-color: rgba(255, 0, 0, .3);
+        }
+
+        .overlay.active {
+            visibility: visible;
+            z-index: 1;
+        }
+
+        header {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        .desktop-header ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .desktop-header ul li.burger {
+            display: none;
+        }
+
+        .desktop-header ul li a {
+            padding: 10px;
+            border-left: 1px solid #000000;
+            border-right: 1px solid #000000;
+            transition: .5s ease-in-out;
+        }
+
+        .desktop-header ul li a:hover {
+            color: white;
+            background-color: #808080;
+        }
+
+        .mobile-header {
+            display: none;
+            background-color: white;
+        }
+
+        .mobile-header.active {
+            position: fixed;
+            transform: translateX(0%);
+            transition: .5s;
+        }
+
+        .mobile-header ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            width: 100px;
+        }
+
+        .mobile-header ul li a {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            border-top: 1px solid #808080;
+            border-bottom: 1px solid #808080;
+            transition: .5s ease-in-out;
+        }
+
+        .mobile-header ul li a:hover {
+            color: white;
+            background-color: #808080;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: 500;
+            color: #808080
+        }
+
+        @media screen and (max-width: 576px) {
+            .desktop-header ul li {
+                display: none;
+            }
+
+            .desktop-header ul li.burger {
+                display: block;
+            }
+
+            .mobile-header {
+                display: block;
+                position: fixed;
+                transform: translateX(1000%);
+                transition: .5s;
+                z-index: 3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <!-- mobile - 576px
+    <div class="accordion">
+
+        <div class="accordion__head">
+            <span>Название</span>
+        </div>
+
+        <div class="accordion__body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur laborum cumque consequatur expedita
+            harum voluptatum, fugiat reiciendis nesciunt fugit dicta.
+        </div>
+
+    </div> -->
+
+
+    <header>
+
+        <nav class="desktop-header">
+            <ul>
+                <li class="burger">
+                    <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
+                        height="30px">
+                        <path
+                            d="M 3 7 A 1.0001 1.0001 0 1 0 3 9 L 27 9 A 1.0001 1.0001 0 1 0 27 7 L 3 7 z M 3 14 A 1.0001 1.0001 0 1 0 3 16 L 27 16 A 1.0001 1.0001 0 1 0 27 14 L 3 14 z M 3 21 A 1.0001 1.0001 0 1 0 3 23 L 27 23 A 1.0001 1.0001 0 1 0 27 21 L 3 21 z" />
+                    </svg>
+                </li>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Consectetur.</a></li>
+                <li><a href="#">Tempora!</a></li>
+                <li><a href="#">Quas!</a></li>
+                <li><a href="#">Cum.</a></li>
+                <li><a href="#">Pariatur?</a></li>
+            </ul>
+        </nav>
+
+
+        <nav class="mobile-header">
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Consectetur.</a></li>
+                <li><a href="#">Tempora!</a></li>
+                <li><a href="#">Quas!</a></li>
+                <li><a href="#">Cum.</a></li>
+                <li><a href="#">Pariatur?</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <script>
+
+        let mobileHeader = document.querySelector(".mobile-header")
+        let burger = document.querySelector(".burger")
+        let overlay = document.querySelector(".overlay")
+
+        burger.addEventListener("click", function () {
+            mobileHeader.classList.toggle("active")
+            overlay.classList.toggle("active")
+        })
+
+        overlay.addEventListener('click', function () {
+            mobileHeader.classList.remove('active')
+            overlay.classList.remove('active')
+        })
+
+        // let accrodionHead = document.querySelector('.accordion__head')
+        // let accordionBody = document.querySelector('.accordion__body')
+
+        // accrodionHead.addEventListener('click', function () {
+        //     accordionBody.classList.toggle('active')
+        // })
+
+
+        // Когда экран переходит границу в 576px, то все элементы в
+        // dekstop - header кроме li с классом burger - исчезают,
+        // li с классом burger появляется.При нажатии на burger с правого края выплывает mobile - header
+    </script>
+</body>
+
+</html>

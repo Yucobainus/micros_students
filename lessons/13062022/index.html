@@ -7,14 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>13 06 2022</title>
     <style>
-        .active{
+        .active {
             color: red;
         }
-        .secondBlock{
+
+        .secondBlock {
             visibility: hidden;
             transition: .5s;
         }
-        .secondBlock.active{
+
+        .secondBlock.active {
             visibility: visible;
         }
     </style>
@@ -34,25 +36,16 @@
             <span title="I'm SPAN">Span span</span>
         </li>
     </ul> -->
-
-    <div id="testBlock">
-        <h3>Hello World!</h3>
-    </div>
-
-    <div class="secondBlock" id="secondBlock">
-        <h2>Hello JS!</h2>
-    </div>
-
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <input type="submit" value="Calculate" id="calculate">
+    <div>Результат: <span id="result"></span></div>
     <script>
-
-        let testBlock = document.getElementById("testBlock")
-        let secondBlock = document.getElementById("secondBlock")
-        testBlock.addEventListener('click', function(){
-            testBlock.style.backgroundColor = "black"
-        })
+        //object.value аттрибут value
+        //object.innerHtml содержание тэга
+        // +String = Number
 
     </script>
-    <script src="script.js"></script>
 </body>
 
 </html>
