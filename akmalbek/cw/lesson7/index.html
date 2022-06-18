@@ -45,16 +45,16 @@
         let color = document.getElementById('color')
         let current = document.getElementById('currentColor')
         let submit = document.getElementById('submit')
-				let block = document.getElementById('block')
+        let block = document.getElementById('block')
 
         color.addEventListener('change', function () {
             console.log(color.value)
             current.innerHTML = color.value
-						current.style.backgroundColor = color.value
+            current.style.backgroundColor = color.value
         })
 
         submit.addEventListener('click', function () {
-					block.style.backgroundColor = color.value
+            block.style.backgroundColor = color.value
         })
 
         //При изменении цвета в input'е мы меняем цвет блока currentColor.

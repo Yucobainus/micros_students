@@ -31,9 +31,11 @@
 
 <body>
 
-    <input type="color" placeholder="Set-color" id="color">
+    <input type="color" id="color">
+    <input type="number" id="fontsize">
     <div class="info">Выбранный цвет: <div class="current-color" id="currentColor"></div>
     </div>
+    <span id="text">Текстовый блок</span>
     <div>
         <input type="submit" value="Применить?" id="submit">
     </div>
@@ -42,18 +44,27 @@
 
     <script>
 
-        let color = document.getElementById('color')
-        let current = document.getElementById('currentColor')
-        let submit = document.getElementById('submit')
+        // let color = document.getElementById('color')
+        // let current = document.getElementById('currentColor')
+        // let submit = document.getElementById('submit')
+        // let fontsize = document.getElementById('fontsize')
+        // let text = document.getElementById('text')
+        // let block = document.getElementById('block')
 
-        color.addEventListener('change', function () {
-            console.log(color.value)
-            current.innerHTML = color.value
-        })
 
-        submit.addEventListener('click', function () {
+        // fontsize.addEventListener('change', function () {
+        //     text.style.fontSize = `${fontsize.value}px`
+        // })
 
-        })
+        // color.addEventListener('change', function () {
+        //     current.style.backgroundColor = color.value
+        // })
+
+        // submit.addEventListener('click', function () {
+        //     block.style.backgroundColor = color.value
+        // })
+
+        
 
         //При изменении цвета в input'е мы меняем цвет блока currentColor.
         //При нажатии применить меняем цвет блока "block"
