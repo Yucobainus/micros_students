@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  alert("les5");
+// 1.	Создайте функцию проверки объекта на пустоту. К примеру:
+// let alarm = {};
+// checkObject(alarm) // false
+// alarm[“6:00”] = true
+// checkObject(alarm) // true
+// let alarm = {};
+// //let alarm = ["6:00"];
+
+// function checkObject(x){
+//   if (Object.keys(x).length == 0){
+//     console.log("false")
+//   } else{
+//     console.log("true")
+//   }
+// }
+//  checkObject(alarm);
+
+// 2.	Создайте функцию суммы свойств. Принимаем по умолчанию, что все свойства объекта числовые
+// Let prices = {
+// Prod1: 2300,
+// Prod2: 4000,
+// Prod3: 9000
+// } 
+// objectSum(prices) //15300
+
+let prices = {
+ Prod1: 2300,
+ Prod2: 4000,
+ Prod3: 9000
+ } 
+
+ function objectSum(){
+  let sum = 0;
+
+ for (i in prices){
+  sum = sum + prices[i];
+ 
+ }
+ console.log(sum);
+}
+
+objectSum(prices);
+// function objectSum(){
+//   let sum = 0;
+
+//}
+
+
+ //objectSum(prices) //15300
+
+// 3.	Работа внутри объекта. Создаём функцию которая умножает все числовые свойства на переданное число. Проверка на тип - typeof
+// let navigation = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+
+// multiplyNumberParameters(menu, 2);
+
+// // после вызова функции
+// navigation = {
+//   width: 400,
+//   height: 600,
+//   title: "My menu"
+// };
+// 4.	Создайте класс Catalog с тремя методами из предыдущих тестов.
+// 5.	Создайте два блока. При нажатии на один из них, второй меняет цвет. 
+
+</script>
+</body>
+</html>

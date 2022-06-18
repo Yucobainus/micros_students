@@ -69,6 +69,53 @@
         //     console.log(key, ":", cart[key])
         // }
 
+        //Кол-во участников группы, логины
+        // createGroup(3, "AB", "Killer228", "Ghoul") //return object
+        //У объекта будет два свойства (count (Number), logins (Array, String))
+        // count: 3 , logins: ["AB, Killer227, Ghoul"]
+
+
+        // function tea(name, sort) {
+        //     return {
+        //         name,
+        //         sort,
+        //     }
+        // }
+        // let admin = tea("черный", "123")
+        // console.log(admin)
+
+
+        // function createGroup(Count, ...logins) {
+        //     return {
+        //         Count,
+        //         Logins
+        //     }
+        // }
+
+        // console.log( createGroup(3, "AB", "Killer228", "Ghoul"))
+
+
+        function createGroup(count) {
+            return {
+                count,
+            }
+        }
+
+        console.log(createGroup(45))
+
+		function createGroup() {
+			let count = arguments[0]
+			let login = [];
+			for (let i = 1; i != arguments.length; i++) {
+				login.push(arguments[i])
+			}
+			return {
+				count: count,
+				login: login,
+			}
+		}
+		let test = createGroup(3, "AB", "Killer228", "Ghoul")
+		console.log(`count: ${test.count}, logins: ["${test.login}"]`)
     </script>
 
 </body>
