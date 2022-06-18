@@ -30,20 +30,20 @@
             overflow-x: hidden;
         }
 
-        .overlay{
+        .overlay {
             position: fixed;
             top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             visibility: hidden;
-            background-color: rgba(255, 0, 0, 0,3);
+            background-color: rgba(255, 0, 0, .3);
         }
 
-        .overlay.active{
+        .overlay.active {
             visibility: visible;
             z-index: 1;
-        }  
+        }
 
         header {
             max-width: 1170px;
@@ -56,7 +56,7 @@
         }
 
         .desktop-header ul li.burger {
-            display: none; 
+            display: none;
         }
 
         .desktop-header ul li a {
@@ -115,26 +115,27 @@
         }
 
         @media screen and (max-width: 576px) {
-            .desktop-header ul li{
+            .desktop-header ul li {
                 display: none;
             }
 
-            .desktop-header ul li.burger{
+            .desktop-header ul li.burger {
                 display: block;
             }
-            
-            .mobile-header{
+
+            .mobile-header {
                 display: block;
                 position: fixed;
                 transform: translateX(1000%);
                 transition: .5s;
+                z-index: 3;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="overlay">a</div>
+    <div class="overlay"></div>
 
     <!-- mobile - 576px
     <div class="accordion">
@@ -193,16 +194,14 @@
 
         burger.addEventListener("click", function () {
             mobileHeader.classList.toggle("active")
-            if (overlay.classList.contains("active")){
-                overlay.classlist.toggle("active")
-            } 
+            overlay.classList.toggle("active")
         })
-        
+
         overlay.addEventListener('click', function () {
             mobileHeader.classList.remove('active')
             overlay.classList.remove('active')
         })
-   
+
         // let accrodionHead = document.querySelector('.accordion__head')
         // let accordionBody = document.querySelector('.accordion__body')
 
