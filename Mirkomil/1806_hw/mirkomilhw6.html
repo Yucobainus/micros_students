@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        header {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        .desktop-header ul {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .desktop-header ul li.burger {
+            display: none;
+        }
+
+        .desktop-header ul li a {
+            padding: 10px;
+            border-left: 1px solid #808080;
+            border-right: 1px solid #808080;
+            transition: .5s ease-in-out;
+        }
+
+        .desktop-header ul li a:hover {
+            color: white;
+            background-color: #808080;
+        }
+
+
+        .mobile-header {
+            position: fixed;
+            z-index: 3;
+            top: 0;
+            right: 0;
+            transition: .5s linear;
+            background-color: white;
+            transform: translateX(120%);
+            /* какой у него position */
+            /* вспомните про transform: translateX() */
+        }
+
+        .mobile-header.active {
+            transform: translateX(0);
+        }
+
+
+        .mobile-header ul {
+
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            width: 100px;
+        }
+
+        .mobile-header ul li a {
+            display: inline-block;
+            width: 100%;
+            padding: 10px 0;
+            border-top: 1px solid #808080;
+            border-bottom: 1px solid #808080;
+            transition: .5s ease-in-out;
+        }
+
+        .mobile-header ul li a:hover {
+            color: rgb(93, 93, 93);
+            background-color: #808080;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: 500;
+            color: #808080
+        }
+
+        @media screen and (max-width: 576px) {
+            .desktop-header ul li.burger {
+                display: block;
+            }
+
+            .desktop-header li {
+                display: none;
+            }
+
+        }
+
+        /* vw и vh - это единицы измерения относительно размера экрана. 100vw - полный экран / 50vw половина экрана . vh - для высоты */
+
+        .overlay {
+            display: none;
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .test {
+            width: 400px;
+            height: 200px;
+            background-color: bisque;
+        }
+
+        .inside {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            background-color: blueviolet;
+            bottom: 0;
+            right: 0;
+        }
+
+        .long_block {
+            height: 2000px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="desktop-header">
+            <ul>
+                <li class="burger another-class" id="burger">
+                    <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                        height="24px">
+                        <path
+                            d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z" />
+                    </svg>
+                </li>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Consectetur.</a></li>
+                <li><a href="#">Tempora!</a></li>
+                <li><a href="#">Quas!</a></li>
+                <li><a href="#">Cum.</a></li>
+                <li><a href="#">Pariatur?</a></li>
+            </ul>
+        </nav>
+
+
+        <nav class="mobile-header" id="menu">
+            <li><a href="#">Lorem.</a></li>
+            <li><a href="#">Consectetur.</a></li>
+            <li><a href="#">Tempora!</a></li>
+            <li><a href="#">Quas!</a></li>
+            <li><a href="#">Cum.</a></li>
+            <li><a href="#">Pariatur?</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <div class="test">
+        <div class="inside"></div>
+    </div>
+
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="long_block">
+
+    </div>
+
+
+
+
+    <script>
+        // let bur = document.getElementById('bur');
+        // let bar = document.getElementById('bar');
+        // bur.onclick = function () {
+
+        //     if (bar.style.display == "block") {
+        //         setTimeout(function () {
+        //             bar.style.display = "none";
+        //         }, 2);
+        //         bar.style.animation = "animation2 2s"
+        //     } else {
+        //         bar.style.display = "block";
+        //         bar.style.animation = "animation 2s";
+        //     }
+
+        // }
+
+        let burger = document.getElementById("burger")
+        let menu = document.getElementById("menu")
+        let overlay = document.getElementById("overlay")
+
+        burger.addEventListener('click', function () {
+            menu.classList.toggle('active')
+            overlay.classList.toggle('active')
+        })
+
+        overlay.addEventListener('click', function () {
+            overlay.classList.remove('active')
+            menu.classList.remove('active')
+        })
+
+    </script>
+</body>
+
+</html>

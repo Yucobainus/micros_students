@@ -37,7 +37,7 @@
             width: 100vw;
             height: 100vh;
             visibility: hidden;
-            background-color: rgba(255, 0, 0, .3);
+            background-color: rgba(255, 0, 0, .3); 
         }
 
         .overlay.active {
@@ -196,6 +196,8 @@
             mobileHeader.classList.toggle("active")
             overlay.classList.toggle("active")
         })
+
+        //Чувствителен к регистру
 
         overlay.addEventListener('click', function () {
             mobileHeader.classList.remove('active')
