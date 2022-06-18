@@ -26,23 +26,19 @@
             opacity: 1;
         } */
 
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             overflow-x: hidden;
+            width: 100%;
+            height: 100%;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            visibility: hidden;
-            background-color: rgba(255, 0, 0, .3);
-        }
-
-        .overlay.active {
-            visibility: visible;
-            z-index: 1;
+        body.locked{
+            overflow-y: hidden;
         }
 
         header {
@@ -56,13 +52,13 @@
         }
 
         .desktop-header ul li.burger {
-            display: none;
+            display: block;
         }
 
         .desktop-header ul li a {
             padding: 10px;
-            border-left: 1px solid #000000;
-            border-right: 1px solid #000000;
+            border-left: 1px solid #808080;
+            border-right: 1px solid #808080;
             transition: .5s ease-in-out;
         }
 
@@ -71,22 +67,26 @@
             background-color: #808080;
         }
 
+
         .mobile-header {
             display: none;
-            background-color: white;
+            /* какой у него position */
+            /* вспомните про transform: translateX() */
         }
 
         .mobile-header.active {
-            position: fixed;
-            transform: translateX(0%);
-            transition: .5s;
+            transform: translateX(0);
         }
 
+
+
         .mobile-header ul {
+            position: relative;
             display: flex;
             flex-direction: column;
             row-gap: 10px;
             width: 100px;
+            z-index: 3;
         }
 
         .mobile-header ul li a {
@@ -103,6 +103,21 @@
             background-color: #808080;
         }
 
+        .overlay{
+            position: fixed;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            background-color: rgba(244, 0, 0, 0.5);
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .overlay.active{
+            visibility: visible;
+            z-index: 1;
+        }
+
         ul li {
             list-style: none;
         }
@@ -114,31 +129,39 @@
             color: #808080
         }
 
+        body.background {
+            display: none;
+        }
+
+        .block{
+            height: 2000px;
+            background-color: aquamarine;
+            width: 3px;
+        }
+
         @media screen and (max-width: 576px) {
-            .desktop-header ul li {
-                display: none;
-            }
-
-            .desktop-header ul li.burger {
-                display: block;
-            }
-
             .mobile-header {
                 display: block;
                 position: fixed;
-                transform: translateX(1000%);
-                transition: .5s;
-                z-index: 3;
+                top: 0;
+                right: 0;
+                transition: all .5s;
+                transform: translateX(120%);
+                z-index: 99;
+            }
+
+            .desktop-header li {
+                display: none;
             }
         }
+        
     </style>
 </head>
 
-<body>
-    <div class="overlay"></div>
+<body id="body">
 
-    <!-- mobile - 576px
-    <div class="accordion">
+    <!-- mobile - 576px -->
+    <!-- <div class="accordion">
 
         <div class="accordion__head">
             <span>Название</span>
@@ -151,12 +174,11 @@
 
     </div> -->
 
-
     <header>
-
+        
         <nav class="desktop-header">
             <ul>
-                <li class="burger">
+                <li class="burger" id="burger">
                     <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px"
                         height="30px">
                         <path
@@ -173,7 +195,7 @@
         </nav>
 
 
-        <nav class="mobile-header">
+        <nav class="mobile-header" id="m-header">
             <ul>
                 <li><a href="#">Lorem.</a></li>
                 <li><a href="#">Consectetur.</a></li>
@@ -186,21 +208,62 @@
 
     </header>
 
+
+    <div class="block">
+
+    </div>
+
+    <div class="overlay"></div>
+
     <script>
 
-        let mobileHeader = document.querySelector(".mobile-header")
-        let burger = document.querySelector(".burger")
-        let overlay = document.querySelector(".overlay")
+        let burger = document.querySelector('.burger')
+        let mobileMenu = document.querySelector('.mobile-header')
+        let overlay = document.querySelector('.overlay')
+        let body = document.getElementById('body')
 
-        burger.addEventListener("click", function () {
-            mobileHeader.classList.toggle("active")
-            overlay.classList.toggle("active")
+        burger.addEventListener('click', function () {
+            mobileMenu.classList.toggle('active')
+            body.classList.toggle('locked')
+            if(!overlay.classList.contains('active')){
+                overlay.classList.toggle('active')
+            }
         })
 
-        overlay.addEventListener('click', function () {
-            mobileHeader.classList.remove('active')
+        overlay.addEventListener('click', function() {
+            mobileMenu.classList.remove('active')
             overlay.classList.remove('active')
+            body.classList.remove('locked')
         })
+    
+        
+        
+
+        // function closeOnClick() {
+        //     body(".mobile-header").classList.remove("active");
+        // }
+
+        // const menu = $(".mobile-header");
+        // const menuBtn = $(".wrapper");
+        // $(document).mouseup(function(e)){
+        //     console.log(e.target)
+        //     if (e.target.className === "wrapper"){
+        //         menuBtn.addClass("is-active");
+        //         menu.stop().slideDown();
+        //     } else if (e.target.className === "wrapper is-active"){
+        //         menuBtn.removeClass("is-active");
+        //         menu.stop().slideDown();
+        //     } else if (menu.has(e.target).lenght === 0) && (menuBtn.has(e.target).length === 0){
+        //         menuBtn.removeClass("is-active");
+        //         menu.stop().slideDown();
+        //     }
+        // }
+        
+
+        
+
+
+
 
         // let accrodionHead = document.querySelector('.accordion__head')
         // let accordionBody = document.querySelector('.accordion__body')
@@ -215,5 +278,6 @@
         // li с классом burger появляется.При нажатии на burger с правого края выплывает mobile - header
     </script>
 </body>
+
 
 </html>
