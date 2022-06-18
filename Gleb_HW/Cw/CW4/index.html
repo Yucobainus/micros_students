@@ -30,6 +30,21 @@
             overflow-x: hidden;
         }
 
+        .overlay{
+            position: fixed;
+            top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+            visibility: hidden;
+            background-color: rgba(255, 0, 0, 0,3);
+        }
+
+        .overlay.active{
+            visibility: visible;
+            z-index: 1;
+        }  
+
         header {
             max-width: 1170px;
             margin: 0 auto;
@@ -41,13 +56,13 @@
         }
 
         .desktop-header ul li.burger {
-            display: none;
+            display: none; 
         }
 
         .desktop-header ul li a {
             padding: 10px;
-            border-left: 1px solid #808080;
-            border-right: 1px solid #808080;
+            border-left: 1px solid #000000;
+            border-right: 1px solid #000000;
             transition: .5s ease-in-out;
         }
 
@@ -58,12 +73,13 @@
 
         .mobile-header {
             display: none;
+            background-color: white;
         }
 
         .mobile-header.active {
             position: fixed;
             transform: translateX(0%);
-            transition: .3s;
+            transition: .5s;
         }
 
         .mobile-header ul {
@@ -102,20 +118,23 @@
             .desktop-header ul li{
                 display: none;
             }
+
             .desktop-header ul li.burger{
                 display: block;
             }
+            
             .mobile-header{
                 display: block;
                 position: fixed;
-                transform: translateX(-200%);
-                transition: .3s;
+                transform: translateX(1000%);
+                transition: .5s;
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="overlay">a</div>
 
     <!-- mobile - 576px
     <div class="accordion">
@@ -170,12 +189,20 @@
 
         let mobileHeader = document.querySelector(".mobile-header")
         let burger = document.querySelector(".burger")
+        let overlay = document.querySelector(".overlay")
+
         burger.addEventListener("click", function () {
-           mobileHeader.classList.toggle("active")
+            mobileHeader.classList.toggle("active")
+            if (overlay.classList.contains("active")){
+                overlay.classlist.toggle("active")
+            } 
+        })
+        
+        overlay.addEventListener('click', function () {
+            mobileHeader.classList.remove('active')
+            overlay.classList.remove('active')
         })
    
-       
-        
         // let accrodionHead = document.querySelector('.accordion__head')
         // let accordionBody = document.querySelector('.accordion__body')
 
