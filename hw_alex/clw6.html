@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18062022</title>
+
+    <style>
+        .info {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            padding: 10px;
+            border: 1px solid rgb(224, 12, 12);
+        }
+
+        .current-color {
+            height: 20px;
+            width: 20px;
+        }
+
+        .block {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="color" id="color">
+    <input type="number" id="fontsize">
+    <div class="info">Выбранный цвет: <div class="current-color" id="currentColor"></div>
+    </div>
+    <span id="text">Текстовый блок</span>
+    <div>
+        <input type="submit" value="Применить?" id="submit">
+    </div>
+
+    <div class="block" id="block"></div>
+
+    <script>
+ //При изменении цвета в input'е мы меняем цвет блока currentColor.
+//При нажатии применить меняем цвет блока "block"
+
+ let color = document.getElementById('color');
+ let fontsize = document.getElementById('fontsize');
+ let currColor = document.getElementById('currentColor');
+ let txt = document.getElementById('text');
+ let submit = document.getElementById('submit');
+ let block = document.getElementById('block');
+
+fontsize.addEventListener('change', function(){
+  txt.style.fontSize = `${fontsize.value}px`
+})
+
+color.addEventListener('change', function(){
+  currColor.style.backgroundColor = color.value
+})
+
+submit.addEventListener('click', function(){
+  block.style.backgroundColor = color.value
+})
+
+    </script>
+</body>
+
+</html>
