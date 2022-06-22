@@ -65,8 +65,8 @@
     </div> -->
 
 
-    <input onchange="checkNumbers()" type="number" id="nums" value="1" min="1" max="200">
-    <input type="range" id="rng">
+    <input onchange="checkNumbers(); rng.value = nums.value" type="number" id="nums" value="1" min="1" max="200">
+    <input onchange="nums.value = rng.value" type="range" id="rng" min="1" max="200">
     <!-- Аттрибуты min, max указывают диапазон значений в range -->
     <script>
 
@@ -75,7 +75,7 @@
 
         //Задание разогрев
         //Ограничить диапазон вводимых значений в nums от 1 до 200
-
+        let rng = document.getElementById('rng');
         let nums = document.getElementById('nums');
         function checkNumbers(){
             if(nums.value < 1){
@@ -84,7 +84,6 @@
                 nums.value = 200
             }
         }
-
 
         // Связать nums и range
 
