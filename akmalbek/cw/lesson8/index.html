@@ -66,7 +66,7 @@
 
 
     <input type="number" id="nums" value="1" onchange="testNum(nums)" min="1" max="200">
-
+		<input type="range" id="rng" min="1" max="200" value="1" oninput="nums.value = rng.value">
 
     <script>
 
@@ -74,15 +74,16 @@
         //Ограничить диапазон вводимых значений в nums от 1 до 200
 
         let nums = document.getElementById('nums')
+				let rng = document.getElementById('rng')
 
 				function testNum(nums){
+					nums.value = rng.value
 					if (nums.value < nums.min){
 						nums.value = nums.min
 					}else if(nums.value > nums.max){
 						nums.value =  nums.max 
 					}
 				}
- 
         //Сложное задание
         //При выбраном radio к родителю .radio-item добавляется класс focus
         //Отредактировать класс focus так, чтобы размеры элементов были одинаковые
