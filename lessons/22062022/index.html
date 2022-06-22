@@ -9,14 +9,13 @@
 
 
     <style>
-
-        .radio-wrapper{
+        .radio-wrapper {
             display: flex;
             column-gap: 30px;
             align-items: center;
         }
 
-        .radio-item{
+        .radio-item {
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -25,10 +24,9 @@
             border: 1px solid #000000
         }
 
-        .radio-item.focus{
+        .radio-item.focus {
             border: 4px solid #3e0606
         }
-
     </style>
 
 </head>
@@ -39,7 +37,7 @@
     <!-- <div onclick="sayHi()">dasdasd</div> -->
 
 
-    <div class="radio-wrapper">
+    <!-- <div class="radio-wrapper">
         <div class="radio-item">
             <div class="radio-input">
                 <input type="radio" value="v1" name="v" id="v1">
@@ -64,11 +62,20 @@
                 Вариант 3
             </label>
         </div>
-    </div>
+    </div> -->
+
+
+    <input type="number" id="nums" value="1" min="1" max="200">
 
 
     <script>
 
+        //Задание разогрев
+        //Ограничить диапазон вводимых значений в nums от 1 до 200
+
+        let nums;
+
+        //Сложное задание
         //При выбраном radio к родителю .radio-item добавляется класс focus
         //Отредактировать класс focus так, чтобы размеры элементов были одинаковые
 
