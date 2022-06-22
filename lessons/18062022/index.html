@@ -35,26 +35,44 @@
     <input type="number" id="fontsize">
     <div class="info">Выбранный цвет: <div class="current-color" id="currentColor"></div>
     </div>
-    <span id="text">Текстовый блок</span>
+    <span id="txt">Текстовый блок</span>
     <div>
         <input type="submit" value="Применить?" id="submit">
     </div>
 
     <div class="block" id="block"></div>
 
+    <input type="text" id="i1">
+    <input type="color" name="" id="i2">
+
+
     <script>
+
+        let i1 = document.getElementById('i1')
+        let i2 = document.getElementById('i2')
+
+        let txt = document.getElementById('txt')
+
+        console.log(i1)   
+
+        // i2.addEventListener('change', function(){
+        //     console.log(i2.value)
+        // })
+
+
+        //text, color, number, file, radio, checkbox, submit
 
         // let color = document.getElementById('color')
         // let current = document.getElementById('currentColor')
         // let submit = document.getElementById('submit')
-        // let fontsize = document.getElementById('fontsize')
+        let fontsize = document.getElementById('fontsize')
         // let text = document.getElementById('text')
         // let block = document.getElementById('block')
 
 
-        // fontsize.addEventListener('change', function () {
-        //     text.style.fontSize = `${fontsize.value}px`
-        // })
+        fontsize.addEventListener('change', function () {
+            asdasd.style.fontSize = `${fontsize.value}px`
+        })
 
         // color.addEventListener('change', function () {
         //     current.style.backgroundColor = color.value

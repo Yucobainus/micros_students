@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rshafikov_hw-19062022</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            padding: 10px;
+            width: 250px;
+            border: 1px solid blue;
+        }
+
+        .box-color {
+            height: 20px;
+            width: 20px;
+        }
+
+        .text-options {
+            height: 100px;
+            width: 250px;
+        }
+    </style>
+
+    <div class="wrapper">
+        <input type="color" id="colorBox">
+        <div class="box">Выбрать цвет коробки:
+            <div class="box-color" id="boxColor"></div>
+        </div>
+
+
+        <div class="text">Выбрать цвет и шрифт текста: <br>
+            <input type="color" id="colorText"><br>
+            <input type="number" id="fontsize"><br>
+            <form action="">
+                <input type="radio" class="r-opt" id="fontWeight" name="font" value="bold"><label
+                    for="fontWeight">Жирный
+                    шрифт</label><br>
+                <input type="radio" class="r-opt" id="fontItalic" name="font" value="italic"><label
+                    for="fontItalic">Курсивный
+                    шрифт</label><br>
+                <input type="radio" class="r-opt" id="fontNormal" name="font" value="normal" checked><label
+                    for="fontNormal">Стандартный
+                    шрифт</label>
+            </form>
+
+            <button class="btn">Кнопка</button>
+            <div class="out"></div>
+            <div class="text-options" id="textOptions">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+                ad
+                nam, harum suscipit quo quos!</div>
+        </div>
+
+
+
+
+    </div>
+
+    <script>
+
+        let colorbox = document.getElementById('colorBox')
+        let boxcolor = document.getElementById('boxColor')
+
+        colorbox.addEventListener('change', function () {
+            boxcolor.style.backgroundColor = colorbox.value
+        })
+
+
+        let textcolor = document.getElementById('colorText')
+        let fontsize = document.getElementById('fontsize')
+        let text = document.getElementById('textOptions')
+
+        textcolor.addEventListener('change', function () {
+            text.style.color = textcolor.value
+        })
+
+        fontsize.addEventListener('change', function () {
+            text.style.fontSize = `${fontsize.value}px`
+            console.log(`${fontsize.value}px`)
+        })
+
+
+        let normal = document.getElementById('fontNormal')
+        let weight = document.getElementById('fontWeight')
+        let italic = document.getElementById('fontItalic')
+        // let submit = document.getElementById('submit')
+
+
+        document.querySelector('.btn').addEventListener('click', () => {
+            let radio = document.querySelectorAll('.r-opt')
+            radio.forEach((el) => {
+                if (el.checked) {
+                    data = el.value
+                    if (el.value == 'italic') {
+                        text.style.fontWeight = 'normal'
+                        text.style.fontStyle = data
+                    } else {
+                        text.style.fontStyle = 'normal'
+                        text.style.fontWeight = data
+                    }
+                }
+            })
+        });
+
+
+        // weight.addEventListener('click', function () {
+        //     text.style.fontWeight = weight.value
+        //     text.style.fontStyle = normal.value
+        // })
+
+
+        // italic.addEventListener('click', function () {
+        //     text.style.fontStyle = italic.value
+        //     text.style.fontWeight = normal.value
+        // })
+
+        // normal.addEventListener('click', function () {
+        //     text.style.fontStyle = normal.value
+        //     text.style.fontWeight = normal.value
+        // })
+
+
+
+    </script>
+</body>
+
+</html>
