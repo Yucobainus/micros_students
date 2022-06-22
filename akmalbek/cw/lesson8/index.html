@@ -2,42 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>22062022</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>22062022</title>
 
 
-    <style>
-        .radio-wrapper {
-            display: flex;
-            column-gap: 30px;
-            align-items: center;
-        }
+	<style>
+		.radio-wrapper {
+			display: flex;
+			column-gap: 30px;
+			align-items: center;
+		}
 
-        .radio-item {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            column-gap: 8px;
-            padding: 20px 25px;
-            border: 1px solid #000000
-        }
+		.radio-item {
+			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			column-gap: 8px;
+			padding: 20px 25px;
+			border: 1px solid #000000
+		}
 
-        .radio-item.focus {
-            border: 4px solid #3e0606
-        }
-    </style>
+		.radio-item.focus {
+			border: 4px solid #3e0606
+		}
+	</style>
 
 </head>
 
 <body>
 
 
-    <!-- <div onclick="sayHi()">dasdasd</div> -->
+	<!-- <div onclick="sayHi()">dasdasd</div> -->
 
 
-    <!-- <div class="radio-wrapper">
+	<!-- <div class="radio-wrapper">
         <div class="radio-item">
             <div class="radio-input">
                 <input type="radio" value="v1" name="v" id="v1">
@@ -65,32 +65,47 @@
     </div> -->
 
 
-    <input type="number" id="nums" value="1" onchange="testNum(nums)" min="1" max="200">
-		<input type="range" id="rng" min="1" max="200" value="1" oninput="nums.value = rng.value">
+	<input type="number" id="nums" value="1" onchange="testNum(nums); testSale();  rng.value = nums.value" min="1" max="200">
+	<input type="range" id="rng" min="1" max="200" value="1" oninput="nums.value = rng.value; testSale()">
+	<div id="sk">
+		Скидка:<br />
+	</div>
 
-    <script>
+	<script>
 
-        //Задание разогрев
-        //Ограничить диапазон вводимых значений в nums от 1 до 200
+		//Задание разогрев
+		//Ограничить диапазон вводимых значений в nums от 1 до 200
 
-        let nums = document.getElementById('nums')
-				let rng = document.getElementById('rng')
+		let nums = document.getElementById('nums')
+		let rng = document.getElementById('rng')
+		let sk = document.getElementById('sk')
 
-				function testNum(nums){
-					nums.value = rng.value
-					if (nums.value < nums.min){
-						nums.value = nums.min
-					}else if(nums.value > nums.max){
-						nums.value =  nums.max 
-					}
-				}
+		function testNum(nums) {
+			nums.value = rng.value
+			if (nums.value < nums.min) {
+				nums.value = nums.min
+			} else if (nums.value > nums.max) {
+				nums.value = nums.max
+			}
+		}
+		function testSale() {
+			if (rng.value >= 0 && rng.value <= 50) {
+				sk.innerHTML = 'Скидка:<br/>5%'
+			}else if (rng.value >= 51 && rng.value <= 100) {
+				sk.innerHTML = 'Скидка:<br/>10%'
+			}else if (rng.value >= 101 && rng.value <= 150) {
+				sk.innerHTML = 'Скидка:<br/>20%'
+			}else if (rng.value >= 151 && rng.value <= 200) {
+				sk.innerHTML = 'Скидка:<br/>30%'
+			}
+		}
         //Сложное задание
         //При выбраном radio к родителю .radio-item добавляется класс focus
         //Отредактировать класс focus так, чтобы размеры элементов были одинаковые
 
-    </script>
+	</script>
 
-    <!-- <script>
+	<!-- <script>
         function sayHi(){
             console.log('Hey!')
         }
