@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27-06-2022</title>
+    <style>
+        .organaizer {
+            max-width: 1000px;
+            margin: 80px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .organaizer__list {
+            padding: 30px;
+            border: 1px solid rgb(118, 118, 118);
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .organaizer__item {
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgb(237, 98, 98);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="organaizer">
+
+        <div class="organaizer__list">
+
+            <div class="organaizer__item">
+                <span>Помыть посуду</span>
+            </div>
+
+            <div class="organaizer__item">
+                <span>Выкинуть мусор</span>
+            </div>
+
+        </div>
+
+        <div class="organaizer__form">
+            <input type="text" id="ticket">
+            <a onclick="addTask()" href="#" id="addItem">Добавить</a>
+        </div>
+    </div>
+
+<script>   
+
+    
+
+    let addTask = ()=>{
+
+    let organizer = document.querySelector('.organaizer__list');
+    let ticket = document.querySelector('#ticket');
+    let newTask = `<div class="organaizer__item">
+                <span>${ticket.value}</span>
+            </div>`  ; 
+            
+    console.log(newTask)        
+    
+    organizer.insertAdjacentHTML('beforeend',newTask);
+
+    ticket.value = "";        
+            
+
+    }
+</script>
+</body>
+
+</html>
