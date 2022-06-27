@@ -27,6 +27,19 @@
         .organaizer__item {
             padding-bottom: 5px;
             border-bottom: 1px solid rgb(237, 98, 98);
+            display: flex;
+            justify-content: space-between;
+            column-gap: 80px;
+        }
+
+        span.delete {
+            color: rgb(129, 3, 3);
+            transition: .5s ease;
+        }
+
+        span.delete:hover {
+            cursor: pointer;
+            color: red;
         }
     </style>
 </head>
@@ -36,14 +49,16 @@
 
     <div class="organaizer">
 
-        <div class="organaizer__list">
+        <div class="organaizer__list" id="organaizer-list">
 
-            <div class="organaizer__item">
+            <div class="organaizer__item" data-index="1">
                 <span>Помыть посуду</span>
+                <span class="delete" data-index="1" id="1">Удалить</span>
             </div>
 
-            <div class="organaizer__item">
+            <div class="organaizer__item" data-index="2">
                 <span>Выкинуть мусор</span>
+                <span class="delete" data-index="2" id="2">Удалить</span>
             </div>
 
         </div>
@@ -54,7 +69,34 @@
         </div>
     </div>
 
+    <script>
+        //При нажатии addItem в organaizer__list добавляется контейнер с содержимым переданным в input с id 'ticket'
+
+        // let firstItem = document.getElementById('1')
+
+        // console.log(firstItem.getAttribute('item-id'))
+
+        //Помещает контейнер с классом organaizer-list в переменную list
+        let list = document.getElementById('organaizer-list')
+
+        //Обращаемся к свойству childNotes, которое хранит в себе все дочерние элементы
+
+        // list.childNodes.forEach(el => {
+        //     //Обратиться к датасету
+        //     // el.dataset.index
+        // })
+
+        // for (i = 0; i < list.childNodes.length; i++) {
+
+
+
+        // }
+
+        // list.childNodes[].remove()
+    //Это можно сделать с помощью цикла.
+    </script>
 
 </body>
+
 
 </html>

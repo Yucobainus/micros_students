@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CW7</title>
+    <title>27-06-2022</title>
     <style>
         .organaizer {
             max-width: 1000px;
@@ -38,7 +38,7 @@
 
         <div class="organaizer__list">
 
-            <div class="organaizer__item" id="a" custom="2">
+            <div class="organaizer__item">
                 <span>Помыть посуду</span>
             </div>
 
@@ -50,26 +50,31 @@
 
         <div class="organaizer__form">
             <input type="text" id="ticket">
-            <a onclick="addRecord()" href="#" id="addItem">Добавить</a>
+            <a onclick="addTask()" href="#" id="addItem">Добавить</a>
         </div>
     </div>
 
     <script>
 
-        let test = document.getElementById('a')
-
-// let ticket = document.getElementById('ticket')
-        // let addItem = document.getElementById('addItem')
-        // let organaizerList = document.querySelector('.organaizer__list')
-        // function addRecord() {
-        //     organaizerList.innerHTML = organaizerList.innerHTML + `<div class="organaizer__item">
-        //     <span>${ticket.value}</span>
-        //     </div>`
-        // }
 
 
+        let addTask = () => {
+
+            let organizer = document.querySelector('.organaizer__list');
+            let ticket = document.querySelector('#ticket');
+            let newTask = `<div class="organaizer__item">
+                <span>${ticket.value}</span>
+            </div>`  ;
+
+            console.log(newTask)
+
+            organizer.insertAdjacentHTML('beforeend', newTask);
+
+            ticket.value = "";
+
+
+        }
     </script>
-
 </body>
 
 </html>
