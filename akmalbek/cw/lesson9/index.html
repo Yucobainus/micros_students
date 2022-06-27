@@ -57,12 +57,12 @@
 		<script>
 			function addItem(){
 				let itemList = document.querySelector('.organaizer__list')
-				let itemValue = document.getElementById('ticket')
+				let itemValue = document.getElementById('ticket').value
 				itemList.innerHTML += `<div class="organaizer__item">
-                <span>${itemValue.value}</span>
+                <span>${itemValue}</span>
             </div>`
 						
-				itemValue.value = ''
+				itemValue = ''
 			}
 
 		</script>
