@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .radio-wrapper {
+            display: flex;
+            column-gap: 30px;
+            align-items: center;
+        }
+
+        .radio-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            padding: 20px 25px;
+            border: 1px solid #000000
+        }
+
+        .radio-item.focus {
+            border: 4px solid #3e0606
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="number" id="nums" value="1" min="1" max="200">
+    <input type="range" name="rng" id="rng">
+
+    <div id="sk">
+        Скидка:<br />
+        <input type="number" id="per">%
+    </div>
+    <br>
+
+    <div class="radio-wrapper">
+        <div class="radio-item">
+            <div class="radio-input">
+                <input type="radio" value="v1" name="v" id="v1">
+            </div>
+            <label for="v1" class="radio-text">
+                Вариант 1
+            </label>
+        </div>
+        <div class="radio-item focus">
+            <div class="radio-input">
+                <input type="radio" value="v2" name="v" id="v2">
+            </div>
+            <label for="v2" class="radio-text">
+                Вариант 2
+            </label>
+        </div>
+        <div class="radio-item">
+            <div class="radio-input">
+                <input type="radio" value="v3" name="v" id="v3">
+            </div>
+            <label for="v3" class="radio-text">
+                Вариант 3
+            </label>
+        </div>
+    </div>
+
+
+
+    <script>
+        // // 1 - задание
+
+        let nums = document.getElementById('nums')
+
+        if (nums.value < 1) {
+            nums.value = 1
+        } else if (nums.value > 200) {
+            nums.value = 200
+        }
+
+        // // 2 - задание 
+
+        let rng = document.getElementById('rng')
+
+        rng.addEventListener('input', function () {
+            nums.value = rng.value
+        })
+
+        nums.addEventListener('input', function () {
+            rng.value = nums.value
+        })
+
+        // 3 - задание
+
+        let per = document.getElementById('per')
+
+        rng.addEventListener('input', function () {
+            if (nums.value >= 1 && nums.value <= 25) {
+                per.value = 25, "%"
+            } else if (nums.value >= 26 && nums.value <= 50) {
+                per.value = 50, "%"
+            } else if (nums.value >= 51 && nums.value <= 75) {
+                per.value = 75, "%"
+            } else if (nums.value >= 76 && nums.value <= 100) {
+                per.value = 100, "%"
+            }
+        })
+
+        // 4 - задание
+
+        let v1 = document.getElementById("v1")
+        let v2 = document.getElementById("v2")
+        let v3 = document.getElementById("v3")
+
+        v1.addEventListener('click', function(){
+            
+        })
+
+    </script>
+</body>
+
+</html>
