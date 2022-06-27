@@ -12,21 +12,21 @@
 	<div class="product-text">Скидка</div>
 	<div class="product-text">Скидка</div>
 	<script>
-		function checkingText(text){
-			checks = document.querySelectorAll('.product-text')
+		function checkingText(className, text){
+			checks = document.querySelectorAll(`.${className}`)
 			let buff = 0
 			checks.forEach(el => {
 				element =  el.innerHTML.split(" ")
 				for(let i = 0; i < element.length; i++){
 					if (element[i] == text){
-						buff +=1
+						buff++
 					}
 				}
 			});
-			return buff
+			return `Слово "${text}" встретилось ${buff} раз`
 
 		}
-		console.log(checkingText('Скидка'))
+		console.log(checkingText('product-text','Скидка'))
 
 	</script>
 </body>
