@@ -27,6 +27,13 @@
         .organaizer__item {
             padding-bottom: 5px;
             border-bottom: 1px solid rgb(237, 98, 98);
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete-btn {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -40,10 +47,12 @@
 
             <div class="organaizer__item">
                 <span>Помыть посуду</span>
+                <span class="delete-btn">Удалить</span>
             </div>
 
             <div class="organaizer__item">
                 <span>Выкинуть мусор</span>
+                <span class="delete-btn">Удалить</span>
             </div>
 
         </div>
@@ -64,6 +73,7 @@
             let ticket = document.querySelector('#ticket');
             let newTask = `<div class="organaizer__item">
                 <span>${ticket.value}</span>
+                <span class="delete-btn">Удалить</span>
             </div>`  ;
 
             console.log(newTask)
@@ -74,6 +84,14 @@
 
 
         }
+
+        let organizer = document.querySelector('.organaizer__list');
+
+        organizer.addEventListener('click',(e)=>{
+            if(e.target.classList.contains('delete-btn')){
+                e.target.parentNode.remove()
+            }
+        })
     </script>
 </body>
 
