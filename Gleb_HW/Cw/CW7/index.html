@@ -38,7 +38,7 @@
 
         <div class="organaizer__list">
 
-            <div class="organaizer__item">
+            <div class="organaizer__item" id="a" custom="2">
                 <span>Помыть посуду</span>
             </div>
 
@@ -55,14 +55,17 @@
     </div>
 
     <script>
-        let ticket = document.getElementById('ticket')
-        let addItem = document.getElementById('addItem')
-        let organaizerList = document.querySelector('.organaizer__list')
-        function addRecord() {
-            organaizerList.innerHTML = organaizerList.innerHTML + `<div class="organaizer__item">
-            <span>${ticket.value}</span>
-            </div>`
-        }
+
+        let test = document.getElementById('a')
+
+// let ticket = document.getElementById('ticket')
+        // let addItem = document.getElementById('addItem')
+        // let organaizerList = document.querySelector('.organaizer__list')
+        // function addRecord() {
+        //     organaizerList.innerHTML = organaizerList.innerHTML + `<div class="organaizer__item">
+        //     <span>${ticket.value}</span>
+        //     </div>`
+        // }
 
 
     </script>

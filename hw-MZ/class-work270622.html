@@ -54,27 +54,27 @@
         </div>
     </div>
 
-<script>   
+    <script>
 
-    
 
-    let addTask = ()=>{
 
-    let organizer = document.querySelector('.organaizer__list');
-    let ticket = document.querySelector('#ticket');
-    let newTask = `<div class="organaizer__item">
+        let addTask = () => {
+
+            let organizer = document.querySelector('.organaizer__list');
+            let ticket = document.querySelector('#ticket');
+            let newTask = `<div class="organaizer__item">
                 <span>${ticket.value}</span>
-            </div>`  ; 
-            
-    console.log(newTask)        
-    
-    organizer.insertAdjacentHTML('beforeend',newTask);
+            </div>`  ;
 
-    ticket.value = "";        
-            
+            console.log(newTask)
 
-    }
-</script>
+            organizer.insertAdjacentHTML('beforeend', newTask);
+
+            ticket.value = "";
+
+
+        }
+    </script>
 </body>
 
 </html>
