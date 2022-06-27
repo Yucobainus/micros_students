@@ -18,7 +18,7 @@
 			checks.forEach(el => {
 				element =  el.innerHTML.split(" ")
 				for(let i = 0; i < element.length; i++){
-					if (element[i] == text){
+					if (element[i].toLowerCase() == text.toLowerCase()){
 						buff++
 					}
 				}

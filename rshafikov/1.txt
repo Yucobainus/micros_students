@@ -1,0 +1,49 @@
+import "./styles.css";
+
+document.getElementById("app").innerHTML = `
+<h1>Hello Vanilla!</h1>
+<div>
+  We use the same configuration as Parcel to bundle this sandbox, you can find more
+  info about Parcel 
+  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
+</div>
+`;
+const v1 = document.getElementById("v1");
+const v2 = document.getElementById("v2");
+
+console.log(v1);
+
+let num1 = 0;
+let num2 = 0;
+
+v1.addEventListener("change", (e) => {
+  num1 = +e.target.value;
+  // num1 = Number(e.target.value);
+  // num1 = e.target.value;
+});
+v2.addEventListener("change", (e) => {
+  num2 = +e.target.value;
+  // num2 = e.target.value;
+});
+
+const res = document.getElementById("calc");
+
+res.addEventListener("click", () => {
+  // console.log(num1, num2);
+  if (num1 && num2) {
+    const sum = num1 + num2;
+
+    document.getElementById("result").innerHTML = `result: ${sum}`;
+    v1.value = "";
+    v2.value = "";
+  }
+});
+
+// const aaa = (id, prop) => {
+//   console.log(id, prop);
+//   document.getElementById(id).addEventListener("change", (e) => {
+//     prop = prop + +e.target.value;
+//   });
+// };
+// aaa("v1", num1);
+// aaa("v2", num2);
