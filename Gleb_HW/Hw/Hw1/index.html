@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+        <div class="product-text">скидка фвф выфв ФЫвф вв  ввввв скидка</div>
+        <div class="product-text">скидка</div>
+        <div class="product-text">скидка</div>
+        <div class="product-text">скидка</div>
+
+    <script>
+
+        function getSkidka(){
+			let productText = document.querySelectorAll('.product-text')
+			let numbers = 0
+			productText.forEach(el => {
+				element =  el.innerHTML.split(" ")
+				for(let i = 0; i < element.length; i++){
+					if (element[i] == "скидка"){
+						numbers +=1
+					}
+				}
+			});
+			return `Слово "скидка" встретилось ${numbers} раз`
+		}
+
+        console.log(getSkidka())
+		
+    </script>
+</body>
+
+</html>

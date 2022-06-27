@@ -25,7 +25,8 @@
 		}
 
 		.radio-item.focus {
-			border: 4px solid #3e0606
+			border: 4px solid #3e0606;
+			padding: 18px 23px;
 		}
 	</style>
 
@@ -33,46 +34,44 @@
 
 <body>
 
-
-	<!-- <div onclick="sayHi()">dasdasd</div> -->
-
-
-	<!-- <div class="radio-wrapper">
-        <div class="radio-item">
-            <div class="radio-input">
-                <input type="radio" value="v1" name="v" id="v1">
-            </div>
-            <label for="v1" class="radio-text">
-                Вариант 1
-            </label>
-        </div>
-        <div class="radio-item focus">
-            <div class="radio-input">
-                <input type="radio" value="v2" name="v" id="v2">
-            </div>
-            <label for="v2" class="radio-text">
-                Вариант 2
-            </label>
-        </div>
-        <div class="radio-item">
-            <div class="radio-input">
-                <input type="radio" value="v3" name="v" id="v3">
-            </div>
-            <label for="v3" class="radio-text">
-                Вариант 3
-            </label>
-        </div>
-    </div> -->
-
-
-	<input type="number" id="nums" value="1" onchange="testNum(nums); testSale();  rng.value = nums.value" min="1" max="200">
+	<input type="number" id="nums" value="1" onchange="testNum(nums); testSale();  rng.value = nums.value" min="1"
+		max="200">
 	<input type="range" id="rng" min="1" max="200" value="1" oninput="nums.value = rng.value; testSale()">
 	<div id="sk">
 		Скидка:<br />
-        5%
-    </div>
+	</div>
+	<!-- <div onclick="sayHi()">dasdasd</div> -->
 
-    
+
+	<div class="radio-wrapper">
+		<div class="radio-item">
+			<div class="radio-input">
+				<input type="radio" value="v1" name="v" id="v1" onchange="radioCheck()">
+			</div>
+			<label for="v1" class="radio-text">
+				Вариант 1
+			</label>
+		</div>
+		<div class="radio-item focus">
+			<div class="radio-input">
+				<input type="radio" value="v2" name="v" id="v2" onchange="radioCheck()">
+			</div>
+			<label for="v2" class="radio-text">
+				Вариант 2
+			</label>
+		</div>
+		<div class="radio-item">
+			<div class="radio-input">
+				<input type="radio" value="v3" name="v" id="v3" onchange="radioCheck()">
+			</div>
+			<label for="v3" class="radio-text">
+				Вариант 3
+			</label>
+		</div>
+	</div>
+
+
+
 
 	<script>
 
@@ -94,14 +93,28 @@
 		function testSale() {
 			if (rng.value >= 0 && rng.value <= 50) {
 				sk.innerHTML = 'Скидка:<br/>5%'
-			}else if (rng.value >= 51 && rng.value <= 100) {
+			} else if (rng.value >= 51 && rng.value <= 100) {
 				sk.innerHTML = 'Скидка:<br/>10%'
-			}else if (rng.value >= 101 && rng.value <= 150) {
+			} else if (rng.value >= 101 && rng.value <= 150) {
 				sk.innerHTML = 'Скидка:<br/>20%'
-			}else if (rng.value >= 151 && rng.value <= 200) {
+			} else if (rng.value >= 151 && rng.value <= 200) {
 				sk.innerHTML = 'Скидка:<br/>30%'
 			}
 		}
+
+
+
+		let inputs = document.querySelectorAll('.radio-input input');
+		function radioCheck() {
+			inputs.forEach(element => {
+				if(element.checked){
+					element.closest('.radio-item').classList.add('focus')
+				}else{
+					element.closest('.radio-item').classList.remove('focus')
+				}
+			})
+		}
+
         //Сложное задание
         //При выбраном radio к родителю .radio-item добавляется класс focus
         //Отредактировать класс focus так, чтобы размеры элементов были одинаковые
