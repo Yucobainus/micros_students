@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- <div class="product-text" id="test">СКИДКА в 20% </div>
+
+
+    <span class="product-text">Скидка в 20% </span> -->
+    <!-- <span class="news-info">Сегодня</span>
+    <span class="news-info">Сегодня</span>
+    <span class="news-info">Сегодня</span>
+    <span class="news-info">Сегодня</span>
+    <span class="news-info">Сегодня</span>
+    <span class="news-info">Сегодня</span> -->
+
+
+    <div class="wrapper">
+        <div class="product-cards">
+            <div class="product-card">
+                <div class="product-info">
+                    <p class="product-text">Скидка в 20% </p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <p class="product-text">выфвыфСкидка в 20% </p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <p class="product-text">Скидка в 20% </p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-info">
+                    <p class="product-text">Скидка в 20% </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        //Простой вариант решения.
+
+
+
+        // function parsePageSkidka() {
+        //     let allText = document.querySelectorAll('.product-text')
+        //     let counter = 0
+        //     allText.forEach(item => {
+        //         if (item.innerHTML == 'Скидка') {
+        //             counter++
+        //         }
+        //     })
+        //     return `Склово "Скидка" встретилось ${counter} раз`
+        // }
+
+        // function parsePageNews() {
+        //     let allText = document.querySelectorAll('.news-info')
+        //     let counter = 0
+        //     allText.forEach(item => {
+        //         if (item.innerHTML == 'Сегодня') {
+        //             counter++
+        //         }
+        //     })
+        //     return `Склово "Сегодня" встретилось ${counter} раз`
+        // }
+
+        // let parseInfo = parsePageSkidka()
+        // let newsInfo = parsePageNews()
+
+        // console.log(parseInfo)
+        // console.log(newsInfo)
+
+
+        //Простой++
+
+        // function parsePage(className, word) {
+        //     let allText = document.querySelectorAll(className)
+        //     let counter = 0
+        //     allText.forEach(item => {
+        //         if (item.innerHTML == word) {
+        //             counter++
+        //         }
+        //     })
+        //     return `Слово ${word} встретилось ${counter} раз`
+        // }
+
+        // let parseSkid = parsePage('.product-text', 'Скидка')
+        // // let parseNews = parsePage('.news-info', 'Сегодня')
+        // console.log(parseSkid)
+        // console.log(parseNews)
+
+
+        //Средней сложности (A)
+
+        // function parsePage(className, word) {
+        //     let allText = document.querySelectorAll(className)
+        //     let counter = 0
+        //     allText.forEach(item => {
+        //         if (item.innerHTML.includes(word)) {
+        //             counter++
+        //         }
+        //     })
+        //     return `Слово ${word} встретилось ${counter} раз`
+        // }
+
+        // let parseSkid = parsePage('.product-text', 'Скидка')
+        // // let parseNews = parsePage('.news-info', 'Сегодня')
+        // console.log(parseSkid)
+
+
+        //Средней сложности (B)
+
+        // function parsePage(className, word) {
+        //     let allText = document.querySelectorAll(className)
+        //     let counter = 0
+        //     allText.forEach(item => {
+        //         let bufferArr = item.innerHTML.split(' ')
+        //         bufferArr.forEach(el => {
+        //             if (el.toLowerCase() == word.toLowerCase()) {
+        //                 counter++
+        //             }
+        //         })
+        //     })
+        //     return `Слово ${word} встретилось ${counter} раз`
+        // }
+
+        // let parseSkid = parsePage('.product-text', 'Скидка')
+        // // let parseNews = parsePage('.news-info', 'Сегодня')
+        // console.log(parseSkid)
+
+        //Сложная сложность
+
+
+        // function parsePage(className, word) {
+        //     let allText = document.querySelectorAll(className)
+        //     let counter = 0
+        //     allText.forEach(item => {
+        //         if (item.innerHTML.includes(word)) {
+        //             counter++
+        //         }
+        //     })
+        //     return `Слово ${word} встретилось ${counter} раз`
+        // }
+
+        // let parseSkid = parsePage('.product-text', 'Скидка')
+        // // let parseNews = parsePage('.news-info', 'Сегодня')
+        // console.log(parseSkid)
+
+    </script>
+</body>
+
+</html>
