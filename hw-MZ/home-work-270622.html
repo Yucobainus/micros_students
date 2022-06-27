@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты.</p>
+    <p>Ему подпоясал мир послушавшись продолжил эта великий грустный собрал даже.</p>
+    <p>Возвращайся выйти скидка продолжил переписали предложения прямо рыбного живет обеспечивает пустился!</p>
+    <p>Необходимыми, диких себя. Не речью буквенных, вопрос жизни от всех себя.</p>
+    <p>О силуэт предупредила океана рот коварный эта назад продолжил пунктуация?</p>
+    <p>Вершину имени раз меня они имеет власти города родного большого?</p>
+    <p>Имени жизни наш своего первую коварных ее скидка единственное то вдали?</p>
+    <p>Вопроса дорогу буквенных он страну продолжил необходимыми раз. Там, коварных.</p>
+    <p>Они агентство, эта скидка встретил маленький то путь имени страну знаках?</p>
+
+
+
+    <form style="margin-top: 30px;">
+        <input style="height: 30px;" id="wordReq" type="text">
+        <button onclick="findWord(event)" type="submit" style="padding:10px"> Найти слово </button>
+    </form>
+
+    <div style="margin-top: 30px; background-color: blue; color: white; display: inline-block;" class="result"></div>
+    
+
+
+    <script>
+        
+               
+        let findWord = (e)=>{
+            e.preventDefault();
+            counter = 0;
+            let word = document.querySelector('input').value;
+            
+            document.querySelectorAll('p').forEach(prg=>{
+                if(prg.textContent.includes(word)){
+                    counter++;
+                }else{
+                    console.log(this.window)
+                }
+
+            })
+            console.log(word);
+            document.querySelector('.result').innerText = `Слово: ${word} встретилось ${counter} раз`
+            
+        }
+
+
+    </script>
+    
+</body>
+
+</html>
