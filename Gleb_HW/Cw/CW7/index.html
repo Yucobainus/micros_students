@@ -53,12 +53,12 @@
 
             <div class="organaizer__item" data-index="1">
                 <span>Помыть посуду</span>
-                <span onclick="deleteRecord('1')" class="delete" data-index="1" id="1">Удалить</span>
+                <span onclick="deleteRecord(1)" class="delete" data-index="1" id="1">Удалить</span>
             </div>
 
             <div class="organaizer__item" data-index="2">
                 <span>Выкинуть мусор</span>
-                <span onclick="deleteRecord('2')" class="delete" data-index="2" id="2">Удалить</span>
+                <span onclick="deleteRecord(2)" class="delete" data-index="2" id="2">Удалить</span>
             </div>
 
         </div>
@@ -83,15 +83,17 @@
         }
 
         function deleteRecord(num) {
-            let counter = 1
+       
             organaizerList.childNodes.forEach(el => {
+                let counter = 0
                 if(el.dataset !== undefined){
                     if(el.dataset.index == num){
-                        el.childNodes[num].remove()
+                        organaizerList.children[counter].remove()
                     }
                 } 
+                counter++
             })
-            counter++
+        
         }
 
     </script>
