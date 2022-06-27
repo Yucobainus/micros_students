@@ -17,13 +17,13 @@
 
     <script>
 
-        function getSkidka(){
-			let productText = document.querySelectorAll('.product-text')
+        function getSkidka(className, word){
+			let productText = document.querySelectorAll(className)
 			let numbers = 0
 			productText.forEach(el => {
 				element =  el.innerHTML.split(" ")
 				for(let i = 0; i < element.length; i++){
-					if (element[i] == "скидка"){
+					if (element[i] == word){
 						numbers +=1
 					}
 				}
@@ -31,7 +31,7 @@
 			return `Слово "скидка" встретилось ${numbers} раз`
 		}
 
-        console.log(getSkidka())
+        console.log(getSkidka('.product-text', 'скидка'))
 		
     </script>
 </body>
