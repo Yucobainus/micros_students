@@ -60,8 +60,8 @@
 
 <body>
 	<form action="#" class="users-search">
-		<input type="text" placeholder="Введите имя">
-		<input type="submit" value="Найти" onclick="searchAcc()">
+		<input type="text" placeholder="Введите имя" id="input">
+		<input type="submit" value="Найти">
 	</form>
 
 
@@ -88,26 +88,15 @@
 				ava: "assets/img/us3.png"
 			}
 		}
-		
+
 		feedbackList = document.querySelector('.wrapper')
-		for (el in users) {
-			feedbackList.innerHTML += ` <div class="card">
-						<img src="${users[el].ava}" sizes="100px">
-            <div class="name">
-							${users[el].name}
-            </div>
-            <div class="feeedback">
-							${users[el].feedback}
-            </div>
-        </div>`
+		let input = document.getElementById('input')
 
-
-		}
-		function searchAcc() {
-			feedbackList.innerHTML = ""
-			let nameAcc = document.querySelector('.users-search input').value
+		let nameAcc = document.querySelector('.users-search input').value
+		input.addEventListener('input', (e) => {
+			feedbackList.innerHTML = ''
 			for (el in users) {
-				if (users[el].name.toLowerCase() == nameAcc.toLowerCase()) {
+				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) >= 0 ) {
 					feedbackList.innerHTML += ` <div class="card">
 						<img src="${users[el].ava}" sizes="100px">
             <div class="name">
@@ -120,7 +109,11 @@
 
 				}
 			}
-		}
+
+
+		})
+
+
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
 
