@@ -109,7 +109,7 @@
 
         function conclusion(){
             for (el in users) {
-                if(inputName.value == users[el].name){
+                if(inputName.value.toUpperCase() == users[el].name.toUpperCase()){
                     feedbackList.innerHTML = `<div class="card"> 
                         <div class="ava">
                             <img src="${users[el].ava}" alt="Здесь Ава">
