@@ -63,7 +63,7 @@
 
     <form action="#" class="users-search">
         <input type="text" placeholder="Введите имя" id="input-name">
-        <input onclick="conclusion()" type="submit" value="Найти" id="submit">
+        <input type="submit" value="Найти" id="submit">
     </form>
 
     <div class="wrapper" id="feedbackList">
@@ -103,6 +103,7 @@
         let inputName = document.getElementById('input-name')
         let submit = document.getElementById('submit')
         
+        
         for (el in users) {
             feedbackList.innerHTML += `<div class="card"> 
                 <div class="ava">
@@ -115,13 +116,13 @@
                     ${users[el].feedback}
                 </div>
             </div>`
-
         }
 
-        function conclusion(){
+        inputName.addEventListener('input', function (){
+            feedbackList.innerHTML = ''
             for (el in users) {
-                if(inputName.value.toUpperCase() == users[el].name.toUpperCase()){
-                    feedbackList.innerHTML = `<div class="card"> 
+                if(users[el].name.toUpperCase().indexOf(inputName.value.toUpperCase()) != -1){
+                    feedbackList.innerHTML += `<div class="card"> 
                         <div class="ava">
                             <img src="${users[el].ava}" alt="Здесь Ава">
                         </div>
@@ -134,7 +135,9 @@
                     </div>`
                 }
             }
-        }
+        })
+        
+        
         
         
 
