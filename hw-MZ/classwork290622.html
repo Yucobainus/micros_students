@@ -74,44 +74,47 @@
   </div>
   </div>
 
-    <script>
-      let users = {
-            1: {
-                name: "Ivan",
-                feedback: "I really like it",
-                ava: "assets/img/us1.png"
-            },
-            2: {
-                name: "Nataliya",
-                feedback: "УЖОС",
-                ava: "assets/img/us2.png"
-            },
-            3: {
-                name: "Kamil",
-                feedback: "Ничего не понятно, но очень интересно",
-                ava: "assets/img/us3.png"
-            }
-        }
-      let render = (param="",selector=".wrapper", obj=users,) => {
-        
-        let box = document.querySelector(selector);
-        let index = 1;
-        if(param.length > 1){          
+  <script>
 
-        box.innerHTML="";    
-            for (user in obj) {
-                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase())){
-                    let card = `<div class="card card-${index} >
-            <div class="ava">
-          <img src=" ${obj[user].ava}">
-      </div>
-      <div class="name">
-          ${obj[user].name}
-      </div>
-      <div class="feeedback">
-          ${obj[user].feedback}
-      </div>
-      </div>`;
+    let users = {
+      1: {
+        name: "Ivan",
+        feedback: "I really like it",
+        ava: "assets/img/us1.png"
+      },
+      2: {
+        name: "Nataliya",
+        feedback: "УЖОС",
+        ava: "assets/img/us2.png"
+      },
+      3: {
+        name: "Kamil",
+        feedback: "Ничего не понятно, но очень интересно",
+        ava: "assets/img/us3.png"
+      }
+    }
+    let render = (param = "", selector = ".wrapper", obj = users,) => {
+
+      let box = document.querySelector(selector);
+      let index = 1;
+      if (param.length >= 1) {
+
+        box.innerHTML = "";
+        for (user in obj) {
+          if (obj[user].name.toLowerCase().indexOf(param.toLowerCase()) != -1) {
+            let card = `
+            <div class="card card-${index}"  id="${user}">
+                <div class="ava">
+                  <img src=" ${obj[user].ava}">
+                </div>
+                <div class="name">
+                  ${obj[user].name}
+                </div>
+                <div class="feeedback">
+                  ${obj[user].feedback}
+                </div>
+                <input type="number" class="inp">
+            </div>`;
 
             box.insertAdjacentHTML("beforeend", card);
             index++;
@@ -121,17 +124,19 @@
       } else {
         box.innerHTML = "";
         for (user in obj) {
-          let card = `<div class="card card-${index} >
+          let card = `
+          <div class="card card-${index}"  id="${user}">
             <div class="ava">
-          <img src=" ${obj[user].ava}">
-      </div>
-      <div class="name">
-          ${obj[user].name}
-      </div>
-      <div class="feeedback">
-          ${obj[user].feedback}
-      </div>
-      </div>`;
+              <img src=" ${obj[user].ava}">
+            </div>
+            <div class="name">
+              ${obj[user].name}
+            </div>
+            <div class="feeedback">
+                ${obj[user].feedback}
+            </div>
+            <input type="number" class="inp">
+         </div>`;
 
           box.insertAdjacentHTML("beforeend", card);
           index++;
@@ -143,9 +148,9 @@
 
     let btn = document.querySelector('#confirm');
 
- 
-      
-     let inputValue = document.querySelector('#search');
+
+
+    let inputValue = document.querySelector('#search');
 
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -154,17 +159,28 @@
 
     })
 
-   
 
 
 
-     inputValue.addEventListener('input',(e)=>{        
-        render(e.target.value)
-     })
-
-     render();
 
 
+
+    inputValue.addEventListener('input', (e) => {
+      render(e.target.value)
+    })
+
+    render();
+
+
+
+
+
+    let numberinputs = document.querySelectorAll('.inp')
+    numberinputs.forEach(el => {
+      el.addEventListener('input', function () {
+        console.log(el.parentNode)
+      })
+    })
 
 
       //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card

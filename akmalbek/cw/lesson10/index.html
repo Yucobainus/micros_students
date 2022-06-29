@@ -96,17 +96,17 @@
 		input.addEventListener('input', (e) => {
 			feedbackList.innerHTML = ''
 			for (el in users) {
-				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) >= 0 ) {
-					feedbackList.innerHTML += ` <div class="card">
-						<img src="${users[el].ava}" sizes="100px">
-            <div class="name">
+				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) >= 0) {
+					feedbackList.innerHTML += ` 
+			<div class="card">
+				<img src="${users[el].ava}" sizes="100px">
+            	<div class="name">
 							${users[el].name}
-            </div>
-            <div class="feeedback">
+            	</div>
+            	<div class="feeedback">
 							${users[el].feedback}
-            </div>
-        </div>`
-
+            	</div>
+        	</div>`
 				}
 			}
 
