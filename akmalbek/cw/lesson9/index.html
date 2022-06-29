@@ -2,70 +2,104 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>27-06-2022</title>
-    <style>
-        .organaizer {
-            max-width: 1000px;
-            margin: 80px auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>27-06-2022</title>
+	<style>
+		.organaizer {
+			max-width: 1000px;
+			margin: 80px auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
 
-        .organaizer__list {
-            padding: 30px;
-            border: 1px solid rgb(118, 118, 118);
-            display: flex;
-            flex-direction: column;
-            row-gap: 10px;
-            margin-bottom: 20px;
-        }
+		.organaizer__list {
+			padding: 30px;
+			border: 1px solid rgb(118, 118, 118);
+			display: flex;
+			flex-direction: column;
+			row-gap: 10px;
+			margin-bottom: 20px;
+		}
 
-        .organaizer__item {
-            padding-bottom: 5px;
-            border-bottom: 1px solid rgb(237, 98, 98);
-        }
-    </style>
+		.organaizer__item {
+			padding-bottom: 5px;
+			border-bottom: 1px solid rgb(237, 98, 98);
+			display: flex;
+			justify-content: space-between;
+			column-gap: 80px;
+		}
+
+		span.delete {
+			color: rgb(129, 3, 3);
+			transition: .5s ease;
+		}
+
+		span.delete:hover {
+			cursor: pointer;
+			color: red;
+		}
+	</style>
 </head>
 
 <body>
 
 
-    <div class="organaizer">
+	<div class="organaizer">
 
-        <div class="organaizer__list">
+		<div class="organaizer__list" id="organaizer-list">
 
-            <div class="organaizer__item">
-                <span>Помыть посуду</span>
-            </div>
+			<div class="organaizer__item">
+				<span>Помыть посуду</span>
+				<span class="delete" onclick="delItem(1)">Удалить</span>
+			</div>
 
-            <div class="organaizer__item">
-                <span>Выкинуть мусор</span>
-            </div>
+			<div class="organaizer__item">
+				<span>Выкинуть мусор</span>
+				<span class="delete" onclick="delItem(2)">Удалить</span>
+			</div>
 
-        </div>
+		</div>
 
-        <div class="organaizer__form">
-            <input type="text" id="ticket">
-            <a  onclick="addItem()" href="#" id="addItem">Добавить</a>
-        </div>
-    </div>
+		<div class="organaizer__form">
+			<input type="text" id="ticket">
+			<a onclick="addItem()" href="#" id="addItem">Добавить</a>
+		</div>
+	</div>
 
-		<script>
-			function addItem(){
-				let itemList = document.querySelector('.organaizer__list')
-				let itemValue = document.getElementById('ticket').value
-				itemList.innerHTML += `<div class="organaizer__item">
+	<script>
+		function addItem() {
+			let itemList = document.querySelector('.organaizer__list')
+			let lenList = document.querySelectorAll('.organaizer__list').length + 1
+			let itemValue = document.getElementById('ticket').value
+			itemList.innerHTML += `<div class="organaizer__item">
                 <span>${itemValue}</span>
+								<span class="delete" onclick="delItem(${lenList})">Удалить</span>
             </div>`
-						
-				itemValue = ''
-			}
 
-		</script>
+			itemValue = ''
+		}
+		let list = document.getElementById('organaizer-list')
+		//Помещает контейнер с классом organaizer-list в переменную lis
+		function delItem(num){
+			console.log(list.childNodes)
+			num = num + num - 1
+			list.childNodes[num].remove()
+			list.childNodes[num - 1].remove()
+		}
+		//Обращаемся к свойству childNotes, которое хранит в себе все дочерние элементы
+		// list.childNodes.forEach(el => {
+		// 	//Обратиться к датасету
+		// 	// el.dataset.index
+		// })
+
+	
+
+		// list.childNodes[].remove()
+		//Это можно сделать с помощью цикла.
+	</script>
 
 </body>
 
