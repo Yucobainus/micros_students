@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -70,8 +71,38 @@
         <div class="name"></div>
         <div class="feeedback"></div>
       </div>
-    </div>
+=======
 
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .wrapper {
+      width: 1000px;
+      flex-direction: column;
+      row-gap: 15px;
+      padding: 15px;
+      border: 1px solid rgb(114, 114, 114);
+    }
+
+    .card {
+      box-shadow: 1px 1px 1px black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <div class="name"></div>
+      <div class="feeedback"></div>
+>>>>>>> 3bba65af3b70089214049d63a1c165ad7b050ad6
+    </div>
+  </div>
+
+<<<<<<< HEAD
     <script>
       let users = {
             1: {
@@ -124,6 +155,29 @@
             <div class="ava">
           <img src=" ${obj[user].ava}">
       </div>
+=======
+  <script>
+    let users = {
+      1: {
+        name: "Ivan",
+        feedback: "I really like it",
+      },
+      2: {
+        name: "Nataliya",
+        feedback: "УЖОС",
+      },
+      3: {
+        name: "Kamil",
+        feedback: "Ничего не понятно, но очень интересно",
+      },
+    };
+
+    let render = (selector, obj) => {
+      let box = document.querySelector(selector);
+      let index = 1;
+      for (user in obj) {
+        let card = `<div class="card card-${index}">
+>>>>>>> 3bba65af3b70089214049d63a1c165ad7b050ad6
       <div class="name">
           ${obj[user].name}
       </div>
@@ -132,6 +186,7 @@
       </div>
       </div>`;
 
+<<<<<<< HEAD
           box.insertAdjacentHTML("beforeend", card);
           index++;
         }
@@ -157,9 +212,18 @@
   
 
    
+=======
+        box.insertAdjacentHTML("beforeend", card);
+        index++;
+      }
+    };
+
+    render(".wrapper", users);
+>>>>>>> 3bba65af3b70089214049d63a1c165ad7b050ad6
 
       //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
       //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
