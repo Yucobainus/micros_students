@@ -24,7 +24,7 @@
 <body>
 
 
-    <div class="wrapper">
+    <div class="wrapper" id="feedbackList">
 
         <!-- <div class="card">
             <div class="name">
@@ -53,6 +53,10 @@
                 name: "Kamil",
                 feedback: "Ничего не понятно, но очень интересно"
             }
+        }
+
+        for (el in users) {
+            console.log(users[el].feedback)
         }
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
