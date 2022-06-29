@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      .wrapper {
-        width: 1000px;
-        flex-direction: column;
-        row-gap: 15px;
-        padding: 15px;
-        border: 1px solid rgb(114, 114, 114);
-      }
 
-      .card {
-        box-shadow: 1px 1px 1px black;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .wrapper {
+      width: 1000px;
+      flex-direction: column;
+      row-gap: 15px;
+      padding: 15px;
+      border: 1px solid rgb(114, 114, 114);
+    }
 
-  <body>
-    <div class="wrapper">
-      <div class="card">
-        <div class="name"></div>
-        <div class="feeedback"></div>
-      </div>
+    .card {
+      box-shadow: 1px 1px 1px black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <div class="name"></div>
+      <div class="feeedback"></div>
     </div>
+  </div>
 
-    <script>
-      let users = {
-        1: {
-          name: "Ivan",
-          feedback: "I really like it",
-        },
-        2: {
-          name: "Nataliya",
-          feedback: "УЖОС",
-        },
-        3: {
-          name: "Kamil",
-          feedback: "Ничего не понятно, но очень интересно",
-        },
-      };
+  <script>
+    let users = {
+      1: {
+        name: "Ivan",
+        feedback: "I really like it",
+      },
+      2: {
+        name: "Nataliya",
+        feedback: "УЖОС",
+      },
+      3: {
+        name: "Kamil",
+        feedback: "Ничего не понятно, но очень интересно",
+      },
+    };
 
-      let render = (selector, obj) => {
-        let box = document.querySelector(selector);
-        let index = 1;
-        for (user in obj) {
-          let card = `<div class="card card-${index}">
+    let render = (selector, obj) => {
+      let box = document.querySelector(selector);
+      let index = 1;
+      for (user in obj) {
+        let card = `<div class="card card-${index}">
       <div class="name">
           ${obj[user].name}
       </div>
@@ -57,15 +58,16 @@
       </div>
       </div>`;
 
-          box.insertAdjacentHTML("beforeend", card);
-          index++;
-        }
-      };
+        box.insertAdjacentHTML("beforeend", card);
+        index++;
+      }
+    };
 
-      render(".wrapper", users);
+    render(".wrapper", users);
 
       //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
       //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>

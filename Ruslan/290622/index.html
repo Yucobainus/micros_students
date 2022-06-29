@@ -24,7 +24,17 @@
 <body>
 
 
-    <div class="wrapper">
+    <div class="wrapper" id="feedbacklist">
+
+        <!-- <div class="card">
+            <div class="name">
+
+            </div>
+            <div class="feeedback">
+
+            </div>
+        </div> -->
+
     </div>
 
 
@@ -45,18 +55,11 @@
             }
         }
 
+        let feedbacklist = document.getElementById('feedbacklist')
 
         for (el in users) {
-            feedbackList = document.querySelector('.wrapper')
-            feedbackList.innerHTML += ` <div class="card">
-            <div class="name">
-							${users[el].name}
-            </div>
-            <div class="feeedback">
-							${users[el].feedback}
-            </div>
-        </div>`
-
+            console.log(users[el].feedback)
+            feedbacklist.innerHTML += `<div class="name"> ${users[el].name} </div><div = class="feedback">${users[el].feedback}</div>`
         }
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
