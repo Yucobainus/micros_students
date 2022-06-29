@@ -74,35 +74,34 @@
   </div>
   </div>
 
-  <script>
-    let users = {
-      1: {
-        name: "Ivan",
-        feedback: "I really like it",
-        ava: "assets/img/us1.png"
-      },
-      2: {
-        name: "Nataliya",
-        feedback: "УЖОС",
-        ava: "assets/img/us2.png"
-      },
-      3: {
-        name: "Kamil",
-        feedback: "Ничего не понятно, но очень интересно",
-        ava: "assets/img/us3.png"
-      }
-    }
-    let render = (param = "", selector = ".wrapper", obj = users,) => {
+    <script>
+      let users = {
+            1: {
+                name: "Ivan",
+                feedback: "I really like it",
+                ava: "assets/img/us1.png"
+            },
+            2: {
+                name: "Nataliya",
+                feedback: "УЖОС",
+                ava: "assets/img/us2.png"
+            },
+            3: {
+                name: "Kamil",
+                feedback: "Ничего не понятно, но очень интересно",
+                ava: "assets/img/us3.png"
+            }
+        }
+      let render = (param="",selector=".wrapper", obj=users,) => {
+        
+        let box = document.querySelector(selector);
+        let index = 1;
+        if(param.length > 1){          
 
-      let box = document.querySelector(selector);
-      let index = 1;
-      if (param.length > 1) {
-
-
-        box.innerHTML = "";
-        for (user in obj) {
-          if (obj[user].name.toLowerCase() == param.toLowerCase()) {
-            let card = `<div class="card card-${index} >
+        box.innerHTML="";    
+            for (user in obj) {
+                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase())){
+                    let card = `<div class="card card-${index} >
             <div class="ava">
           <img src=" ${obj[user].ava}">
       </div>
@@ -144,7 +143,9 @@
 
     let btn = document.querySelector('#confirm');
 
-    //  let inputValue = document.querySelector('#search');
+ 
+      
+     let inputValue = document.querySelector('#search');
 
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -153,9 +154,15 @@
 
     })
 
-    render();
+   
 
 
+
+     inputValue.addEventListener('input',(e)=>{        
+        render(e.target.value)
+     })
+
+     render();
 
 
 
