@@ -62,39 +62,29 @@
 
     <form action="#" class="users-search">
         <input type="text" placeholder="Введите имя" id="input">
-        <span id="test"></span>
         <input type="submit" value="Найти">
     </form>
 
-    <!-- <div class="wrapper" id="feedbackList"> -->
+    <div class="wrapper" id="feedbackList">
 
-    <!-- <div class="card">
+        <div class="card">
             <div class="name">
 
             </div>
             <div class="feeedback">
 
             </div>
-        </div> -->
-    <!-- 
-    </div> -->
+        </div>
+
+    </div>
 
 
 
     <script>
 
-        let input = document.getElementById('input')
-        let span = document.getElementById('test')
+        // let input = document.getElementById('input')
 
-
-        input.addEventListener('input', function(){
-            console.log(input.value)
-        })
-
-        //indexOf - вхождение строки в строку, возвращает индекс с которого искомая строка входит в ту в которой ищем
-        //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
-
-        // let users = {
+        //      let users = {
         //     1: {
         //         name: "Ivan",
         //         feedback: "I really like it",
@@ -112,9 +102,23 @@
         //     }
         // }
 
-        // for (el in users) {
-        //     console.log(users[el].feedback)
-        // }
+    
+        // let list = document.getElementById('feedbackList')
+
+        // input.addEventListener('input', function () {
+        //     list.innerHTML = ''
+        //     console.log(input.value)
+        //     for (el in users) {
+        //         if(users[el].name.indexOf(input.value) != -1){
+        //             list.innerHTML += `<div class='card'> ${users[el].name} </div> `
+        //         }
+        //     }
+        // })
+
+        //indexOf - вхождение строки в строку, возвращает индекс с которого искомая строка входит в ту в которой ищем
+        //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+
+   
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
