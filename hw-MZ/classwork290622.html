@@ -92,15 +92,14 @@
             }
         }
       let render = (param="",selector=".wrapper", obj=users,) => {
-
+        
         let box = document.querySelector(selector);
         let index = 1;
-        if(param.length > 1){
-            
+        if(param.length > 1){          
 
         box.innerHTML="";    
             for (user in obj) {
-                if(obj[user].name.toLowerCase()==param.toLowerCase()){
+                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase())){
                     let card = `<div class="card card-${index} >
             <div class="ava">
           <img src=" ${obj[user].ava}">
@@ -141,15 +140,20 @@
        
       };
 
-      let btn = document.querySelector('#confirm');
+    let btn = document.querySelector('#confirm');
       
-    //  let inputValue = document.querySelector('#search');
+     let inputValue = document.querySelector('#search');
 
      btn.addEventListener('click',(e)=>{
         e.preventDefault();
         let inputValue = document.querySelector('#search').value;
         render(inputValue);
 
+     })
+
+
+     inputValue.addEventListener('input',(e)=>{        
+        render(e.target.value)
      })
 
      render();
