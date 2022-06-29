@@ -2,53 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .wrapper {
-            width: 1000px;
-            flex-direction: column;
-            row-gap: 15px;
-            padding: 15px;
-            border: 1px solid rgb(114, 114, 114)
-        }
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.wrapper {
+			width: 1000px;
+			flex-direction: column;
+			row-gap: 15px;
+			padding: 15px;
+			border: 1px solid rgb(114, 114, 114)
+		}
 
-        .card {
-            box-shadow: 1px 1px 1px black;
-        }
-    </style>
+		.card {
+			box-shadow: 1px 1px 1px black;
+		}
+
+		.users-search {
+			width: 1000px;
+			margin-bottom: 15px;
+		}
+
+		.users-search input[type="text"] {
+			padding: 10px;
+			font-size: 18px;
+			margin-right: 30px;
+			border-radius: 7px;
+			border: 1px solid rgb(142, 142, 142);
+		}
+
+		.users-search input[type="text"]:focus {
+			outline: none;
+		}
+
+		.users-search input[type="text"]::placeholder {
+			color: rgb(201, 201, 201)
+		}
+
+		.users-search input[type="submit"] {
+			padding: 10px;
+			width: 265px;
+			background-color: rgb(109, 8, 8);
+			color: white;
+			outline: none;
+			border: none;
+			transition: .5s ease;
+			border-radius: 7px;
+		}
+
+		.users-search input[type="submit"]:hover {
+			background-color: white;
+			color: rgb(109, 8, 8)
+		}
+	</style>
 </head>
 
 <body>
+	<form action="#" class="users-search">
+		<input type="text" placeholder="Введите имя">
+		<input type="submit" value="Найти" onclick="searchAcc()">
+	</form>
+	<!-- <img src="" alt="" sizes="100px" srcset=""> -->
 
+	<div class="wrapper">
+	</div>
 
-    <div class="wrapper">
-    </div>
+	<img src="">
 
+	<script>
+		let users = {
+			1: {
+				name: "Ivan",
+				feedback: "I really like it",
+				ava: "assets/img/us1.png"
+			},
+			2: {
+				name: "Nataliya",
+				feedback: "УЖОС",
+				ava: "assets/img/us2.png"
+			},
+			3: {
+				name: "Kamil",
+				feedback: "Ничего не понятно, но очень интересно",
+				ava: "assets/img/us3.png"
+			}
+		}
 
-
-    <script>
-        let users = {
-            1: {
-                name: "Ivan",
-                feedback: "I really like it"
-            },
-            2: {
-                name: "Nataliya",
-                feedback: "УЖОС"
-            },
-            3: {
-                name: "Kamil",
-                feedback: "Ничего не понятно, но очень интересно"
-            }
-        }
-
-
-        for (el in users) {
-            feedbackList = document.querySelector('.wrapper')
-            feedbackList.innerHTML += ` <div class="card">
+		feedbackList = document.querySelector('.wrapper')
+		function searchAcc() {
+			let nameAcc = document.querySelector('.users-search input').value
+			for (el in users) {
+				if (users[el].name.toLowerCase() == nameAcc.toLowerCase()) {
+					feedbackList.innerHTML += ` <div class="card">
+						<img src="${users[el].ava}" sizes="100px">
             <div class="name">
 							${users[el].name}
             </div>
@@ -57,11 +104,13 @@
             </div>
         </div>`
 
-        }
+				}
+			}
+		}
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
 
-    </script>
+	</script>
 </body>
 
 </html>
