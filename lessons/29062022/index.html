@@ -61,13 +61,14 @@
 <body>
 
     <form action="#" class="users-search">
-        <input type="text" placeholder="Введите имя">
+        <input type="text" placeholder="Введите имя" id="input">
+        <span id="test"></span>
         <input type="submit" value="Найти">
     </form>
 
-    <div class="wrapper" id="feedbackList">
+    <!-- <div class="wrapper" id="feedbackList"> -->
 
-        <!-- <div class="card">
+    <!-- <div class="card">
             <div class="name">
 
             </div>
@@ -75,33 +76,45 @@
 
             </div>
         </div> -->
-
-    </div>
+    <!-- 
+    </div> -->
 
 
 
     <script>
-        let users = {
-            1: {
-                name: "Ivan",
-                feedback: "I really like it",
-                ava: "assets/img/us1.png"
-            },
-            2: {
-                name: "Nataliya",
-                feedback: "УЖОС",
-                ava: "assets/img/us2.png"
-            },
-            3: {
-                name: "Kamil",
-                feedback: "Ничего не понятно, но очень интересно",
-                ava: "assets/img/us3.png"
-            }
-        }
 
-        for (el in users) {
-            console.log(users[el].feedback)
-        }
+        let input = document.getElementById('input')
+        let span = document.getElementById('test')
+
+
+        input.addEventListener('input', function(){
+            console.log(input.value)
+        })
+
+        //indexOf - вхождение строки в строку, возвращает индекс с которого искомая строка входит в ту в которой ищем
+        //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
+
+        // let users = {
+        //     1: {
+        //         name: "Ivan",
+        //         feedback: "I really like it",
+        //         ava: "assets/img/us1.png"
+        //     },
+        //     2: {
+        //         name: "Nataliya",
+        //         feedback: "УЖОС",
+        //         ava: "assets/img/us2.png"
+        //     },
+        //     3: {
+        //         name: "Kamil",
+        //         feedback: "Ничего не понятно, но очень интересно",
+        //         ava: "assets/img/us3.png"
+        //     }
+        // }
+
+        // for (el in users) {
+        //     console.log(users[el].feedback)
+        // }
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
