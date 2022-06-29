@@ -63,7 +63,7 @@
 		<input type="text" placeholder="Введите имя">
 		<input type="submit" value="Найти" onclick="searchAcc()">
 	</form>
-	<!-- <img src="" alt="" sizes="100px" srcset=""> -->
+
 
 	<div class="wrapper">
 	</div>
@@ -88,9 +88,23 @@
 				ava: "assets/img/us3.png"
 			}
 		}
-
+		
 		feedbackList = document.querySelector('.wrapper')
+		for (el in users) {
+			feedbackList.innerHTML += ` <div class="card">
+						<img src="${users[el].ava}" sizes="100px">
+            <div class="name">
+							${users[el].name}
+            </div>
+            <div class="feeedback">
+							${users[el].feedback}
+            </div>
+        </div>`
+
+
+		}
 		function searchAcc() {
+			feedbackList.innerHTML = ""
 			let nameAcc = document.querySelector('.users-search input').value
 			for (el in users) {
 				if (users[el].name.toLowerCase() == nameAcc.toLowerCase()) {
