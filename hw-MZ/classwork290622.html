@@ -144,7 +144,8 @@
       
     //  let inputValue = document.querySelector('#search');
 
-     btn.addEventListener('click',()=>{
+     btn.addEventListener('click',(e)=>{
+        e.preventDefault();
         let inputValue = document.querySelector('#search').value;
         render(inputValue);
 
