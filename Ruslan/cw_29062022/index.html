@@ -23,7 +23,12 @@
 
 <body>
 
-
+    <form action="#" class="users-search">
+        <input type="text" placeholder="Введите имя" id="input">
+        <span id="test"></span>
+        <input type="submit" value="Найти" id="submit">
+    </form>
+    <br>
     <div class="wrapper" id="feedbacklist">
 
         <!-- <div class="card">
@@ -43,30 +48,60 @@
         let users = {
             1: {
                 name: "Ivan",
-                feedback: "I really like it"
+                feedback: "I really like it",
+                img: "assets/img/us1.png"
             },
             2: {
                 name: "Nataliya",
-                feedback: "УЖОС"
+                feedback: "УЖОС",
+                img: "assets/img/us3.png"
             },
             3: {
                 name: "Kamil",
-                feedback: "Ничего не понятно, но очень интересно"
+                feedback: "Ничего не понятно, но очень интересно",
+                img: "assets/img/us2.png"
             }
         }
 
         let feedbacklist = document.getElementById('feedbacklist')
 
+
         for (el in users) {
             console.log(users[el].feedback)
             feedbacklist.innerHTML +=
                 `<div class="card">
+                <div class="img"><img src="${users[el].img}" alt="img">
+                </div>
                 <div class="name"> ${users[el].name} 
                 </div>
                 <div = class="feedback">${users[el].feedback}
                 </div>
                 </div>`
         }
+
+        let input = document.getElementById('input') // input.value
+        let submit = document.getElementById('submit') // кнопка
+
+        submit.addEventListener('click', function () {
+            feedbacklist.innerHTML = ''
+            for (el in users) {
+                if (input.value == users[el].name) {
+                    feedbacklist.innerHTML +=
+                        `<div class="card">
+                <div class="img"><img src="${users[el].img}" alt="img">
+                </div>
+                <div class="name"> ${users[el].name} 
+                </div>
+                <div = class="feedback">${users[el].feedback}
+                </div>
+                </div>`
+                }
+            }
+        })
+
+
+
+
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
 
