@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>27-06-2022</title>
+    <title>CW7</title>
     <style>
         .organaizer {
             max-width: 1000px;
@@ -27,6 +27,19 @@
         .organaizer__item {
             padding-bottom: 5px;
             border-bottom: 1px solid rgb(237, 98, 98);
+            display: flex;
+            justify-content: space-between;
+            column-gap: 80px;
+        }
+
+        span.delete {
+            color: rgb(129, 3, 3);
+            transition: .5s ease;
+        }
+
+        span.delete:hover {
+            cursor: pointer;
+            color: red;
         }
     </style>
 </head>
@@ -38,12 +51,14 @@
 
         <div class="organaizer__list">
 
-            <div class="organaizer__item" id="a" custom="2">
+            <div class="organaizer__item" data-index="1">
                 <span>Помыть посуду</span>
+                <span onclick="deleteRecord(1)" class="delete" data-index="1" id="1">Удалить</span>
             </div>
 
-            <div class="organaizer__item">
+            <div class="organaizer__item" data-index="2">
                 <span>Выкинуть мусор</span>
+                <span onclick="deleteRecord(2)" class="delete" data-index="2" id="2">Удалить</span>
             </div>
 
         </div>
@@ -58,15 +73,28 @@
 
         let test = document.getElementById('a')
 
-// let ticket = document.getElementById('ticket')
-        // let addItem = document.getElementById('addItem')
-        // let organaizerList = document.querySelector('.organaizer__list')
-        // function addRecord() {
-        //     organaizerList.innerHTML = organaizerList.innerHTML + `<div class="organaizer__item">
-        //     <span>${ticket.value}</span>
-        //     </div>`
-        // }
+        let ticket = document.getElementById('ticket')
+        let addItem = document.getElementById('addItem')
+        let organaizerList = document.querySelector('.organaizer__list')
+        function addRecord() {
+            organaizerList.innerHTML += `<div class="organaizer__item">
+            <span>${ticket.value}</span>
+            <span onclick="deleteRecord('3')" class="delete" data-index="3" id="3">Удалить</span>
+            </div>`
+        }
 
+        function deleteRecord(num) {
+            organaizerList.childNodes.forEach(el => {
+                let counter = 0
+                if(el.dataset !== undefined){
+                    if(el.dataset.index == num){
+                        organaizerList.children[counter].remove()
+                    }
+                } 
+                counter++
+
+            })
+        }
 
     </script>
 
