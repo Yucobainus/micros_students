@@ -93,7 +93,7 @@
 		function searchAcc() {
 			let nameAcc = document.querySelector('.users-search input').value
 			for (el in users) {
-				if (users[el].name == nameAcc) {
+				if (users[el].name.toLowerCase() == nameAcc.toLowerCase()) {
 					feedbackList.innerHTML += ` <div class="card">
 						<img src="${users[el].ava}" sizes="100px">
             <div class="name">
