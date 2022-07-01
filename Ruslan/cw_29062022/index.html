@@ -66,6 +66,7 @@
         let feedbacklist = document.getElementById('feedbacklist')
         
 
+
         for (el in users) {
             console.log(users[el].feedback)
             feedbacklist.innerHTML +=
@@ -79,11 +80,35 @@
                 </div>`
         }
 
+<<<<<<< HEAD
         let input = document.getElementById('input')
         let span = document.getElementById('test')
         let submit = document.getElementById('submit')
 
         
+=======
+        let input = document.getElementById('input') // input.value
+        let submit = document.getElementById('submit') // кнопка
+
+        submit.addEventListener('click', function () {
+            feedbacklist.innerHTML = ''
+            for (el in users) {
+                if (input.value == users[el].name) {
+                    feedbacklist.innerHTML +=
+                        `<div class="card">
+                <div class="img"><img src="${users[el].img}" alt="img">
+                </div>
+                <div class="name"> ${users[el].name} 
+                </div>
+                <div = class="feedback">${users[el].feedback}
+                </div>
+                </div>`
+                }
+            }
+        })
+
+
+>>>>>>> 884a5dcd9d192d11a423a93432767b5967201fdf
 
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
