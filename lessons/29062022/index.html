@@ -62,16 +62,9 @@
 
     <form action="#" class="users-search">
         <input type="text" placeholder="Введите имя" id="input">
-        <input type="submit" value="Найти" onclick="searchByName()">
-        <a id="resetFilter"> Сбросить фильтр </a>
+        <!-- <input type="submit" value="Найти" onclick="searchByName()">
+        <a id="resetFilter"> Сбросить фильтр </a> -->
     </form>
-
-
-    <!-- <input type="text" value="testText">
-    <span id="duplicate"></span>
-    'input' - который отслеживает все изменение внутри выбранного объекта  -->
-            <!-- Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода -->
-
 
     <div class="wrapper" id="feedbackList">
 
@@ -86,6 +79,16 @@
 
     </div>
 
+
+    <p class="description-card">
+
+        <span class="blue-text">
+            Subscribe us on -
+            <a href="#" class="regular-link">Link</a>
+        </span>
+
+    </p>
+
     <script>
 
         // let input = document.getElementById('input')
@@ -94,20 +97,17 @@
             1: {
                 name: "Ivan",
                 feedback: "I really like it",
-                ava: "assets/img/us1.png",
-                male: "W"
+                ava: "assets/img/us1.png"
             },
             2: {
                 name: "Nataliya",
                 feedback: "УЖОС",
-                ava: "assets/img/us2.png",
-                male: "W"          
+                ava: "assets/img/us2.png"
             },
             3: {
                 name: "Kamil",
                 feedback: "Ничего не понятно, но очень интересно",
-                ava: "assets/img/us3.png",
-                male: "M"
+                ava: "assets/img/us3.png"
             }
         }
 
@@ -122,20 +122,20 @@
         resetFilter.addEventListener('click', all)
 
         function all(){
-            list.innerHTML = ''
-            for(user in users){  
-                list.innerHTML += `
-                <div class="card">
-                    <img src="${users[user].ava}">
-                    <div class="name">
-                        ${users[user].name}
-                    </div>
-                    <div class="feeedback">
-                        ${users[user].feedback}
-                    </div>
+        list.innerHTML = ''
+        for(user in users){  
+            list.innerHTML += `
+            <div class="card">
+                <img src="${users[user].ava}">
+                <div class="name">
+                    ${users[user].name}
                 </div>
-                `
-            }
+                <div class="feeedback">
+                    ${users[user].feedback}
+                </div>
+            </div>
+            `
+        }
         }
 
         function searchByName(){

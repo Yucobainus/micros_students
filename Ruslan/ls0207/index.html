@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            flex-direction: column;
+            row-gap: 15px;
+            padding: 15px;
+            border: 1px solid rgb(114, 114, 114)
+        }
+
+        .card {
+            box-shadow: 1px 1px 1px black;
+        }
+
+        .text {
+            padding-left: 5px;
+            width: 150px;
+            height: 30px;
+            font-size: 16px;
+            margin-right: 20px;
+            border-radius: 10px;
+            border: 1px dotted red;
+        }
+
+        .submit {
+            padding: 5px;
+            width: 100px;
+            background-color: aqua;
+            color: blue;
+            transition: .5s;
+            border-radius: 10px;
+        }
+
+        .submit:hover {
+            background-color: blue;
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="#" class="users-search">
+        <input type="text" class="text" placeholder="Введите имя" id="input">
+        <span id="test"></span>
+        <input type="submit" class="submit" value="Найти" id="submit">
+    </form>
+    <br>
+    <div class="wrapper" id="feedbacklist">
+
+        <!-- <div class="card">
+            <div class="name">
+
+            </div>
+            <div class="feeedback">
+
+            </div>
+        </div> -->
+
+    </div>
+
+
+
+    <br>
+
+    <input type="text" id="testText">
+    <span id="duplicate"></span>
+
+    <script>
+        let users = {
+            1: {
+                name: "Ivan",
+                feedback: "I really like it",
+                img: "assets/img/us1.png"
+            },
+            2: {
+                name: "Nataliya",
+                feedback: "УЖОС",
+                img: "assets/img/us3.png"
+            },
+            3: {
+                name: "Kamil",
+                feedback: "Ничего не понятно, но очень интересно",
+                img: "assets/img/us2.png"
+            }
+        }
+
+        let feedbacklist = document.getElementById('feedbacklist')
+
+
+
+        for (el in users) {
+            console.log(users[el].feedback)
+            feedbacklist.innerHTML +=
+                `<div class="card">
+                <div class="img"><img src="${users[el].img}" alt="img">
+                </div>
+                <div class="name"> ${users[el].name} 
+                </div>
+                <div = class="feedback">${users[el].feedback}
+                </div>
+                </div>`
+        }
+
+
+        let input = document.getElementById('input')
+        let span = document.getElementById('test')
+        let submit = document.getElementById('submit')
+
+
+        submit.addEventListener('click', function () {
+            feedbacklist.innerHTML = ''
+            for (el in users) {
+                if (input.value == users[el].name) {
+                    feedbacklist.innerHTML +=
+                        `<div class="card">
+                <div class="img"><img src="${users[el].img}" alt="img">
+                </div>
+                <div class="name"> ${users[el].name} 
+                </div>
+                <div = class="feedback">${users[el].feedback}
+                </div>
+                </div>`
+                }
+            }
+        })
+
+
+
+        // 'input' - который отслеживает все изменение внутри выбранного объекта
+        //         Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода
+
+
+
+        // let inpt = document.getElementById('testText')
+        // let duplicate = document.getElementById('duplicate')
+
+        // inpt.addEventListener('input', function () {
+        //     duplicate.innerHTML = inpt.value
+        // })
+
+
+
+
+
+        //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
+        //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
+
+    </script>
+</body>
+
+</html>
