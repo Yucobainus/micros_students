@@ -96,11 +96,12 @@
         
         let box = document.querySelector(selector);
         let index = 1;
-        if(param.length > 1){          
+        if(param.length >= 1){          
 
         box.innerHTML="";    
             for (user in obj) {
-                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase())){
+                console.log(obj[user].name.toLowerCase().indexOf(param.toLowerCase()));
+                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase()) != -1){
                     let card = `<div class="card card-${index} >
             <div class="ava">
           <img src=" ${obj[user].ava}">
