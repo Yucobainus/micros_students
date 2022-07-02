@@ -50,16 +50,17 @@
             transition: .5s ease;
         }
 
-        .users-search a {
+        .users-search input[type="submit"] {
             margin-left: 30px;
             background-color: rgb(109, 8, 8);
             color: white;
-            padding: 10px 20px 10px 20px;
+            padding: 11px 20px;
             border-radius: 7px;
             transition: .5s ease;
+            border: 0px;
         }
 
-        .users-search a:hover {
+        .users-search input[type="submit"]:hover {
             background-color: white;
             color: rgb(109, 8, 8)
         }
@@ -96,7 +97,7 @@
         <input type="radio" name="input-male" id="input-woman" value="W">
         <label for="input-woman">Женщина</label>
         <span class="search" id="submit">Найти?</span>
-        <a id="resetFilter"> Сбросить фильтр </a>
+        <input type="submit" value="Сбросить фильтр" id="resetFilter">
     </form>
 
     <div class="wrapper" id="feedbackList">
