@@ -65,6 +65,15 @@
 		<h4>Выберите пол</h4>
 		<input type="radio" name="sex" id="sx1" value="M" checked>Man
 		<input type="radio" name="sex" id="sx2" value="W">Woman
+
+
+		<label for="">Manger</label>
+		<input type="checkbox" name="position" value="Manager">
+
+		<label for="">Designer</label>
+		<input type="checkbox" name="position" value="Designer">
+		
+
 		<a href="#" onclick="searchAll()">Search</a>
 		<a id="resetFilter"> Сбросить фильтр </a>
 	</form>
@@ -81,19 +90,22 @@
 				name: "Ivan",
 				feedback: "I really like it",
 				ava: "assets/img/us1.png",
-				male: "M"
+				male: "M",
+				position: ["Manger", "Designer"]
 			},
 			2: {
 				name: "Nataliya",
 				feedback: "УЖОС",
 				ava: "assets/img/us2.png",
-				male: "W"
+				male: "W",
+				position: ["Designer", "Developer"]
 			},
 			3: {
 				name: "Kamil",
 				feedback: "Ничего не понятно, но очень интересно",
 				ava: "assets/img/us3.png",
-				male: "M"
+				male: "M",
+				position: "Developer"
 			}
 		}
 
