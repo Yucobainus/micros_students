@@ -63,6 +63,13 @@
   <form action="#" class="users-search">
     <input id="search" type="text" placeholder="Введите имя">
     <input id="confirm" type="submit" value="Найти">
+    <div style="margin-top: 10px ; text-align: end;">
+    <label for="male">Male</label>
+    <input class="radio-btn" type="radio" name="gender" value="M" id="male">
+    <label for="female">Female</label>
+    <input class="radio-btn" type="radio" name="gender" value="W" id="female">
+  </div>
+
   </form>
 
   <div class="wrapper">
@@ -79,28 +86,68 @@
             1: {
                 name: "Ivan",
                 feedback: "I really like it",
-                ava: "assets/img/us1.png"
+                ava: "assets/img/us1.png",
+                male: "M"
             },
             2: {
                 name: "Nataliya",
                 feedback: "УЖОС",
-                ava: "assets/img/us2.png"
+                ava: "assets/img/us2.png",
+                male: "W"
             },
             3: {
                 name: "Kamil",
                 feedback: "Ничего не понятно, но очень интересно",
-                ava: "assets/img/us3.png"
+                ava: "assets/img/us3.png",
+                male: "M"
             }
         }
+
+
+
+
+      const radioBtns = document.querySelectorAll('.radio-btn') ;
+      
+      radioBtns.forEach(rbtn=> {
+        rbtn.addEventListener('change',(e)=>{ 
+          let box = document.querySelector(".wrapper");        
+          box.innerHTML = "";
+        for (user in users) {
+          if(users[user].male == e.target.value){
+            let card = `
+          <div class="card"  id="${user}">
+            <div class="ava">
+              <img src=" ${users[user].ava}">
+            </div>
+            <div class="name">
+              ${users[user].name}
+            </div>
+            <div class="feeedback">
+                ${users[user].feedback}
+            </div>
+            <input type="number" class="inp">
+         </div>`;
+
+          box.insertAdjacentHTML("beforeend", card);
+
+          } 
+          
+        }})
+
+          
+        
+      })
+
       let render = (param="",selector=".wrapper", obj=users,) => {
         
         let box = document.querySelector(selector);
         let index = 1;
-        if(param.length > 1){          
+        if(param.length >= 1){          
 
         box.innerHTML="";    
             for (user in obj) {
-                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase())){
+                console.log(obj[user].name.toLowerCase().indexOf(param.toLowerCase()));
+                if(obj[user].name.toLowerCase().indexOf(param.toLowerCase()) != -1){
                     let card = `<div class="card card-${index} >
             <div class="ava">
           <img src=" ${obj[user].ava}">
@@ -121,17 +168,19 @@
       } else {
         box.innerHTML = "";
         for (user in obj) {
-          let card = `<div class="card card-${index} >
+          let card = `
+          <div class="card card-${index}"  id="${user}">
             <div class="ava">
-          <img src=" ${obj[user].ava}">
-      </div>
-      <div class="name">
-          ${obj[user].name}
-      </div>
-      <div class="feeedback">
-          ${obj[user].feedback}
-      </div>
-      </div>`;
+              <img src=" ${obj[user].ava}">
+            </div>
+            <div class="name">
+              ${obj[user].name}
+            </div>
+            <div class="feeedback">
+                ${obj[user].feedback}
+            </div>
+            <input type="number" class="inp">
+         </div>`;
 
           box.insertAdjacentHTML("beforeend", card);
           index++;
@@ -143,9 +192,9 @@
 
     let btn = document.querySelector('#confirm');
 
- 
-      
-     let inputValue = document.querySelector('#search');
+
+
+    let inputValue = document.querySelector('#search');
 
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -153,18 +202,17 @@
       render(inputValue);
 
     })
+    inputValue.addEventListener('input', (e) => {
+      render(e.target.value)
+    })
 
-   
-
-
-
-     inputValue.addEventListener('input',(e)=>{        
-        render(e.target.value)
-     })
-
-     render();
-
-
+    render();
+    let numberinputs = document.querySelectorAll('.inp')
+    numberinputs.forEach(el => {
+      el.addEventListener('input', function () {
+        console.log(el.parentNode)
+      })
+    })
 
 
       //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card

@@ -62,58 +62,102 @@
 
     <form action="#" class="users-search">
         <input type="text" placeholder="Введите имя" id="input">
-        <input type="submit" value="Найти">
+        <input type="submit" value="Найти" onclick="searchByName()">
+        <a id="resetFilter"> Сбросить фильтр </a>
     </form>
+
+
+    <!-- <input type="text" value="testText">
+    <span id="duplicate"></span>
+    'input' - который отслеживает все изменение внутри выбранного объекта  -->
+            <!-- Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода -->
+
 
     <div class="wrapper" id="feedbackList">
 
-        <div class="card">
+        <!-- <div class="card">
             <div class="name">
 
             </div>
             <div class="feeedback">
 
             </div>
-        </div>
+        </div> -->
 
     </div>
-
-
 
     <script>
 
         // let input = document.getElementById('input')
 
-        //      let users = {
-        //     1: {
-        //         name: "Ivan",
-        //         feedback: "I really like it",
-        //         ava: "assets/img/us1.png"
-        //     },
-        //     2: {
-        //         name: "Nataliya",
-        //         feedback: "УЖОС",
-        //         ava: "assets/img/us2.png"
-        //     },
-        //     3: {
-        //         name: "Kamil",
-        //         feedback: "Ничего не понятно, но очень интересно",
-        //         ava: "assets/img/us3.png"
-        //     }
-        // }
+        let users = {
+            1: {
+                name: "Ivan",
+                feedback: "I really like it",
+                ava: "assets/img/us1.png",
+                male: "W"
+            },
+            2: {
+                name: "Nataliya",
+                feedback: "УЖОС",
+                ava: "assets/img/us2.png",
+                male: "W"          
+            },
+            3: {
+                name: "Kamil",
+                feedback: "Ничего не понятно, но очень интересно",
+                ava: "assets/img/us3.png",
+                male: "M"
+            }
+        }
 
-    
-        // let list = document.getElementById('feedbackList')
+  
 
-        // input.addEventListener('input', function () {
-        //     list.innerHTML = ''
-        //     console.log(input.value)
-        //     for (el in users) {
-        //         if(users[el].name.indexOf(input.value) != -1){
-        //             list.innerHTML += `<div class='card'> ${users[el].name} </div> `
-        //         }
-        //     }
-        // })
+        let list = document.getElementById('feedbackList')
+        let nameInput = document.getElementById('input')
+        let resetFilter = document.getElementById('resetFilter')
+
+        all()
+
+        resetFilter.addEventListener('click', all)
+
+        function all(){
+        list.innerHTML = ''
+        for(user in users){  
+            list.innerHTML += `
+            <div class="card">
+                <img src="${users[user].ava}">
+                <div class="name">
+                    ${users[user].name}
+                </div>
+                <div class="feeedback">
+                    ${users[user].feedback}
+                </div>
+            </div>
+            `
+        }
+        }
+
+        function searchByName(){
+        list.innerHTML = ''
+        for(user in users){  
+            if(users[user].name == nameInput.value){
+                list.innerHTML += 
+                `
+                <div class="card">
+                    <img src="${users[user].ava}">
+                    <div class="name">
+                        ${users[user].name}
+                    </div>
+                    <div class="feeedback">
+                        ${users[user].feedback}
+                    </div>
+                </div>
+                `
+                }
+            }
+        }
+
 
         //indexOf - вхождение строки в строку, возвращает индекс с которого искомая строка входит в ту в которой ищем
         //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
