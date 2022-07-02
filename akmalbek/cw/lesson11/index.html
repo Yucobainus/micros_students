@@ -63,6 +63,9 @@
 	<form action="#" class="users-search">
 		<input type="text" placeholder="Введите имя" id="input">
 		<input type="submit" value="Найти">
+		<h4>Выберите пол</h4>
+		<input type="radio" name="sex" id="sx1" value="M" checked>Man
+		<input type="radio" name="sex" id="sx2" value="W">Woman
 	</form>
 
 
@@ -76,27 +79,39 @@
 			1: {
 				name: "Ivan",
 				feedback: "I really like it",
-				ava: "assets/img/us1.png"
+				ava: "assets/img/us1.png",
+				male: "M"
 			},
 			2: {
 				name: "Nataliya",
 				feedback: "УЖОС",
-				ava: "assets/img/us2.png"
+				ava: "assets/img/us2.png",
+				male: "W"
 			},
 			3: {
 				name: "Kamil",
 				feedback: "Ничего не понятно, но очень интересно",
-				ava: "assets/img/us3.png"
+				ava: "assets/img/us3.png",
+				male: "M"
 			}
 		}
 
 		feedbackList = document.querySelector('.wrapper')
 		let input = document.getElementById('input')
+		let inputs = document.querySelectorAll('.users-search input')
+		
+
 
 		input.addEventListener('input', (e) => {
 			feedbackList.innerHTML = ''
 			for (el in users) {
-				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) > -1) {
+				inputs.forEach(inp =>{
+					if (inp.checked){
+						sex = inp.value
+						console.log(sex)
+					}
+				})
+				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) > -1 && sex == users[el].male) {
 					feedbackList.innerHTML += `
 						<div class="card">
 							<div class="ava">
