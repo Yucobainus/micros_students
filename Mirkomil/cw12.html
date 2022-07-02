@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" value="testText" id="text">
+    <span id="duplicate"></span>
+
+
+
+    <!-- 'input' - который отслеживает все изменение внутри выбранного объекта -->
+    <!-- Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода -->
+
+
+
+
+
+
+    <script>
+
+        let duplicate = document.getElementById('duplicate')
+        let text = document.getElementById('text')
+
+
+
+
+        text.addEventListener('input', function(){
+            duplicate.innerHTML = text.value
+        })
+
+
+    </script>
+</body>
+
+</html>
