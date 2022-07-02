@@ -122,20 +122,20 @@
         resetFilter.addEventListener('click', all)
 
         function all(){
-        list.innerHTML = ''
-        for(user in users){  
-            list.innerHTML += `
-            <div class="card">
-                <img src="${users[user].ava}">
-                <div class="name">
-                    ${users[user].name}
+            list.innerHTML = ''
+            for(user in users){  
+                list.innerHTML += `
+                <div class="card">
+                    <img src="${users[user].ava}">
+                    <div class="name">
+                        ${users[user].name}
+                    </div>
+                    <div class="feeedback">
+                        ${users[user].feedback}
+                    </div>
                 </div>
-                <div class="feeedback">
-                    ${users[user].feedback}
-                </div>
-            </div>
-            `
-        }
+                `
+            }
         }
 
         function searchByName(){

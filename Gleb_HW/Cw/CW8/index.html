@@ -21,7 +21,7 @@
         }
 
         .users-search {
-            width: 1000px;
+            width: 1200px;
             margin-bottom: 15px;
         }
 
@@ -39,6 +39,34 @@
 
         .users-search input[type="text"]::placeholder {
             color: rgb(201, 201, 201)
+        }
+
+        .users-search label {
+            margin-right: 30px;
+            background-color: rgb(109, 8, 8);
+            color: white;
+            padding: 10px 20px 10px 20px;
+            border-radius: 7px;
+            transition: .5s ease;
+        }
+
+        .users-search a {
+            margin-left: 30px;
+            background-color: rgb(109, 8, 8);
+            color: white;
+            padding: 10px 20px 10px 20px;
+            border-radius: 7px;
+            transition: .5s ease;
+        }
+
+        .users-search a:hover {
+            background-color: white;
+            color: rgb(109, 8, 8)
+        }
+
+        .users-search label:hover {
+            background-color: white;
+            color: rgb(109, 8, 8)
         }
 
         .users-search input[type="submit"] {
@@ -62,8 +90,13 @@
 <body>
 
     <form action="#" class="users-search">
-        <input type="text" placeholder="Введите имя" id="input-name">
+        <!-- <input type="text" placeholder="Введите имя" id="input-name"> -->
+        <input onclick="SearchMan()" type="radio" name="input-male" id="input-man" value="M">
+        <label for="input-man">Мужчина</label>
+        <input type="radio" name="input-male" id="input-woman" value="W">
+        <label onclick="SearchWoman()" for="input-woman">Женщина</label>
         <input type="submit" value="Найти" id="submit">
+        <a id="resetFilter"> Сбросить фильтр </a>
     </form>
 
     <div class="wrapper" id="feedbackList">
@@ -85,25 +118,49 @@
             1: {
                 name: "Ivan",
                 feedback: "I really like it",
-                ava: "assets/img/us2.png"
+                ava: "assets/img/us2.png",
+                male: "M"
             },
             2: {
                 name: "Nataliya",
                 feedback: "УЖОС",
-                ava: "assets/img/us1.png"
+                ava: "assets/img/us1.png",
+                male: "W"
             },
             3: {
                 name: "Kamil",
                 feedback: "Ничего не понятно, но очень интересно",
-                ava: "assets/img/us3.png"
+                ava: "assets/img/us3.png",
+                male: "M"
             }
         }
 
         let feedbackList = document.getElementById('feedbackList')
         let inputName = document.getElementById('input-name')
         let submit = document.getElementById('submit')
-        
-        
+        let man = document.getElementById('input-man')
+        let woman = document.getElementById('input-woman')
+        let resetFilter = document.getElementById('resetFilter')
+
+        resetFilter.addEventListener('click', all)
+
+        function all() {
+            feedbackList.innerHTML = ''
+            for (user in users) {
+                feedbackList.innerHTML += `
+                <div class="card">
+                    <img src="${users[user].ava}">
+                    <div class="name">
+                        ${users[user].name}
+                    </div>
+                    <div class="feeedback">
+                        ${users[user].feedback}
+                    </div>
+                </div>
+                `
+            }
+        }
+
         for (el in users) {
             feedbackList.innerHTML += `<div class="card"> 
                 <div class="ava">
@@ -118,11 +175,12 @@
             </div>`
         }
 
-        inputName.addEventListener('input', function (){
+        function SearchMan() {
             feedbackList.innerHTML = ''
             for (el in users) {
-                if(users[el].name.toUpperCase().indexOf(inputName.value.toUpperCase()) != -1){
-                    feedbackList.innerHTML += `<div class="card"> 
+                if (users[el].male == man.value) {
+                    feedbackList.innerHTML +=
+                        `<div class="card"> 
                         <div class="ava">
                             <img src="${users[el].ava}" alt="Здесь Ава">
                         </div>
@@ -132,14 +190,54 @@
                         <div class="feeedback">
                             ${users[el].feedback}
                         </div>
-                    </div>`
+                        </div>`  
                 }
-            }
-        })
-        
-        
-        
-        
+            }  
+        }
+
+        function SearchWoman() {
+            feedbackList.innerHTML = ''
+            for (el in users) {
+                if (users[el].male == woman.value) {
+                    feedbackList.innerHTML +=
+                        `<div class="card"> 
+                        <div class="ava">
+                            <img src="${users[el].ava}" alt="Здесь Ава">
+                        </div>
+                        <div class="name">
+                            ${users[el].name}
+                        </div>
+                        <div class="feeedback">
+                            ${users[el].feedback}
+                        </div>
+                        </div>`  
+                }
+            }  
+        }
+
+        // inputName.addEventListener('input', function () {
+        //     feedbackList.innerHTML = ''
+        //     for (el in users) {
+        //         if (users[el].name.toUpperCase().indexOf(inputName.value.toUpperCase()) != -1) {
+        //             feedbackList.innerHTML +=
+        //                 `<div class="card"> 
+        //                 <div class="ava">
+        //                     <img src="${users[el].ava}" alt="Здесь Ава">
+        //                 </div>
+        //                 <div class="name">
+        //                     ${users[el].name}
+        //                 </div>
+        //                 <div class="feeedback">
+        //                     ${users[el].feedback}
+        //                 </div>
+        //             </div>`
+        //         }
+        //     }
+        // })
+
+
+
+
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
