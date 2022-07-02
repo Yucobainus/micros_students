@@ -41,7 +41,7 @@
 			color: rgb(201, 201, 201)
 		}
 
-		.users-search input[type="submit"] {
+		.users-search a {
 			padding: 10px;
 			width: 265px;
 			background-color: rgb(109, 8, 8);
@@ -52,7 +52,7 @@
 			border-radius: 7px;
 		}
 
-		.users-search input[type="submit"]:hover {
+		.users-search a:hover {
 			background-color: white;
 			color: rgb(109, 8, 8)
 		}
@@ -62,10 +62,11 @@
 <body>
 	<form action="#" class="users-search">
 		<input type="text" placeholder="Введите имя" id="input">
-		<input type="submit" value="Найти">
 		<h4>Выберите пол</h4>
 		<input type="radio" name="sex" id="sx1" value="M" checked>Man
 		<input type="radio" name="sex" id="sx2" value="W">Woman
+		<a href="#" onclick="searchAll()">Search</a>
+		<a id="resetFilter"> Сбросить фильтр </a>
 	</form>
 
 
@@ -99,18 +100,34 @@
 		feedbackList = document.querySelector('.wrapper')
 		let input = document.getElementById('input')
 		let inputs = document.querySelectorAll('.users-search input')
-		
-
-
-		input.addEventListener('input', (e) => {
+		let resetFilter = document.getElementById('resetFilter')
+		function all() {
+			input.value = ''
 			feedbackList.innerHTML = ''
 			for (el in users) {
-				inputs.forEach(inp =>{
-					if (inp.checked){
-						sex = inp.value
-						console.log(sex)
-					}
-				})
+				feedbackList.innerHTML += `
+						<div class="card">
+							<div class="ava">
+							<img src="${users[el].ava}" sizes="100px">
+							</div>
+           		<div class="name">
+								${users[el].name}
+           		</div>
+           		<div class="feeedback">
+								${users[el].feedback}
+            	</div>
+        		</div>`
+			}
+		}
+
+		function searchAll() {
+			inputs.forEach(inp => {
+				if (inp.checked) {
+					sex = inp.value
+				}
+			})
+			feedbackList.innerHTML = ''
+			for (el in users) {
 				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) > -1 && sex == users[el].male) {
 					feedbackList.innerHTML += `
 						<div class="card">
@@ -126,8 +143,9 @@
         		</div>`
 				}
 			}
-		})
-
+		}
+		resetFilter.addEventListener('click', all)
+		all()
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
