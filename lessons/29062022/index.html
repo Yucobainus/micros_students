@@ -62,13 +62,20 @@
 
     <form action="#" class="users-search">
         <input type="text" placeholder="Введите имя" id="input">
-        <span id="test"></span>
-        <input type="submit" value="Найти">
+        <input type="submit" value="Найти" onclick="searchByName()">
+        <a id="resetFilter"> Сбросить фильтр </a>
     </form>
 
-    <!-- <div class="wrapper" id="feedbackList"> -->
 
-    <!-- <div class="card">
+    <!-- <input type="text" value="testText">
+    <span id="duplicate"></span>
+    'input' - который отслеживает все изменение внутри выбранного объекта  -->
+            <!-- Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода -->
+
+
+    <div class="wrapper" id="feedbackList">
+
+        <!-- <div class="card">
             <div class="name">
 
             </div>
@@ -76,45 +83,86 @@
 
             </div>
         </div> -->
-    <!-- 
-    </div> -->
 
-
+    </div>
 
     <script>
 
-        let input = document.getElementById('input')
-        let span = document.getElementById('test')
+        // let input = document.getElementById('input')
 
+        let users = {
+            1: {
+                name: "Ivan",
+                feedback: "I really like it",
+                ava: "assets/img/us1.png",
+                male: "W"
+            },
+            2: {
+                name: "Nataliya",
+                feedback: "УЖОС",
+                ava: "assets/img/us2.png",
+                male: "W"          
+            },
+            3: {
+                name: "Kamil",
+                feedback: "Ничего не понятно, но очень интересно",
+                ava: "assets/img/us3.png",
+                male: "M"
+            }
+        }
 
-        input.addEventListener('input', function(){
-            console.log(input.value)
-        })
+  
+
+        let list = document.getElementById('feedbackList')
+        let nameInput = document.getElementById('input')
+        let resetFilter = document.getElementById('resetFilter')
+
+        all()
+
+        resetFilter.addEventListener('click', all)
+
+        function all(){
+        list.innerHTML = ''
+        for(user in users){  
+            list.innerHTML += `
+            <div class="card">
+                <img src="${users[user].ava}">
+                <div class="name">
+                    ${users[user].name}
+                </div>
+                <div class="feeedback">
+                    ${users[user].feedback}
+                </div>
+            </div>
+            `
+        }
+        }
+
+        function searchByName(){
+        list.innerHTML = ''
+        for(user in users){  
+            if(users[user].name == nameInput.value){
+                list.innerHTML += 
+                `
+                <div class="card">
+                    <img src="${users[user].ava}">
+                    <div class="name">
+                        ${users[user].name}
+                    </div>
+                    <div class="feeedback">
+                        ${users[user].feedback}
+                    </div>
+                </div>
+                `
+                }
+            }
+        }
+
 
         //indexOf - вхождение строки в строку, возвращает индекс с которого искомая строка входит в ту в которой ищем
         //https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
 
-        // let users = {
-        //     1: {
-        //         name: "Ivan",
-        //         feedback: "I really like it",
-        //         ava: "assets/img/us1.png"
-        //     },
-        //     2: {
-        //         name: "Nataliya",
-        //         feedback: "УЖОС",
-        //         ava: "assets/img/us2.png"
-        //     },
-        //     3: {
-        //         name: "Kamil",
-        //         feedback: "Ничего не понятно, но очень интересно",
-        //         ava: "assets/img/us3.png"
-        //     }
-        // }
-
-        // for (el in users) {
-        //     console.log(users[el].feedback)
-        // }
+   
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно

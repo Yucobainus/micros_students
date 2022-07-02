@@ -122,17 +122,19 @@
       } else {
         box.innerHTML = "";
         for (user in obj) {
-          let card = `<div class="card card-${index} >
+          let card = `
+          <div class="card card-${index}"  id="${user}">
             <div class="ava">
-          <img src=" ${obj[user].ava}">
-      </div>
-      <div class="name">
-          ${obj[user].name}
-      </div>
-      <div class="feeedback">
-          ${obj[user].feedback}
-      </div>
-      </div>`;
+              <img src=" ${obj[user].ava}">
+            </div>
+            <div class="name">
+              ${obj[user].name}
+            </div>
+            <div class="feeedback">
+                ${obj[user].feedback}
+            </div>
+            <input type="number" class="inp">
+         </div>`;
 
           box.insertAdjacentHTML("beforeend", card);
           index++;
@@ -144,9 +146,9 @@
 
     let btn = document.querySelector('#confirm');
 
- 
-      
-     let inputValue = document.querySelector('#search');
+
+
+    let inputValue = document.querySelector('#search');
 
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -154,18 +156,17 @@
       render(inputValue);
 
     })
+    inputValue.addEventListener('input', (e) => {
+      render(e.target.value)
+    })
 
-   
-
-
-
-     inputValue.addEventListener('input',(e)=>{        
-        render(e.target.value)
-     })
-
-     render();
-
-
+    render();
+    let numberinputs = document.querySelectorAll('.inp')
+    numberinputs.forEach(el => {
+      el.addEventListener('input', function () {
+        console.log(el.parentNode)
+      })
+    })
 
 
       //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
