@@ -69,8 +69,8 @@
             color: rgb(109, 8, 8)
         }
 
-        .users-search input[type="submit"] {
-            padding: 10px;
+        .users-search .search{
+            padding: 10px 30px;
             width: 265px;
             background-color: rgb(109, 8, 8);
             color: white;
@@ -80,7 +80,7 @@
             border-radius: 7px;
         }
 
-        .users-search input[type="submit"]:hover {
+        .users-search .search:hover {
             background-color: white;
             color: rgb(109, 8, 8)
         }
@@ -91,11 +91,11 @@
 
     <form action="#" class="users-search">
         <!-- <input type="text" placeholder="Введите имя" id="input-name"> -->
-        <input onclick="SearchMan()" type="radio" name="input-male" id="input-man" value="M">
+        <input type="radio" name="input-male" id="input-man" value="M">
         <label for="input-man">Мужчина</label>
         <input type="radio" name="input-male" id="input-woman" value="W">
-        <label onclick="SearchWoman()" for="input-woman">Женщина</label>
-        <input type="submit" value="Найти" id="submit">
+        <label for="input-woman">Женщина</label>
+        <span class="search" id="submit">Найти?</span>
         <a id="resetFilter"> Сбросить фильтр </a>
     </form>
 
@@ -174,12 +174,16 @@
                 </div>
             </div>`
         }
-
-        function SearchMan() {
+        
+        submit.addEventListener('click', function (){
+            search()
+        })
+        function search() {
             feedbackList.innerHTML = ''
             for (el in users) {
-                if (users[el].male == man.value) {
-                    feedbackList.innerHTML +=
+                if (man.checked) {
+                    if(users[el].male == man.value){
+                        feedbackList.innerHTML +=
                         `<div class="card"> 
                         <div class="ava">
                             <img src="${users[el].ava}" alt="Здесь Ава">
@@ -190,16 +194,11 @@
                         <div class="feeedback">
                             ${users[el].feedback}
                         </div>
-                        </div>`  
-                }
-            }  
-        }
-
-        function SearchWoman() {
-            feedbackList.innerHTML = ''
-            for (el in users) {
-                if (users[el].male == woman.value) {
-                    feedbackList.innerHTML +=
+                        </div>`
+                    }
+                } else if (woman.checked) {
+                    if(users[el].male == woman.value){
+                        feedbackList.innerHTML +=
                         `<div class="card"> 
                         <div class="ava">
                             <img src="${users[el].ava}" alt="Здесь Ава">
@@ -210,7 +209,8 @@
                         <div class="feeedback">
                             ${users[el].feedback}
                         </div>
-                        </div>`  
+                        </div>`
+                    }
                 }
             }  
         }
