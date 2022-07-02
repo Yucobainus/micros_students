@@ -62,7 +62,7 @@
 <body>
 	<form action="#" class="users-search">
 		<input type="text" placeholder="Введите имя" id="input">
-		<input type="submit" value="Найти">
+		<input type="submit" value="Найти" onclick="searchAll()">
 		<h4>Выберите пол</h4>
 		<input type="radio" name="sex" id="sx1" value="M" checked>Man
 		<input type="radio" name="sex" id="sx2" value="W">Woman
@@ -99,18 +99,31 @@
 		feedbackList = document.querySelector('.wrapper')
 		let input = document.getElementById('input')
 		let inputs = document.querySelectorAll('.users-search input')
-		
+		function all() {
+			for (el in users) {
+				feedbackList.innerHTML += `
+						<div class="card">
+							<div class="ava">
+							<img src="${users[el].ava}" sizes="100px">
+							</div>
+           		<div class="name">
+								${users[el].name}
+           		</div>
+           		<div class="feeedback">
+								${users[el].feedback}
+            	</div>
+        		</div>`
+			}
+		}
 
-
-		input.addEventListener('input', (e) => {
+		function searchAll() {
+			inputs.forEach(inp => {
+				if (inp.checked) {
+					sex = inp.value
+				}
+			})
 			feedbackList.innerHTML = ''
 			for (el in users) {
-				inputs.forEach(inp =>{
-					if (inp.checked){
-						sex = inp.value
-						console.log(sex)
-					}
-				})
 				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) > -1 && sex == users[el].male) {
 					feedbackList.innerHTML += `
 						<div class="card">
@@ -126,8 +139,8 @@
         		</div>`
 				}
 			}
-		})
-
+		}
+		all()
 
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
