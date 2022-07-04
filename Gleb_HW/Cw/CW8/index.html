@@ -21,7 +21,7 @@
         }
 
         .users-search {
-            width: 1200px;
+            width: 1400px;
             margin-bottom: 15px;
         }
 
@@ -50,7 +50,7 @@
             transition: .5s ease;
         }
 
-        .users-search input[type="submit"] {
+        .users-search a {
             margin-left: 30px;
             background-color: rgb(109, 8, 8);
             color: white;
@@ -60,7 +60,7 @@
             border: 0px;
         }
 
-        .users-search input[type="submit"]:hover {
+        .users-search a:hover {
             background-color: white;
             color: rgb(109, 8, 8)
         }
@@ -91,13 +91,28 @@
 <body>
 
     <form action="#" class="users-search">
-        <!-- <input type="text" placeholder="Введите имя" id="input-name"> -->
-        <input type="radio" name="input-male" id="input-man" value="M">
-        <label for="input-man">Мужчина</label>
-        <input type="radio" name="input-male" id="input-woman" value="W">
-        <label for="input-woman">Женщина</label>
+        <input type="text" placeholder="Введите имя" id="input-name"><br><br>
+
+
+
+        <input class="male" type="radio" name="male" id="man" value="M">
+        <label for="man">Мужчина</label>
+        <input class="male" type="radio" name="male" id="woman" value="W">
+        <label for="woman">Женщина</label><br><br><br>
+
+
+		<input class="position" type="checkbox" name="position" value="Manager" id="manager">
+        <label for="manager">Manger</label>
+
+		<input class="position" type="checkbox" name="position" value="Designer" id="designer">
+        <label for="designer">Designer</label>
+
+        <input class="position" type="checkbox" name="position" value="Developer" id="developer">
+        <label for="developer">Developer</label><br><br><br>
+
+
         <span class="search" id="submit">Найти?</span>
-        <input type="submit" value="Сбросить фильтр" id="resetFilter">
+        <a id="resetFilter"> Сбросить фильтр </a>
     </form>
 
     <div class="wrapper" id="feedbackList">
@@ -120,27 +135,30 @@
                 name: "Ivan",
                 feedback: "I really like it",
                 ava: "assets/img/us2.png",
-                male: "M"
+                male: "M",
+				position: ["Manger", "Designer"]
             },
             2: {
                 name: "Nataliya",
                 feedback: "УЖОС",
                 ava: "assets/img/us1.png",
-                male: "W"
+                male: "W",
+				position: ["Designer", "Developer"]
             },
             3: {
                 name: "Kamil",
                 feedback: "Ничего не понятно, но очень интересно",
                 ava: "assets/img/us3.png",
-                male: "M"
+                male: "M",
+                position: ["Developer"]
             }
         }
 
         let feedbackList = document.getElementById('feedbackList')
         let inputName = document.getElementById('input-name')
         let submit = document.getElementById('submit')
-        let man = document.getElementById('input-man')
-        let woman = document.getElementById('input-woman')
+        let inputsMale = document.querySelectorAll('.users-search .male')
+        let inputsPosition = document.querySelectorAll('.users-search .position')
         let resetFilter = document.getElementById('resetFilter')
 
         resetFilter.addEventListener('click', all)
@@ -157,63 +175,51 @@
                     <div class="feeedback">
                         ${users[user].feedback}
                     </div>
+                    <div class="position">
+                        ${users[user].position}
+                    </div>
                 </div>
                 `
             }
         }
 
-        for (el in users) {
-            feedbackList.innerHTML += `<div class="card"> 
-                <div class="ava">
-                    <img src="${users[el].ava}" alt="Здесь Ава">
-                </div>
-                <div class="name">
-                    ${users[el].name}
-                </div>
-                <div class="feeedback">
-                    ${users[el].feedback}
-                </div>
-            </div>`
-        }
+        all()
         
-        submit.addEventListener('click', function (){
-            search()
-        })
+        submit.addEventListener('click', search)
+
         function search() {
+            inputsMale.forEach(inp => {
+                if(inp.checked){
+                    male = inp.value
+                } 
+            })
+            inputsPosition.forEach(inp => { 
+                if(inp.checked){
+                    pos = inp.value
+                }
+            })
             feedbackList.innerHTML = ''
             for (el in users) {
-                if (man.checked) {
-                    if(users[el].male == man.value){
+                for (i = 0; i <= users[el].position.length; i++){
+                    if (users[el].name.toUpperCase().indexOf(inputName.value.toUpperCase()) > -1 && male == users[el].male && pos == users[el].position[i]){
                         feedbackList.innerHTML +=
                         `<div class="card"> 
-                        <div class="ava">
-                            <img src="${users[el].ava}" alt="Здесь Ава">
-                        </div>
-                        <div class="name">
-                            ${users[el].name}
-                        </div>
-                        <div class="feeedback">
-                            ${users[el].feedback}
-                        </div>
-                        </div>`
-                    }
-                } else if (woman.checked) {
-                    if(users[el].male == woman.value){
-                        feedbackList.innerHTML +=
-                        `<div class="card"> 
-                        <div class="ava">
-                            <img src="${users[el].ava}" alt="Здесь Ава">
-                        </div>
-                        <div class="name">
-                            ${users[el].name}
-                        </div>
-                        <div class="feeedback">
-                            ${users[el].feedback}
-                        </div>
+                            <div class="ava">
+                                <img src="${users[el].ava}" alt="Здесь Ава">
+                            </div>
+                            <div class="name">
+                                ${users[el].name}
+                            </div>
+                            <div class="feeedback">
+                                ${users[el].feedback}
+                            </div>
+                            <div class="position">
+                                ${users[el].position}
+                            </div>
                         </div>`
                     }
                 }
-            }  
+            }
         }
 
         // inputName.addEventListener('input', function () {
