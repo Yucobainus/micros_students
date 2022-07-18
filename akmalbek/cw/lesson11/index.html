@@ -72,7 +72,7 @@
 
 		<label for="">Designer</label>
 		<input type="checkbox" name="position" value="Designer">
-		
+
 
 		<a href="#" onclick="searchAll()">Search</a>
 		<a id="resetFilter"> Сбросить фильтр </a>
@@ -91,7 +91,7 @@
 				feedback: "I really like it",
 				ava: "assets/img/us1.png",
 				male: "M",
-				position: ["Manger", "Designer"]
+				position: ["Manager", "Designer"]
 			},
 			2: {
 				name: "Nataliya",
@@ -105,7 +105,7 @@
 				feedback: "Ничего не понятно, но очень интересно",
 				ava: "assets/img/us3.png",
 				male: "M",
-				position: "Developer"
+				position: ["Manager", "Developer"]
 			}
 		}
 
@@ -133,14 +133,29 @@
 		}
 
 		function searchAll() {
+			let selPosition = []
 			inputs.forEach(inp => {
-				if (inp.checked) {
+
+				if (inp.name == "sex" && inp.checked) {
 					sex = inp.value
 				}
+				if (inp.name == "position" && inp.checked) {
+					selPosition.push(inp.value)
+				}
+
 			})
+			
 			feedbackList.innerHTML = ''
 			for (el in users) {
-				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) > -1 && sex == users[el].male) {
+				let countSel = 0
+				for (let i = 0; i < users[el].position.length; i++) {
+					for (let j = 0; j < selPosition.length; j++) {
+						if (selPosition[j] === users[el].position[i])
+							countSel++
+				}
+				}
+				console.log(countSel)
+				if (users[el].name.toLowerCase().indexOf(input.value.toLowerCase()) > -1 && sex == users[el].male && countSel >= selPosition.length) {
 					feedbackList.innerHTML += `
 						<div class="card">
 							<div class="ava">
