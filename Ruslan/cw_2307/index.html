@@ -59,29 +59,85 @@
         // console.log(highModer.surname)
         // console.log(moder.name)
 
-        let animal = {
-            feed: "Something",
-            eat: function(){
-                console.log(`Eat ${this.feed}`)
-            }
-        }
+        // let animal = {
+        //     feed: "Something",
+        //     eat: function(){
+        //         console.log(`Eat ${this.feed}`)
+        //     }
+        // }
 
-        let cat = {
-            feed: "fish",
-            __proto__: animal,   
-        }
+        // let cat = {
+        //     feed: "fish",
+        //     __proto__: animal,   
+        // }
 
-        let bird = {
-            feed: "grass",
-            __proto__: animal,
-        }
+        // let bird = {
+        //     feed: "grass",
+        //     __proto__: animal,
+        // }
 
 
         //вывод Eat FISH
-        cat.eat()
+        // cat.eat()
 
         //вывод Eat Grass
-        bird.eat()
+        // bird.eat()
+
+      
+
+
+        let animal = {
+			weapon: "nothing",
+			set weapons(value){
+				this.weapon = value
+			},
+			get attack() {
+				return `attack by ${this.weapon}`
+			}
+		}
+
+		let cat = {
+			__proto__: animal,
+		}
+
+		let bird = {
+			__proto__: animal,
+		}
+
+		//Можно дописать функционал при вызове
+		//Параметр weapon не должен изменяться на прямую при вызове
+
+		//attack by claws
+        cat.weapon = "claws"
+		console.log(cat.attack)
+
+		//attack by klyuv
+        bird.weapon = "klyuv"
+		console.log(bird.attack)
+
+
+
+        let head = {
+            glasses: 1 
+        };
+
+        let table = {
+            pen: 3,
+            __proto__: head
+        };
+
+        let bed = {
+            sheet: 1,
+            pillow: 2,
+            __proto__: table
+        };
+
+        let pockets = {
+            money: 2000,
+            __proto__: bed
+        };
+
+        console.log(bed.glasses)
 
     </script>
 
