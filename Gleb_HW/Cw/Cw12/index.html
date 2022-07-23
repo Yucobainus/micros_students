@@ -59,29 +59,35 @@
         // console.log(highModer.surname)
         // console.log(moder.name)
 
-        let animal = {
-            feed: "Something",
-            eat: function(){
-                console.log(`Eat ${this.feed}`)
-            }
-        }
+        //Можно дописать функионал сюда
+		let animal = {
+			weapon: "nothing",
+            set attack(value) {
+                this.weapon = value
+            },
+			get attack() {
+				return `attack by ${this.weapon}`
+			}
+		}
 
-        let cat = {
-            feed: "FISH",
-            __proto__: animal
-        }
+		let cat = {
+			__proto__: animal,
+		}
 
-        let bird = {
-            feed: "Grass",
-            __proto__: animal
-        }
+		let bird = {
+			__proto__: animal,
+		}
 
+		//Можно дописать функционал при вызове
+		//Параметр weapon не должен изменяться на прямую при вызове
 
-        //вывод Eat FISH
-        cat.eat()
+		//attack by claws
+        cat.attack = "claws"
+		console.log(cat.attack)
 
-        //вывод Eat Grass
-        bird.eat()
+		//attack by klyuv
+        bird.attack = "klyuv"
+		console.log(bird.attack)
 
 
         let head = {
@@ -110,6 +116,9 @@
         //`__proto__` задайте прототипы так, чтобы поиск любого свойства выполнялся по следующему пути: `pockets` → `bed` → `table` → `head`.
         // Например, `pockets.pen` должно возвращать значение`3`(найденное в`table`),
         //а`bed.glasses` – значение`1`(найденное в`head`).
+
+
+        
 
     </script>
 
