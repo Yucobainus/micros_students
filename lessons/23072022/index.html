@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 12</title>
+</head>
+
+<body>
+
+    Урок 12
+
+
+    <script>
+
+        // let arr = [1, 2, 3, 4, 5]
+
+        // console.log(arr.length)
+        // console.log(arr)
+
+
+        // let user = {
+        //     accessible: 1,
+        //     watchPages: 123,
+        //     name: "Ivan",
+        //     surname: "Ivanov",
+        //     sayHi: function () {
+        //         console.log("Hey I'm User")
+        //     },
+        //     set fullName(value){
+        //         let data = value.split(" ")
+        //         this.name = data[0]
+        //         this.surname = data[1]
+        //     },
+        //     get fullName(){
+        //         return `${this.name} ${this.surname}`
+        //     },
+        // }
+
+        // let moder = {
+        //     deletePages: true,
+        //     sayHi: function () {
+        //         console.log("hey! I'm Moder")
+        //     },
+        //     __proto__: user,
+        // }
+
+
+        // let highModer = {
+        //     createSimplePage: true,
+        //     __proto__: moder,
+        // }
+
+        // //В этом месте сработает геттер
+        // highModer.fullName = "Adam Smith"
+        // moder.fullName = "morkov morkovna"
+        // console.log(highModer.surname)
+        // console.log(moder.name)
+
+        let animal = {
+            feed: "Something",
+            eat: function(){
+                console.log(`Eat ${this.feed}`)
+            }
+        }
+
+        let cat = {
+            
+        }
+
+        let bird = {
+          
+        }
+
+
+        //вывод Eat FISH
+        cat.eat()
+
+        //вывод Eat Grass
+        bird.eat()
+
+    </script>
+
+</body>
+
+</html>
