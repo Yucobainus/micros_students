@@ -29,7 +29,7 @@
             border: 1px dotted red;
         }
 
-        .submit {
+        .submit{
             padding: 5px;
             width: 100px;
             background-color: aqua;
@@ -37,11 +37,11 @@
             transition: .5s;
             border-radius: 10px;
         }
-
-        .submit:hover {
+        .submit:hover{
             background-color: blue;
             color: aqua;
         }
+
     </style>
 </head>
 
@@ -50,7 +50,7 @@
     <form action="#" class="users-search">
         <input type="text" class="text" placeholder="Введите имя" id="input">
         <span id="test"></span>
-        <input type="submit" class="submit" value="Найти" id="submit">
+        <!-- <input type="submit" class="submit" value="Найти" id="submit"> -->
     </form>
     <br>
     <div class="wrapper" id="feedbacklist">
@@ -70,7 +70,8 @@
 
     <br>
 
-    <input type="text" id="testText">
+    <input type="text" id="inpt" value="">
+    <button id="btn">Найти</button>
     <span id="duplicate"></span>
 
     <script>
@@ -93,7 +94,7 @@
         }
 
         let feedbacklist = document.getElementById('feedbacklist')
-
+        
 
 
         for (el in users) {
@@ -115,41 +116,53 @@
         let submit = document.getElementById('submit')
 
 
-        submit.addEventListener('click', function () {
+        // submit.addEventListener('click', function () {
+        //     feedbacklist.innerHTML = ''
+        //     for (el in users) {
+        //         if (input.value == users[el].name) {
+        //             feedbacklist.innerHTML +=
+        //                 `<div class="card">
+        //         <div class="img"><img src="${users[el].img}" alt="img">
+        //         </div>
+        //         <div class="name"> ${users[el].name} 
+        //         </div>
+        //         <div = class="feedback">${users[el].feedback}
+        //         </div>
+        //         </div>`
+        //         }
+        //     }
+        // })
+
+
+        input.addEventListener('input', function(){
             feedbacklist.innerHTML = ''
-            for (el in users) {
-                if (input.value == users[el].name) {
-                    feedbacklist.innerHTML +=
-                        `<div class="card">
-                <div class="img"><img src="${users[el].img}" alt="img">
+            for(user in users){
+                if(users[user].name.indexOf(input.value) != -1){
+                feedbacklist.innerHTML +=
+                `<div class="card">
+                <div class="img"><img src="${users[user].img}" alt="img">
                 </div>
-                <div class="name"> ${users[el].name} 
+                <div class="name"> ${users[user].name} 
                 </div>
-                <div = class="feedback">${users[el].feedback}
+                <div = class="feedback">${users[user].feedback}
                 </div>
                 </div>`
                 }
-            }
+           }
         })
 
 
 
-        // 'input' - который отслеживает все изменение внутри выбранного объекта
-        //         Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода
-
-
-
-        // let inpt = document.getElementById('testText')
-        // let duplicate = document.getElementById('duplicate')
-
-        // inpt.addEventListener('input', function () {
-        //     duplicate.innerHTML = inpt.value
-        // })
 
 
 
 
 
+    // 'input' - который отслеживает все изменение внутри выбранного объекта
+    //         Написать js который будет дублировать данные из testText в duplicate на "лету" - во время ввода
+
+
+    
         //При загрузке страницы, данные из объекта выше отрисовались в контейнер с классом wrapper в карточки с классом card
         //Где свойства name записывается в содержание контейнера с классом name, а feedback в feedback соответственно
 
