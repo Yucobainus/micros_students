@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <title>Slider</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="slider">
+            <div class="slider__arrow prev" id="">
+
+            </div>
+
+
+            <div class="slider__body" id="">
+
+                <div class="slider__item">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="slider__arrow next">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="prevArrow">Arrow</div>
+    <div class="slider" id="firstSlider">
+
+
+        <div class="slide">
+            1
+        </div>
+        <div class="slide">
+            2
+        </div>
+        <div class="slide">
+            3
+        </div>
+        <div class="slide">
+            4
+        </div>
+
+
+    </div>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        //slidesToShow: сколько-слайдов показывать
+        //slidesToScroll: Сколько слайдов пролистывать
+
+        //Добавить в слайды картинки на ваше усмотрение. Сделать так чтобы показывалось два слайда за раз. Пролистывалось тоже два слайда
+        //P.S Картинки должны быть размером 500X500 (С помощью ли CSS или картинки просто такого размера значения не имеет)
+        $("#firstSlider").slick({
+            slidesToShow: 2,
+            prevArrow: $("#prevArrow")
+        })
+
+
+        //У салйдера должен быть ограничивающий контейнер. 1250px. Контейнер по центру экрана. Внутри каждого слайда по центру должна быть кнопка ПЕРЕЙТИ(Стилизация на ваше усмотрение)
+        //Показываем один слайд, перелистываем один слайд.
+        //
+  </script>
+
+</body>
+
+</html>
