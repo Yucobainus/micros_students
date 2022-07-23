@@ -63,6 +63,9 @@
 		//Можно дописать функионал сюда
 		let animal = {
 			weapon: "nothing",
+			set setWeapons(value){
+				this.weapon = value
+			},
 			get attack() {
 				return `attack by ${this.weapon}`
 			}
@@ -78,10 +81,10 @@
 
 		//Можно дописать функционал при вызове
 		//Параметр weapon не должен изменяться на прямую при вызове
-
+		cat.setWeapons = "Claws"
 		//attack by claws
 		console.log(cat.attack)
-
+		bird.setWeapons = "Beak"
 		//attack by klyuv
 		console.log(bird.attack)
 
