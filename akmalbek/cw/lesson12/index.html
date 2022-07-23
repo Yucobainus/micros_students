@@ -87,24 +87,24 @@
 
 
 		let table = {
-            pen: 3,
-						__proto__: head
-        };
+			pen: 3,
+			__proto__: head
+		};
 
-        let head = {
-            glasses: 1 
-        };
+		let head = {
+			glasses: 1
+		};
 
-        let bed = {
-            sheet: 1,
-            pillow: 2,
-						__proto__: table
-        };
+		let bed = {
+			sheet: 1,
+			pillow: 2,
+			__proto__: table
+		};
 
-        let pockets = {
-            money: 2000,
-						__proto__: bed
-        };
+		let pockets = {
+			money: 2000,
+			__proto__: bed
+		};
 
         // 1. С помощью свойства 
         //`__proto__` задайте прототипы так, чтобы поиск любого свойства выполнялся по следующему пути: `pockets` → `bed` → `table` → `head`.
