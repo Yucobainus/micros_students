@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <title>Slider</title>
+</head>
+
+<body>
+    <div class="slider" id="firstSlider">
+
+        <div class="slide">
+           <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+        </div>
+        <div class="slide">
+            <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+        </div>
+        <div class="slide">
+            <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+        </div>
+        <div class="slide">
+            <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+        //slidesToShow: сколько-слайдов показывать
+        //slidesToScroll: Сколько слайдов пролистывать
+
+        //Добавить в слайды картинки на ваше усмотрение. Сделать так чтобы показывалось два слайда за раз. Пролистывалось тоже два слайда
+        //P.S Картинки должны быть размером 500X500 (С помощью ли CSS или картинки просто такого размера значения не имеет)
+        $("#firstSlider").slick({
+            slidesToShow: 2,
+            slidesToScroll:2,
+        })
+    </script>
+
+</body>
+
+</html>
