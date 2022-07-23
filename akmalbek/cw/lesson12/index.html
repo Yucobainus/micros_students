@@ -59,29 +59,31 @@
 		// console.log(highModer.surname)
 		// console.log(moder.name)
 
+
+		//Можно дописать функионал сюда
 		let animal = {
-			feed: "Something",
-			eat: function () {
-				console.log(`Eat ${this.feed}`)
+			weapon: "nothing",
+			get attack() {
+				return `attack by ${this.weapon}`
 			}
 		}
 
 		let cat = {
-			feed: "FISH",
 			__proto__: animal,
 		}
 
 		let bird = {
 			__proto__: animal,
-			feed: "Grass",
 		}
 
+		//Можно дописать функционал при вызове
+		//Параметр weapon не должен изменяться на прямую при вызове
 
-		//вывод Eat FISH
-		cat.eat()
+		//attack by claws
+		console.log(cat.attack)
 
-		//вывод Eat Grass
-		bird.eat()
+		//attack by klyuv
+		console.log(bird.attack)
 
 
 
