@@ -11,7 +11,33 @@
 
 <body>
 
+    <div class="container">
 
+        <div class="slider">
+            <div class="slider__arrow prev" id="">
+
+            </div>
+
+
+            <div class="slider__body" id="">
+
+                <div class="slider__item">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="slider__arrow next">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div id="prevArrow">Arrow</div>
     <div class="slider" id="firstSlider">
 
 
@@ -43,9 +69,15 @@
         //Добавить в слайды картинки на ваше усмотрение. Сделать так чтобы показывалось два слайда за раз. Пролистывалось тоже два слайда
         //P.S Картинки должны быть размером 500X500 (С помощью ли CSS или картинки просто такого размера значения не имеет)
         $("#firstSlider").slick({
-            slidesToShow: 2
+            slidesToShow: 2,
+            prevArrow: $("#prevArrow")
         })
-    </script>
+
+
+        //У салйдера должен быть ограничивающий контейнер. 1250px. Контейнер по центру экрана. Внутри каждого слайда по центру должна быть кнопка ПЕРЕЙТИ(Стилизация на ваше усмотрение)
+        //Показываем один слайд, перелистываем один слайд.
+        //
+  </script>
 
 </body>
 
