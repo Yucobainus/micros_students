@@ -59,57 +59,90 @@
         // console.log(highModer.surname)
         // console.log(moder.name)
 
-        let animal = {
-            feed: "Something",
-            eat: function(){
-                console.log(`Eat ${this.feed}`)
-            }
-        };
+        // let animal = {
+        //     feed: "Something",
+        //     eat: function(){
+        //         console.log(`Eat ${this.feed}`)
+        //     }
+        // };
 
-        let cat = {
-            feed: "FISH",
-            __proto__: animal,
-        }
+        // let cat = {
+        //     feed: "FISH",
+        //     __proto__: animal,
+        // }
 
-        let bird = {
-            feed: "Grass",
-            __proto__: animal,
-        }
+        // let bird = {
+        //     feed: "Grass",
+        //     __proto__: animal,
+        // }
 
 
-        //вывод Eat FISH
-        cat.eat()
+        // //вывод Eat FISH
+        // cat.eat()
 
-        //вывод Eat Grass
-        bird.eat()
+        // //вывод Eat Grass
+        // bird.eat()
 
-        let head = {
-            glasses: 1           
-        };
+        // let head = {
+        //     glasses: 1           
+        // };
 
-        let table = {
-            pen: 3,
-            __proto__:head,
-        };
+        // let table = {
+        //     pen: 3,
+        //     __proto__:head,
+        // };
         
-        let bed = {
-            sheet: 1,
-            pillow: 2,
-            __proto__:table,
-        };
+        // let bed = {
+        //     sheet: 1,
+        //     pillow: 2,
+        //     __proto__:table,
+        // };
 
-        let pockets = {
-            money: 2000,
-            __proto__:bed,
-        };
+        // let pockets = {
+        //     money: 2000,
+        //     __proto__:bed,
+        // };
 
-        // 1. С помощью свойства 
-        //`__proto__` задайте прототипы так, чтобы поиск любого свойства выполнялся по следующему пути: `pockets` → `bed` → `table` → `head`.
-        // Например, `pockets.pen` должно возвращать значение`3`(найденное в`table`),
-        //а`bed.glasses` – значение`1`(найденное в`head`).
+        // // 1. С помощью свойства 
+        // //`__proto__` задайте прототипы так, чтобы поиск любого свойства выполнялся по следующему пути: `pockets` → `bed` → `table` → `head`.
+        // // Например, `pockets.pen` должно возвращать значение`3`(найденное в`table`),
+        // //а`bed.glasses` – значение`1`(найденное в`head`).
 
 
-        console.log(pockets.pen);
+        // console.log(pockets.pen);
+
+
+        
+		//Можно дописать функионал сюда
+		let animal = {
+			weapon: "nothing",
+			get attack() {
+				return `attack by ${this.weapon}`
+			},
+            set setWeapon(value) {
+                this.weapon = value;
+            }
+		};
+
+		let cat = {
+			__proto__: animal,
+		}
+
+		let bird = {
+			__proto__: animal,
+		}
+
+		//Можно дописать функционал при вызове
+		//Параметр weapon не должен изменяться на прямую при вызове
+
+		//attack by claws
+        cat.setWeapon = "claws";
+		console.log(cat.attack)
+
+        bird.setWeapon = "klyuuuuv";
+		//attack by klyuv
+		console.log(bird.attack)
+
 
     </script>
 
