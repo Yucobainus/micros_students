@@ -35,28 +35,35 @@
             height: 100%;
         }
 
-        .arrows img {
+        .slider{
+            position: relative;
+        }
+
+        .slider__prev img, .slider__next img {
             width: 50px;
             height: 50px;
         }
 
-        .slider__prev, .slider__next {
+        .slider__prev,
+        .slider__next {
             position: absolute;
-        }
-        .slider__prev{
-            top: 20%;
-            right: 80%;
-        }
-        .slider__next{
-            top: 20%;
-            left: 80.3%;
+            transform: translateY(-50%);
         }
 
-        .slider-two .slider__body .slider__item{
+        .slider__prev {
+            top: 50%;
+            left: -150px;
+        }
+
+        .slider__next {
+            top: 50%;
+            right: -150px;
+        }
+
+        .slider-two .slider__body .slider__item {
             width: 200px;
             height: 200px;
         }
-        
     </style>
 </head>
 
@@ -66,8 +73,8 @@
 
 
         <div class="slider">
-            <div class="arrows">
-                <div class="slider__prev" id="prevArrow"><img src="./img/left.png" alt=""></div>
+            <div class="slider__prev" id="prevArrow">
+                <img src="./img/left.png" alt="">
             </div>
             <div class="slider__body" id="sliderOne">
 
@@ -87,11 +94,11 @@
 
 
             </div>
-            <div class="arrows">
-                <div class="slider__next" id="nextArrow"><img src="./img/right.png" alt=""></div>
+            <div class="slider__next" id="nextArrow">
+                <img src="./img/right.png" alt="">
             </div>
         </div>
-        
+
 
 
 
