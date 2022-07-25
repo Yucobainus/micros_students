@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <title>Slick-Slider - 2</title>
+    <style>
+
+        .container{
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .slider-two{
+            width: 620px;
+            margin: 30px auto;
+        }
+
+        .slider__item {
+            width: 600px;
+            height: 300px;
+            margin-right: 10px;
+        }
+
+        .slider__item img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-two .slider__body .slider__item{
+            width: 200px;
+            height: 200px;
+        }
+
+        .slider__prev__arrow, .slider__next__arrow{
+            position: absolute;
+            max-width: 40px;
+        }
+
+        .slider__prev__arrow{
+            top: 15%;
+            right: 87%;
+        }
+
+        .slider__next__arrow{
+            top: 15%;
+            left: 86.5%;
+        }
+
+        .slider__prev__arrow img, .slider__next__arrow img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="slider">
+            
+            <div class="slider__prev__arrow" id="prevArrow">
+                <img src="./img/prevArrow.png" alt="">
+            </div>
+
+            <div class="slider__body" id="sliderOne">
+
+                <div class="slider__item">
+                    <img src="https://s1.1zoom.me/big3/373/Technics_Fantasy_453681.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="https://wallpaperaccess.com/full/4263949.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="https://www.sony-mea.com/image/bc6d25fa6371c2899ce704a2bed7614c?fmt=png-alpha&wid=960"
+                        alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg"
+                        alt="">
+                </div>
+
+            </div>
+
+            <div class="slider__next__arrow" id="nextArrow">
+                <img src="./img/nextArrow.png" alt="">
+            </div>
+
+        </div>
+
+
+
+        <div class="slider-two">
+            <div class="slider__body" id="sliderTwo">
+
+                <div class="slider__item">
+                    <img src="https://s1.1zoom.me/big3/373/Technics_Fantasy_453681.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="https://wallpaperaccess.com/full/4263949.jpg" alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="https://www.sony-mea.com/image/bc6d25fa6371c2899ce704a2bed7614c?fmt=png-alpha&wid=960"
+                        alt="">
+                </div>
+                <div class="slider__item">
+                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg"
+                        alt="">
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+
+        //slidesToShow: сколько-слайдов показывать
+        //slidesToScroll: Сколько слайдов пролистывать
+        //prevArrow: element, назначение стрелки(назад)
+        //nextArrow: element, назначение стрелки(вперёд)
+        //asNavFor: element, связать слайдеры
+        //variableWidth: выключить автоматический расчёт ширины слайдера
+
+        // a. Добавить в каждый слайдер по ещё одному слайду.
+
+        // 1. У второго слайдера каждый слайд должен быть квадратом (200x200)
+        // 2. В видимой области должно находиться три слайда.
+        // 3. Вы должны подключить стрелки, но они должны быть центрированы вертикально относительно первого слайдера. И находится сбоку.
+
+        $("#sliderOne").slick({
+            prevArrow: $("#prevArrow"),
+            nextArrow: $("#nextArrow"),
+            variableWidth: false,
+            slidesToShow: 1,
+            asNavFor: $("#sliderTwo")
+        })
+        $("#sliderTwo").slick({
+            dots: false,
+            arrows: false,
+            variableWidth: true,
+            slidesToShow: 3,
+            asNavFor: $("#sliderOne")
+        })
+
+    </script>
+
+</body>
+
+</html>
