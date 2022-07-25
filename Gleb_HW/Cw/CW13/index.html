@@ -13,14 +13,16 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
+            display: flex;
         }
 
         .slider{
             position: relative;
+            width: 50%;
         }
 
         .slider-two{
-            width: 620px;
+            width: 50%;
             margin: 30px auto;
         }
 
@@ -40,24 +42,24 @@
             height: 200px;
         }
 
-        .slider__prev__arrow, .slider__next__arrow{
+        /* .slider__prev__arrow, .slider__next__arrow{
             position: absolute;
             max-width: 40px;
-        }
+        } */
 
-        .slider__prev__arrow{
+        /* .slider__prev__arrow{
             top: 45%;
             left: -5%;
-        }
+        } */
 
-        .slider__next__arrow{
+        /* .slider__next__arrow{
             top: 45%;
             right: -5%;
-        }
+        } */
 
-        .slider__prev__arrow img, .slider__next__arrow img{
+        /* .slider__prev__arrow img, .slider__next__arrow img{
             width: 100%;
-        }
+        } */
     </style>
 </head>
 
@@ -67,9 +69,9 @@
 
         <div class="slider">
             
-            <div class="slider__prev__arrow" id="prevArrow">
+            <!-- <div class="slider__prev__arrow" id="prevArrow">
                 <img src="./img/prevArrow.png" alt="">
-            </div>
+            </div> -->
 
             <div class="slider__body" id="sliderOne">
 
@@ -90,9 +92,9 @@
 
             </div>
 
-            <div class="slider__next__arrow" id="nextArrow">
+            <!-- <div class="slider__next__arrow" id="nextArrow">
                 <img src="./img/nextArrow.png" alt="">
-            </div>
+            </div> -->
 
         </div>
 
@@ -148,14 +150,18 @@
             nextArrow: $("#nextArrow"),
             variableWidth: false,
             slidesToShow: 1,
-            asNavFor: $("#sliderTwo")
+            asNavFor: $("#sliderTwo"),
+            vertical: true,
+            verticalSwiping: true,
         })
         $("#sliderTwo").slick({
             dots: false,
             arrows: false,
             variableWidth: true,
             slidesToShow: 3,
-            asNavFor: $("#sliderOne")
+            asNavFor: $("#sliderOne"),
+            vertical: true,
+            verticalSwiping: true
         })
 
     </script>
