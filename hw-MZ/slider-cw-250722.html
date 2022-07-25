@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <title>Slick-Slider - 2</title>
+    <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .slider {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+
+
+        }
+
+        .slider__body-first {
+            width: 1000px;
+        }
+
+        .slider-two {
+            width: 700px;
+            margin: 30px auto;
+        }
+
+        .slider__item {
+            width: 600px;
+            height: 300px;
+            margin-right: 10px;
+        }
+
+        .slider__item img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* .slider-item__one img {
+            width: au;
+            height: 200px;
+        } */
+
+        .slider-item__two img {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .slider__body-two {
+
+            text-align: center;
+        }
+
+        #prevArrow {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background-color: aquamarine;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #nextArrow {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background-color: aquamarine;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <div class="slider">
+            <div id="prevArrow"><svg height="20px" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1"
+                    viewBox="0 0 128 128" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g>
+                        <g>
+                            <line
+                                style="fill:none;stroke:#2F3435;stroke-width:12;stroke-linecap:square;stroke-miterlimit:10;"
+                                x1="57.12" x2="17.787" y1="103.334" y2="64" />
+                            <line
+                                style="fill:none;stroke:#2F3435;stroke-width:12;stroke-linecap:square;stroke-miterlimit:10;"
+                                x1="17.787" x2="57.12" y1="64" y2="24.666" />
+                        </g>
+                        <line style="fill:none;stroke:#2F3435;stroke-width:12;stroke-miterlimit:10;" x1="17.787"
+                            x2="118.213" y1="64" y2="64" />
+                    </g>
+                </svg></div>
+            <div class="slider__body slider__body-first" id="sliderOne">
+
+                <div class="slider__item slider-item__one">
+                    <img src="https://s1.1zoom.me/big3/373/Technics_Fantasy_453681.jpg" alt="">
+                </div>
+                <div class="slider__item slider-item__one">
+                    <img src="https://wallpaperaccess.com/full/4263949.jpg" alt="">
+                </div>
+                <div class="slider__item slider-item__one">
+                    <img src="https://www.sony-mea.com/image/bc6d25fa6371c2899ce704a2bed7614c?fmt=png-alpha&wid=960"
+                        alt="">
+                </div>
+                <div class="slider__item slider-item__one">
+                    <img src="https://jooinn.com/images/motocross-1.jpg" alt="">
+                </div>
+
+            </div>
+            <div id="nextArrow"><svg height="20px" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1"
+                    viewBox="0 0 128 128" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g>
+                        <g>
+                            <line
+                                style="fill:none;stroke:#2F3435;stroke-width:12;stroke-linecap:square;stroke-miterlimit:10;"
+                                x1="70.88" x2="110.213" y1="24.666" y2="64" />
+                            <line
+                                style="fill:none;stroke:#2F3435;stroke-width:12;stroke-linecap:square;stroke-miterlimit:10;"
+                                x1="110.213" x2="70.88" y1="64" y2="103.334" />
+                        </g>
+                        <line style="fill:none;stroke:#2F3435;stroke-width:12;stroke-miterlimit:10;" x1="110.213"
+                            x2="9.787" y1="64" y2="64" />
+                    </g>
+                </svg></div>
+        </div>
+
+
+
+        <div class="slider-two">
+            <div class="slider__body slider__body-two" id="sliderTwo">
+
+                <div class="slider__item slider-item__two">
+                    <img src="https://s1.1zoom.me/big3/373/Technics_Fantasy_453681.jpg" alt="">
+                </div>
+                <div class="slider__item slider-item__two">
+                    <img src="https://wallpaperaccess.com/full/4263949.jpg" alt="">
+                </div>
+                <div class="slider__item slider-item__two">
+                    <img src="https://www.sony-mea.com/image/bc6d25fa6371c2899ce704a2bed7614c?fmt=png-alpha&wid=960"
+                        alt="">
+                </div>
+                <div class="slider__item slider-item__two">
+                    <img src="https://www.sony-mea.com/image/bc6d25fa6371c2899ce704a2bed7614c?fmt=png-alpha&wid=960"
+                        alt="">
+                </div>
+
+                <div class="slider__item slider-item__two">
+                    <img src="https://jooinn.com/images/motocross-1.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <script>
+
+        //slidesToShow: сколько-слайдов показывать
+        //slidesToScroll: Сколько слайдов пролистывать
+        //prevArrow: element, назначение стрелки(назад)
+        //nextArrow: element, назначение стрелки(вперёд)
+        //asNavFor: element, связать слайдеры
+        //variableWidth: выключить автоматический расчёт ширины слайдера
+
+        // a. Добавить в каждый слайдер по ещё одному слайду.
+
+        // 1. У второго слайдера каждый слайд должен быть квадратом (200x200)
+        // 2. В видимой области должно находиться три слайда.
+        // 3. Вы должны подключить стрелки, но они должны быть центрированы вертикально относительно первого слайдера. И находится сбоку.
+
+        $("#sliderOne").slick({
+            dots: false,
+            arrows: true,
+            variableWidth: false,
+            prevArrow: $("#prevArrow"),
+            nextArrow: $("#nextArrow"),
+            slidesToShow: 1,
+            asNavFor: $("#sliderTwo")
+        })
+        $("#sliderTwo").slick({
+            dots: false,
+            arrows: false,
+            variableWidth: false,
+            slidesToShow: 3,
+            asNavFor: $("#sliderOne")
+        })
+
+    </script>
+
+</body>
+
+</html>
