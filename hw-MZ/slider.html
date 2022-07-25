@@ -7,24 +7,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>Slider</title>
+    <style>
+        .container{
+            display: flex;
+            align-items: center;            
+            width: 800px;
+            margin: 0 auto;
+            justify-content: space-between;
+            
+        }
+        
+        .arrow {
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        
+
+        .slider-dots__box {
+            display: flex;
+            justify-content: center;
+        }
+        .slider-dots {
+            margin-top:10px;
+            padding: 0;
+            width: 150px;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+        }
+
+        .slider-dots button {
+            background-color: blue;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        
+
+       
+    </style>
 </head>
 
 <body>
-    <div class="slider" id="firstSlider">
+    <div class="container">
+    
+        <div id="prev-arrow" class="arrow">&#129092</div>
 
-        <div class="slide">
-           <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
-        </div>
-        <div class="slide">
-            <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
-        </div>
-        <div class="slide">
-            <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
-        </div>
-        <div class="slide">
-            <img src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
-        </div>
+        <div class="slider-wrapper">
+            <div class="slider" id="firstSlider"
+            style="width: 500px; display:flex; justify-content: center; align-items: center;">
+    
+    
+            <div class="slide" style="display:flex; justify-content: center;">
+                <img
+                    src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+            </div>
+            <div class="slide" style="display:flex; justify-content: center;">
+                <img
+                    src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+            </div>
+            <div class="slide" style="display:flex; justify-content: center;">
+                <img
+                    src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+            </div>
+            <div class="slide" style="display:flex; justify-content: center;">
+                <img
+                    src="https://dummyimage.com/500x500/4332d9/f7f7f7.jpg&text=%D0%9A%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D1%87%D0%BA%D0%B0">
+            </div>   
+    
+    
+            </div>
 
+            <div class="slider-dots__box"></div>
+        </div>
+    
+        
+    
+        <div id="next-arrow" class="arrow">&#129094</div>
+    
     </div>
 
 
@@ -39,8 +111,16 @@
         //Добавить в слайды картинки на ваше усмотрение. Сделать так чтобы показывалось два слайда за раз. Пролистывалось тоже два слайда
         //P.S Картинки должны быть размером 500X500 (С помощью ли CSS или картинки просто такого размера значения не имеет)
         $("#firstSlider").slick({
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll:2,
+            cssEase: 'ease-in-out',
+            infinite: true,
+            speed: 500,            
+            prevArrow: $("#prev-arrow"),
+            nextArrow: $("#next-arrow"),
+            appendDots:$(".slider-dots__box"),
+            dotsClass:"slider-dots",
+            dots: true           
         })
     </script>
 
