@@ -11,30 +11,33 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 15px;
+            display: flex;
+            align-items: center; 
+                    
         }
 
         .slider {
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            width: 100%;
-
+            justify-content: center;
+            /* flex-direction: column; */
+            width: 50%;           
 
         }
 
         .slider__body-first {
-            width: 1000px;
+            width: 100% ;
+            height: 100%;            
         }
 
         .slider-two {
-            width: 700px;
+            width: 50%;
             margin: 30px auto;
         }
 
         .slider__item {
-            width: 600px;
-            height: 300px;
+            width: 100%;
+            height: 100%;
             margin-right: 10px;
         }
 
@@ -43,10 +46,12 @@
             height: 100%;
         }
 
-        /* .slider-item__one img {
-            width: au;
-            height: 200px;
-        } */
+        .slider-item__one {
+           height: 100%;
+        }
+        .slider-item__one img{
+           height: 604px;
+        }
 
         .slider-item__two img {
             width: 200px;
@@ -89,7 +94,7 @@
 
 
         <div class="slider">
-            <div id="prevArrow"><svg height="20px" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1"
+            <!-- <div id="prevArrow"><svg height="20px" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1"
                     viewBox="0 0 128 128" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g>
@@ -104,7 +109,7 @@
                         <line style="fill:none;stroke:#2F3435;stroke-width:12;stroke-miterlimit:10;" x1="17.787"
                             x2="118.213" y1="64" y2="64" />
                     </g>
-                </svg></div>
+                </svg></div> -->
             <div class="slider__body slider__body-first" id="sliderOne">
 
                 <div class="slider__item slider-item__one">
@@ -122,7 +127,7 @@
                 </div>
 
             </div>
-            <div id="nextArrow"><svg height="20px" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1"
+            <!-- <div id="nextArrow"><svg height="20px" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1"
                     viewBox="0 0 128 128" width="20px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g>
@@ -137,7 +142,7 @@
                         <line style="fill:none;stroke:#2F3435;stroke-width:12;stroke-miterlimit:10;" x1="110.213"
                             x2="9.787" y1="64" y2="64" />
                     </g>
-                </svg></div>
+                </svg></div> -->
         </div>
 
 
@@ -193,19 +198,23 @@
 
         $("#sliderOne").slick({
             dots: false,
-            arrows: true,
+            arrows: false,
             variableWidth: false,
             prevArrow: $("#prevArrow"),
             nextArrow: $("#nextArrow"),
             slidesToShow: 1,
-            asNavFor: $("#sliderTwo")
+            asNavFor: $("#sliderTwo"), 
+            vertical:true,           
+            verticalSwiping:true
         })
         $("#sliderTwo").slick({
             dots: false,
             arrows: false,
             variableWidth: false,
             slidesToShow: 3,
-            asNavFor: $("#sliderOne")
+            asNavFor: $("#sliderOne"),
+            vertical:true,
+            verticalSwiping:true
         })
 
     </script>
