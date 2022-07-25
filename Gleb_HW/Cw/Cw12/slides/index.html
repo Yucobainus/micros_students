@@ -8,30 +8,124 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>Slider</title>
     <style>
-        img {
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1250px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .slider{
             width: 500px;
+            margin: 20px auto;
+        }
+
+        .slider__item{
+            text-align: center;
+            line-height: 29em;
             height: 500px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        button{
+            background-color: rgb(15, 199, 255);
+            border-radius: 10%;
+            padding: 15px;
+            transition: .5s;
+        }
+
+        button:hover{
+            background-color: white;
+            transition: .5s;
+        }
+
+        .first{
+            background-image: url("./img/pic1.jpg");
+        }
+
+        .second{
+            background-image: url("./img/pic2.jpg");
+        }
+
+        .third{
+            background-image: url("./img/pic3.jpg");
+        }
+
+        .fourth{
+            background-image: url("./img/pic4.jpg");
+        }
+
+        .arrows {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container .slider .slider__arrow__prev {
+            margin-top: 20px;
+            max-width: 40px;
+        }
+
+        .container .slider .slider__arrow__prev img {
+            width: 100%;
+        }
+
+        .container .slider .slider__arrow__next {
+            margin-top: 20px;
+            max-width: 40px;
+        }
+
+        .container .slider .slider__arrow__next img {
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
 
+    <div class="container">
 
-    <div class="slider" id="firstSlider">
+        <div class="slider">
 
+            
 
-        <div class="slide">
-            <img src="./img/108886.gif" alt="">
-        </div>
-        <div class="slide">
-            <img src="./img/108672.gif" alt="">
-        </div>
-        <div class="slide">
-            <img src="./img/background-backgrounds-floral-flower-Favim.com-2429619.jpg" alt="">
-        </div>
-        <div class="slide">
-            <img src="./img/img_resize.jpg" alt="">
+            <div class="slider__body" id="firstSlider">
+
+                <div class="slider__item first">
+                    <button>ПЕРЕЙТИ</button>
+                </div>
+
+                <div class="slider__item second">
+                    <button>ПЕРЕЙТИ</button>
+                </div>
+
+                <div class="slider__item third">
+                    <button>ПЕРЕЙТИ</button>
+                </div>
+
+                <div class="slider__item fourth">
+                    <button>ПЕРЕЙТИ</button>
+                </div>
+
+            </div>
+
+            <div class="arrows">
+                <div class="slider__arrow__prev" id="prevArrow">
+                    <img src="./img/prevArrow.png" alt="">
+                </div>
+    
+                <div class="slider__arrow__next" id="nextArrow">
+                    <img src="./img/nextArrow.png" alt="">
+                </div>
+            </div>
+
         </div>
 
 
@@ -49,8 +143,10 @@
         //Добавить в слайды картинки на ваше усмотрение. Сделать так чтобы показывалось два слайда за раз. Пролистывалось тоже два слайда
         //P.S Картинки должны быть размером 500X500 (С помощью ли CSS или картинки просто такого размера значения не имеет)
         $("#firstSlider").slick({
-            slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: $("#prevArrow"),
+            nextArrow: $("#nextArrow")
         })
     </script>
 
