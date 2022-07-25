@@ -8,20 +8,19 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>Slick-Slider - 2</title>
     <style>
-
-        .container{
+        .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
             display: flex;
         }
 
-        .slider{
+        .slider {
             position: relative;
             width: 50%;
         }
 
-        .slider-two{
+        .slider-two {
             width: 50%;
             margin: 30px auto;
         }
@@ -34,10 +33,14 @@
 
         .slider__item img {
             width: 100%;
-            height: 100%;
+            height: 200px;
         }
 
-        .slider-two .slider__body .slider__item{
+        .slider__body-2{
+            width: 200px;
+        }
+
+        .slider-two .slider__body-2 .slider__item {
             width: 200px;
             height: 200px;
         }
@@ -68,7 +71,7 @@
     <div class="container">
 
         <div class="slider">
-            
+
             <!-- <div class="slider__prev__arrow" id="prevArrow">
                 <img src="./img/prevArrow.png" alt="">
             </div> -->
@@ -86,8 +89,7 @@
                         alt="">
                 </div>
                 <div class="slider__item">
-                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg"
-                        alt="">
+                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg" alt="">
                 </div>
 
             </div>
@@ -101,7 +103,7 @@
 
 
         <div class="slider-two">
-            <div class="slider__body" id="sliderTwo">
+            <div class="slider__body-2" id="sliderTwo">
 
                 <div class="slider__item">
                     <img src="https://s1.1zoom.me/big3/373/Technics_Fantasy_453681.jpg" alt="">
@@ -114,8 +116,7 @@
                         alt="">
                 </div>
                 <div class="slider__item">
-                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg"
-                        alt="">
+                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg" alt="">
                 </div>
 
             </div>
@@ -157,7 +158,6 @@
         $("#sliderTwo").slick({
             dots: false,
             arrows: false,
-            variableWidth: true,
             slidesToShow: 3,
             asNavFor: $("#sliderOne"),
             vertical: true,
