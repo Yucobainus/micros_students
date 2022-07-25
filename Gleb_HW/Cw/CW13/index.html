@@ -37,7 +37,15 @@
             height: 100%;
         }
 
-        .slider-two .slider__body .slider__item{
+        .slider .slider__body .slider__item{
+            height: 600px;
+        }
+
+        .slider__body-2{
+            width: 200px;
+        }
+
+        .slider-two .slider__body-2 .slider__item{
             width: 200px;
             height: 200px;
         }
@@ -101,7 +109,7 @@
 
 
         <div class="slider-two">
-            <div class="slider__body" id="sliderTwo">
+            <div class="slider__body-2" id="sliderTwo">
 
                 <div class="slider__item">
                     <img src="https://s1.1zoom.me/big3/373/Technics_Fantasy_453681.jpg" alt="">
@@ -157,7 +165,6 @@
         $("#sliderTwo").slick({
             dots: false,
             arrows: false,
-            variableWidth: true,
             slidesToShow: 3,
             asNavFor: $("#sliderOne"),
             vertical: true,
