@@ -32,20 +32,28 @@
 
         .next {
             position: absolute;
-            left: 1100px;
-            bottom: 200px;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
         }
 
         .previous {
             position: absolute;
-            left: 300px;
-            bottom: 200px;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
         }
 
         .slider-two .slider__body .slider__item {
             width: 200px;
             height: 200px;
         }
+
+        .library{
+            position: relative;
+            display: flex;
+        }
+
     </style>
 </head>
 
@@ -73,8 +81,10 @@
             </div>
         </div>
 
+    </div>
 
 
+    <div class="library container">
         <div class="slider-two">
             <div class="slider__body" id="sliderTwo">
 
@@ -110,11 +120,7 @@
                 </g>
                 <path d="M288 80v160l160-160v352l-160-160v160l-176-176z"></path>
             </svg></div>
-
-
-
     </div>
-
 
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
