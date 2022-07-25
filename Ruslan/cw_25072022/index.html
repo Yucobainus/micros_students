@@ -8,22 +8,20 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>Slick-Slider - 2</title>
     <style>
-
-        .container{
+        .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
-            display: flex;
         }
 
-        .slider{
-            position: relative;
-            width: 50%;
-        }
-
-        .slider-two{
-            width: 50%;
+        .slider-two {
+            width: 200px;
             margin: 30px auto;
+        }
+
+        .slider-two .slider__item {
+            width: 200px;
+            height: 200px;
         }
 
         .slider__item {
@@ -37,29 +35,28 @@
             height: 100%;
         }
 
+        .arrows img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .slider__prev, .slider__next {
+            position: absolute;
+        }
+        .slider__prev{
+            top: 20%;
+            right: 80%;
+        }
+        .slider__next{
+            top: 20%;
+            left: 80.3%;
+        }
+
         .slider-two .slider__body .slider__item{
             width: 200px;
             height: 200px;
         }
-
-        /* .slider__prev__arrow, .slider__next__arrow{
-            position: absolute;
-            max-width: 40px;
-        } */
-
-        /* .slider__prev__arrow{
-            top: 45%;
-            left: -5%;
-        } */
-
-        /* .slider__next__arrow{
-            top: 45%;
-            right: -5%;
-        } */
-
-        /* .slider__prev__arrow img, .slider__next__arrow img{
-            width: 100%;
-        } */
+        
     </style>
 </head>
 
@@ -67,12 +64,11 @@
 
     <div class="container">
 
-        <div class="slider">
-            
-            <!-- <div class="slider__prev__arrow" id="prevArrow">
-                <img src="./img/prevArrow.png" alt="">
-            </div> -->
 
+        <div class="slider">
+            <div class="arrows">
+                <div class="slider__prev" id="prevArrow"><img src="./img/left.png" alt=""></div>
+            </div>
             <div class="slider__body" id="sliderOne">
 
                 <div class="slider__item">
@@ -86,17 +82,18 @@
                         alt="">
                 </div>
                 <div class="slider__item">
-                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg"
-                        alt="">
+                    <img src="https://vjoy.cc/wp-content/uploads/2020/10/dlya_dushi_35_13130628.jpg" alt="">
                 </div>
 
+
             </div>
-
-            <!-- <div class="slider__next__arrow" id="nextArrow">
-                <img src="./img/nextArrow.png" alt="">
-            </div> -->
-
+            <div class="arrows">
+                <div class="slider__next" id="nextArrow"><img src="./img/right.png" alt=""></div>
+            </div>
         </div>
+        
+
+
 
 
 
@@ -114,8 +111,7 @@
                         alt="">
                 </div>
                 <div class="slider__item">
-                    <img src="https://funart.pro/uploads/posts/2021-03/1617054432_6-p-oboi-priroda-4k-6.jpg"
-                        alt="">
+                    <img src="https://vjoy.cc/wp-content/uploads/2020/10/dlya_dushi_35_13130628.jpg" alt="">
                 </div>
 
             </div>
@@ -143,25 +139,21 @@
 
         // 1. У второго слайдера каждый слайд должен быть квадратом (200x200)
         // 2. В видимой области должно находиться три слайда.
-        // 3. Вы должны подключить стрелки, но они должны быть центрированы вертикально относительно первого слайдера. И находится сбоку.
+        // 3. Вы должны подключить стрелки, но они должны быть центрированы вертикально относительно первого слайдера. 
+        //И находится сбоку.
 
         $("#sliderOne").slick({
-            prevArrow: $("#prevArrow"),
-            nextArrow: $("#nextArrow"),
             variableWidth: false,
             slidesToShow: 1,
             asNavFor: $("#sliderTwo"),
-            vertical: true,
-            verticalSwiping: true,
+            prevArrow: $("#prevArrow"),
+            nextArrow: $("#nextArrow")
         })
         $("#sliderTwo").slick({
-            dots: false,
             arrows: false,
-            variableWidth: true,
+            variableWidth: false,
             slidesToShow: 3,
-            asNavFor: $("#sliderOne"),
-            vertical: true,
-            verticalSwiping: true
+            asNavFor: $("#sliderOne")
         })
 
     </script>
