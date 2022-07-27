@@ -33,6 +33,21 @@
 
 <body>
 
+    <input type="text" id="inp" value="1 abcd" data-count="1">
+    <span id="changer">change</span>
+
+    <script>
+        let changer = document.getElementById("changer")
+        let input = document.getElementById("inp")
+
+        changer.addEventListener('click', () => {
+
+           input.dataset.count++
+           input.value = `${input.dataset.count} abcd`
+
+        })
+
+    </script>
 
     <!-- <div onclick="sayHi()">dasdasd</div> -->
 

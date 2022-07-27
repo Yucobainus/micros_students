@@ -8,6 +8,11 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <title>Document</title>
     <style>
+
+        button.slick-prev, button.slick-next{
+            display: none !important;
+        }
+
         .container {
             max-width: 1980px;
             max-height: 1080px;
@@ -26,12 +31,17 @@
             left: -8%;
             background-color: #F4F4F4;
             padding: 16px 18px;
+            transition: .5s ease;
         }
 
-        .prev__arrow:hover{
+        .prev__arrow:hover {
             background-color: #C9A655;
             cursor: pointer;
             color: #FFFFFF;
+        }
+
+        .prev__arrow:hover svg path {
+            fill: #F4F4F4
         }
 
         .prev__arrow img {
@@ -44,12 +54,17 @@
             right: -8%;
             background-color: #F4F4F4;
             padding: 16px 18px;
+            transition: .5s ease;
         }
 
-        .next__arrow:hover{
+        .next__arrow:hover {
             background-color: #C9A655;
             cursor: pointer;
             color: #FFFFFF;
+        }
+
+        .next__arrow:hover svg path {
+            fill: #F4F4F4
         }
 
         .next__arrow img {
@@ -61,7 +76,7 @@
             position: relative;
             width: 362px;
             border: 1px solid #EBE6DC;
-            margin-left: 30px;
+            margin-right: 30px;
             padding: 30px;
         }
 
@@ -70,7 +85,7 @@
             margin-bottom: 25px;
         }
 
-        .inf{
+        .inf {
             margin: 10px 0px 0px 21px;
         }
 
@@ -79,7 +94,7 @@
             height: 80px;
         }
 
-        .icon__one img{
+        .icon__one img {
             width: 100%;
         }
 
@@ -88,7 +103,7 @@
             height: 80px;
         }
 
-        .icon__two img{
+        .icon__two img {
             width: 100%;
         }
 
@@ -97,7 +112,7 @@
             height: 80px;
         }
 
-        .icon__three img{
+        .icon__three img {
             width: 100%;
         }
 
@@ -113,37 +128,70 @@
             height: 13px;
         }
 
-        .name{
+        .name {
             margin-bottom: 6px;
             font-size: 17px;
             font-weight: bold;
         }
 
-        .date{
+        .date {
             font-size: 14px;
             color: #676767;
         }
 
-        .text{
+        .text {
             height: 110px;
             font-size: 16px;
         }
 
-        .button{
+        .button {
             margin-top: 30px;
             font-size: 16px;
             padding: 10px 24px;
             border: none;
         }
 
-        .button:hover{
+        .button:hover {
+            transition: .5s ease;
             background-color: #CEAE64;
             color: #FFFFFF;
             cursor: pointer;
         }
 
-        .slider__empty{
+        .slider__empty {
             border: none;
+        }
+
+        .second-arrows {
+            display: none;
+        }
+
+        @media(max-width: 1326px) {
+
+            .second-arrows {
+                display: block;
+            }
+
+            .slider .prev__arrow,
+            .slider .next__arrow {
+                display: none;
+            }
+
+            .slider__item {
+                width: 230px;
+            }
+        }
+
+        @media(max-width: 992px) {
+            .slider__item {
+                width: 270px;
+            }
+        }
+
+        @media(max-width: 576px) {
+            .slider__item {
+                margin-right: 0;
+            }
         }
     </style>
 </head>
@@ -289,11 +337,11 @@
                                     </svg>
                                 </div>
                             </div>
-        
+
                             <div class="name">
                                 Алекандр Нечаев
                             </div>
-        
+
                             <div class="date">
                                 2 июня 2022
                             </div>
@@ -360,17 +408,17 @@
                                     </svg>
                                 </div>
                             </div>
-        
+
                             <div class="name">
                                 Катя Стрелец
                             </div>
-        
+
                             <div class="date">
                                 2 июня 2022
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="text">
                         Заходили с женой.
                         Очень небольшой магазин с небольшим ассортиментом.
@@ -382,8 +430,75 @@
                     </button>
                 </div>
 
-                <div class="slider__item slider__empty"></div>
+                <div class="slider__item">
 
+                    <div class="information">
+                        <div class="icon__two">
+                            <img src="./assets/img/Aleksandr.png" alt="">
+                        </div>
+                        <div class="inf">
+                            <div class="stars">
+                                <div class="star">
+                                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7 10.4479L11.326 13L10.178 8.19L14 4.95368L8.967 4.52947L7 0L5.033 4.52947L0 4.95368L3.815 8.19L2.674 13L7 10.4479Z"
+                                            fill="#FDC900" />
+                                    </svg>
+                                </div>
+                                <div class="star">
+                                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7 10.4479L11.326 13L10.178 8.19L14 4.95368L8.967 4.52947L7 0L5.033 4.52947L0 4.95368L3.815 8.19L2.674 13L7 10.4479Z"
+                                            fill="#FDC900" />
+                                    </svg>
+                                </div>
+                                <div class="star">
+                                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7 10.4479L11.326 13L10.178 8.19L14 4.95368L8.967 4.52947L7 0L5.033 4.52947L0 4.95368L3.815 8.19L2.674 13L7 10.4479Z"
+                                            fill="#FDC900" />
+                                    </svg>
+                                </div>
+                                <div class="star">
+                                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7 9.16842V2.80526L8.197 5.56263L11.263 5.81579L8.939 7.79316L9.632 10.7216L7 9.16842ZM14 4.95368L8.967 4.53632L7 0L5.033 4.53632L0 4.95368L3.815 8.19L2.674 13L7 10.4479L11.326 13L10.178 8.19L14 4.95368Z"
+                                            fill="#FDC900" />
+                                    </svg>
+                                </div>
+                                <div class="star">
+                                    <svg width="14" height="13" viewBox="0 0 14 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.967 4.53632L14 4.95368L10.178 8.19L11.326 13L7 10.4479L2.674 13L3.815 8.19L0 4.95368L5.033 4.53632L7 0L8.967 4.53632Z"
+                                            fill="#EEEEEE" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="name">
+                                Алекандр Нечаев
+                            </div>
+
+                            <div class="date">
+                                2 июня 2022
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        Заходили с женой.
+                        Очень небольшой магазин с небольшим ассортиментом.
+                        Ценник чуть ниже, чем по городу.
+                    </div>
+                    <button class="button">
+                        Смотреть отзывы
+                    </button>
+                </div>
 
             </div>
 
@@ -399,7 +514,22 @@
 
 
 
-
+        <div class="second-arrows">
+            <div class="prev__arrow_2" id="secondPrevArrow">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M5.80436 0.299292C5.41737 -0.094735 4.78423 -0.100439 4.3902 0.286551L0.299291 4.28655C0.107845 4.47458 -4.13655e-07 4.73166 -4.37114e-07 5C-4.60573e-07 5.26834 0.107845 5.52542 0.299291 5.71345L4.3902 9.71345C4.78423 10.1004 5.41737 10.0947 5.80436 9.70071C6.19135 9.30668 6.18564 8.67354 5.79162 8.28655L3.44531 6L13 6C13.5523 6 14 5.55229 14 5C14 4.44772 13.5523 4 13 4L3.44531 4L5.79162 1.71345C6.18564 1.32646 6.19135 0.693318 5.80436 0.299292Z"
+                        fill="#747474" />
+                </svg>
+            </div>
+            <div class="next__arrow_2" id="secondNextArrow">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.19564 0.299292C8.58263 -0.094735 9.21577 -0.100439 9.6098 0.286551L13.7007 4.28655C13.8922 4.47458 14 4.73166 14 5C14 5.26834 13.8922 5.52542 13.7007 5.71345L9.6098 9.71345C9.21577 10.1004 8.58263 10.0947 8.19564 9.70071C7.80865 9.30668 7.81436 8.67354 8.20838 8.28655L10.5547 6L1 6C0.447716 6 4.85396e-07 5.55229 4.37114e-07 5C3.88832e-07 4.44772 0.447716 4 1 4L10.5547 4L8.20838 1.71345C7.81436 1.32646 7.80865 0.693318 8.19564 0.299292Z"
+                        fill="#747474" />
+                </svg>
+            </div>
+        </div>
 
 
 
@@ -415,9 +545,48 @@
 
     <script>
         $("#slider__one").slick({
-            slidesToShow: 3,
-            prevArrow: $("#prevArrow"),
-            nextArrow: $("#nextArrow"),
+            dots: false,
+            mobileFirst: true,
+            variableWidth: true,
+            responsive: [
+                {
+                    breakpoint: 1326,
+                    settings: {
+                        prevArrow: $("#prevArrow"),
+                        nextArrow: $("#nextArrow"),
+                        arrows: true,
+                        slidesToShow: 3,
+
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: true,
+                        prevArrow: $("#secondPrevArrow"),
+                        nextArrow: $("#secondNextArrow"),
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 0,
+                    settings: {
+                        variableWidth: false,
+                        verticalSwiping: true,
+                        vertical: true,
+                        arrows: false,
+                        slidesToShow: 3,
+                    }
+                },
+
+            ]
         })
 
 
