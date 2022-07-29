@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>hw2807</title>
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+        <div class="block_close">
+            <div class="close"></div>
+        </div>
+
+        <div class="block__quickOrder">
+            <h3>Бысрый заказ</h3>
+            <div class="text__order">Клееный брус категория А 80х80х2000</div>
+        </div>
+
+        <div class="block__criteria">
+            <div class="amount">
+                <h4 class="h4_one">Количество:</h4>
+                <div class="block__input-one">
+                    <div class="btn__minus" id="minus">
+                        <div class="minus"></div>
+                    </div>
+
+                    <input type="text" class="input-one" id="inp" value="1 упак" data-count="1">
+
+                    <div class="btn__plus" id="plus">
+                        <div class="plus"></div>
+                    </div>
+                </div>
+                <div class="block__input-two">
+                    <div class="inf">0</div>
+                    <div class="inf__text">м2</div>
+                </div>
+                <div class="block__input-three">
+                    <div class="inf">0</div>
+                    <div class="inf__text">м2</div>
+                </div>
+            </div>
+            <div class="thisWill">
+                <div class="cont">
+                    <h4 class="h4_two">Это будет:</h4>
+                    <div class="block__img">
+                        <div class="img">
+                            <img src="./img/Vector1.png" alt="">
+                            <div class="text1">20 м2</div>
+                        </div>
+
+                        <div class="img">
+                            <img src="./img/Vector2.png" alt="">
+                            <div class="text1">10 м3</div>
+                        </div>
+                        <div class="img">
+                            <img src="./img/Vector3.png" alt="">
+                            <div class="text1" id="kg">120 кг</div>
+                        </div>
+                        <div class="img">
+                            <img src="./img/XMLID_941_.png" alt="">
+                            <div class="text1" id="pak">10 уп/шт</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="total">
+            <div class="total__text">Итого: 35 560 ₽</div>
+        </div>
+        <div class="username">
+            <input type="text" class="name" placeholder="Ваше имя">
+        </div>
+        <div class="your-phone">
+            <input type="number" class="phone" placeholder="Ваш телефон">
+        </div>
+        <div class="btn_submit"><div class="submit">Оформить</div></div>
+    </div>
+
+
+    <script>
+
+        let minus = document.getElementById("minus")
+        let plus = document.getElementById("plus")
+        let input = document.getElementById("inp")
+        let kg = document.getElementById('kg')
+        let pak = document.getElementById('pak')
+
+        minus.addEventListener('click', () => {
+            input.dataset.count--
+            input.value = `${input.dataset.count} упак`
+            kg.innerHTML = `${input.dataset.count * 12} кг`
+            pak.innerHTML = `${input.value} /шт`
+        })
+        plus.addEventListener('click', () => {
+            input.dataset.count++
+            input.value = `${input.dataset.count} упак`
+            kg.innerHTML = `${input.dataset.count * 12} кг`
+            pak.innerHTML = `${input.value} /шт`
+        })
+
+       
+
+    </script>
+</body>
+
+</html>
